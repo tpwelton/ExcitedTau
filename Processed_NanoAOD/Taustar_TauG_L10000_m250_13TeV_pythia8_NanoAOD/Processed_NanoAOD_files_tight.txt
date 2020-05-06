@@ -1,0 +1,6 @@
+test_1_chan1_tight.root
+test_1_chan2_tight.root
+test_1_chan3_tight.root
+test_1_chan4_tight.root
+test_1_chan5_tight.root
+test_1_chan6_tight.root

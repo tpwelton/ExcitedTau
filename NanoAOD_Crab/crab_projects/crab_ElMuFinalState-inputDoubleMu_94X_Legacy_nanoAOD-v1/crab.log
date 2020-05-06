@@ -1,0 +1,787 @@
+Updating process to run DeepFlavour btag
+Will recalculate the following discriminators: pfDeepFlavourJetTags:probb, pfDeepFlavourJetTags:probbb, pfDeepFlavourJetTags:problepb, pfDeepFlavourJetTags:probc
+Updating process to run DeepBoostedJet on datasets before 103X
+Updating process to run DeepDoubleX on datasets before 104X
+Will recalculate the following discriminators on AK8 jets: pfDeepBoostedJetTags:probTbcq, pfDeepBoostedJetTags:probTbqq, pfDeepBoostedJetTags:probTbc, pfDeepBoostedJetTags:probTbq, pfDeepBoostedJetTags:probWcq, pfDeepBoostedJetTags:probWqq, pfDeepBoostedJetTags:probZbb, pfDeepBoostedJetTags:probZcc, pfDeepBoostedJetTags:probZqq, pfDeepBoostedJetTags:probHbb, pfDeepBoostedJetTags:probHcc, pfDeepBoostedJetTags:probHqqqq, pfDeepBoostedJetTags:probQCDbb, pfDeepBoostedJetTags:probQCDcc, pfDeepBoostedJetTags:probQCDb, pfDeepBoostedJetTags:probQCDc, pfDeepBoostedJetTags:probQCDothers, pfDeepBoostedDiscriminatorsJetTags:TvsQCD, pfDeepBoostedDiscriminatorsJetTags:WvsQCD, pfDeepBoostedDiscriminatorsJetTags:ZvsQCD, pfDeepBoostedDiscriminatorsJetTags:ZbbvsQCD, pfDeepBoostedDiscriminatorsJetTags:HbbvsQCD, pfDeepBoostedDiscriminatorsJetTags:H4qvsQCD, pfMassDecorrelatedDeepBoostedJetTags:probTbcq, pfMassDecorrelatedDeepBoostedJetTags:probTbqq, pfMassDecorrelatedDeepBoostedJetTags:probTbc, pfMassDecorrelatedDeepBoostedJetTags:probTbq, pfMassDecorrelatedDeepBoostedJetTags:probWcq, pfMassDecorrelatedDeepBoostedJetTags:probWqq, pfMassDecorrelatedDeepBoostedJetTags:probZbb, pfMassDecorrelatedDeepBoostedJetTags:probZcc, pfMassDecorrelatedDeepBoostedJetTags:probZqq, pfMassDecorrelatedDeepBoostedJetTags:probHbb, pfMassDecorrelatedDeepBoostedJetTags:probHcc, pfMassDecorrelatedDeepBoostedJetTags:probHqqqq, pfMassDecorrelatedDeepBoostedJetTags:probQCDbb, pfMassDecorrelatedDeepBoostedJetTags:probQCDcc, pfMassDecorrelatedDeepBoostedJetTags:probQCDb, pfMassDecorrelatedDeepBoostedJetTags:probQCDc, pfMassDecorrelatedDeepBoostedJetTags:probQCDothers, pfMassDecorrelatedDeepBoostedDiscriminatorsJetTags:TvsQCD, pfMassDecorrelatedDeepBoostedDiscriminatorsJetTags:WvsQCD, pfMassDecorrelatedDeepBoostedDiscriminatorsJetTags:ZvsQCD, pfMassDecorrelatedDeepBoostedDiscriminatorsJetTags:ZHbbvsQCD, pfMassDecorrelatedDeepBoostedDiscriminatorsJetTags:ZbbvsQCD, pfMassDecorrelatedDeepBoostedDiscriminatorsJetTags:HbbvsQCD, pfMassDecorrelatedDeepBoostedDiscriminatorsJetTags:H4qvsQCD, pfMassDecorrelatedDeepBoostedDiscriminatorsJetTags:ZHccvsQCD, pfMassDecorrelatedDeepBoostedDiscriminatorsJetTags:bbvsLight, pfMassDecorrelatedDeepBoostedDiscriminatorsJetTags:ccvsLight, pfMassIndependentDeepDoubleBvLJetTags:probHbb, pfMassIndependentDeepDoubleCvLJetTags:probHcc, pfMassIndependentDeepDoubleCvBJetTags:probHcc
+DEBUG 2020-02-17 09:58:32.982 UTC: 	 Running on: Linux cmslpc30.fnal.gov 2.6.32-754.25.1.el6.x86_64 #1 SMP Tue Dec 17 13:08:11 CST 2019 x86_64 x86_64 x86_64 GNU/Linux - Scientific Linux Fermi release 6.10 (Ramsey)
+DEBUG 2020-02-17 09:58:33.000 UTC: 	 OpenSSl version: OpenSSL 1.0.1e-fips 11 Feb 2013
+DEBUG 2020-02-17 09:58:33.001 UTC: 	 Executing command: 'submit'
+DEBUG 2020-02-17 09:58:33.182 UTC: 	 Found CRAB cache file /uscms/home/twelton/.crab3
+DEBUG 2020-02-17 09:58:33.193 UTC: 	 Checking credentials
+DEBUG 2020-02-17 09:58:33.205 UTC: 	 Found proxy file /uscms/home/twelton/x509up_u54539
+DEBUG 2020-02-17 09:58:33.205 UTC: 	 Getting proxy life time left
+DEBUG 2020-02-17 09:58:33.309 UTC: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/twelton/x509up_u54539 -timeleft
+ output : 0
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-17 09:58:33.310 UTC: 	 Proxy valid for 00:00:00 hours
+DEBUG 2020-02-17 09:58:33.310 UTC: 	 Creating new proxy for 24:00 hours with VO group '' and VO role 'NULL'.
+DEBUG 2020-02-17 09:58:39.727 UTC: 	 Executing : 
+ command : voms-proxy-init -voms cms:/cms -valid 24:00 -rfc
+ output : None
+ error: None
+ retcode : 0
+DEBUG 2020-02-17 09:58:39.831 UTC: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/twelton/x509up_u54539 -timeleft
+ output : 86400
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-17 09:58:39.936 UTC: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/twelton/x509up_u54539 -actimeleft
+ output : 86400
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-17 09:58:40.040 UTC: 	 Executing : 
+ command : env X509_USER_PROXY=/uscms/home/twelton/x509up_u54539 voms-proxy-info -fqan
+ output : /cms/Role=NULL/Capability=NULL
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-17 09:58:40.041 UTC: 	 Proxy created.
+INFO 2020-02-17 09:58:40.041 UTC: 	 Will use CRAB configuration file submitToCrab_ElMu2016E_nanoAOD.py
+DEBUG 2020-02-17 09:58:40.042 UTC: 	 Loading CRAB configuration file.
+DEBUG 2020-02-17 09:58:40.051 UTC: 	 Will use CRAB Analysis plugin (i.e. will run an analysis job type).
+DEBUG 2020-02-17 09:58:40.173 UTC: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=twelton/CN=831894/CN=Troy Phelps Welton
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-17 09:58:40.174 UTC: 	 Checking credentials
+DEBUG 2020-02-17 09:58:40.174 UTC: 	 Found proxy file /uscms/home/twelton/x509up_u54539
+DEBUG 2020-02-17 09:58:40.174 UTC: 	 Getting proxy life time left
+DEBUG 2020-02-17 09:58:40.278 UTC: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/twelton/x509up_u54539 -timeleft
+ output : 86399
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-17 09:58:40.382 UTC: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/twelton/x509up_u54539 -actimeleft
+ output : 86399
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-17 09:58:40.382 UTC: 	 Proxy valid for 23:59:59 hours
+DEBUG 2020-02-17 09:58:40.486 UTC: 	 Executing : 
+ command : env X509_USER_PROXY=/uscms/home/twelton/x509up_u54539 voms-proxy-info -fqan
+ output : /cms/Role=NULL/Capability=NULL
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-17 09:58:41.115 UTC: 	 Registering user credentials for server /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+DEBUG 2020-02-17 09:58:41.226 UTC: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=twelton/CN=831894/CN=Troy Phelps Welton
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-17 09:58:41.226 UTC: 	 Getting myproxy life time left for myproxy.cern.ch
+DEBUG 2020-02-17 09:58:41.226 UTC: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=twelton/CN=831894/CN=Troy Phelps Welton_cmsweb.cern.ch for credential name
+DEBUG 2020-02-17 09:58:42.232 UTC: 	 Executing : 
+ command : myproxy-info -l f77f4422fa8c04e04485d19e7495a72c3da4ee66 -s myproxy.cern.ch
+ output : username: f77f4422fa8c04e04485d19e7495a72c3da4ee66
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=twelton/CN=831894/CN=Troy Phelps Welton
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+  timeleft: 455:49:17  (19.0 days)
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-17 09:58:42.234 UTC: 	 Myproxy is valid: 1640957
+DEBUG 2020-02-17 09:58:42.234 UTC: 	 Command use: submit
+DEBUG 2020-02-17 09:58:42.234 UTC: 	 Options use: ['submitToCrab_ElMu2016E_nanoAOD.py']
+DEBUG 2020-02-17 09:58:42.873 UTC: 	 CRABClient version: 3.3.2001
+DEBUG 2020-02-17 09:58:42.873 UTC: 	 Instance is prod
+DEBUG 2020-02-17 09:58:42.873 UTC: 	 Server base url is cmsweb.cern.ch
+DEBUG 2020-02-17 09:58:42.873 UTC: 	 Command url /crabserver/prod/workflow
+DEBUG 2020-02-17 09:58:42.873 UTC: 	 Started submission
+DEBUG 2020-02-17 09:58:42.874 UTC: 	 Working on /uscms_data/d3/twelton/WorkingArea/CMSSW_10_2_16/ExcitedTau/NanoAOD_Crab/crab_projects/crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1
+DEBUG 2020-02-17 09:58:43.567 UTC: 	 Loading required information from the environment
+DEBUG 2020-02-17 09:58:43.567 UTC: 	 Found CMSSW_10_2_16 for slc6_amd64_gcc700 with base /uscms_data/d3/twelton/WorkingArea/CMSSW_10_2_16
+DEBUG 2020-02-17 09:58:43.567 UTC: 	 Loading required information from the environment
+DEBUG 2020-02-17 09:58:43.567 UTC: 	 Found CMSSW_10_2_16 for slc6_amd64_gcc700 with base /uscms_data/d3/twelton/WorkingArea/CMSSW_10_2_16
+DEBUG 2020-02-17 09:58:43.596 UTC: 	 UNIQUE NAME: tarUUID 6d92d0fa-3ecc-4869-b20d-0c7a1ae7fe00 
+DEBUG 2020-02-17 09:58:43.597 UTC: 	 self.config: from WMCore.Configuration import Configuration
+config = Configuration()
+config.section_('General')
+config.General.transferLogs = True
+config.General.transferOutputs = True
+config.General.workArea = 'crab_projects'
+config.General.requestName = 'ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1'
+config.section_('JobType')
+config.JobType.psetName = './nanoProd_16_NANO.py'
+config.JobType.pluginName = 'Analysis'
+config.section_('Data')
+config.Data.inputDataset = '/EmbeddingRun2016E/ElMuFinalState-inputDoubleMu_94X_Legacy_miniAOD-v5/USER'
+config.Data.outputDatasetTag = 'ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1'
+config.Data.totalUnits = 3052000
+config.Data.inputDBS = 'phys03'
+config.Data.splitting = 'Automatic'
+config.Data.outLFNDirBase = '/store/user/twelton/ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1'
+config.section_('Site')
+config.Site.storageSite = 'T3_US_FNALLPC'
+config.section_('User')
+config.section_('Debug')
+
+DEBUG 2020-02-17 09:58:43.597 UTC: 	 self.config.JobType.psetName: ./nanoProd_16_NANO.py
+INFO 2020-02-17 09:58:43.597 UTC: 	 Importing CMSSW configuration ./nanoProd_16_NANO.py
+INFO 2020-02-17 09:58:52.880 UTC: 	 Finished importing CMSSW configuration ./nanoProd_16_NANO.py
+DEBUG 2020-02-17 09:58:52.880 UTC: 	 Writing CMSSW configuration to /uscms_data/d3/twelton/WorkingArea/CMSSW_10_2_16/ExcitedTau/NanoAOD_Crab/crab_projects/crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1/inputs/PSet.py
+DEBUG 2020-02-17 09:58:54.908 UTC: 	 The following EDM output files will be collected: ['merged_nanoaod.root']
+DEBUG 2020-02-17 09:58:54.908 UTC: 	 The following TFile output files will be collected: []
+DEBUG 2020-02-17 09:58:54.908 UTC: 	 The following user output files (not listed as PoolOuputModule or TFileService in the CMSSW PSet) will be collected: 
+DEBUG 2020-02-17 09:58:54.908 UTC: 	 Loading required information from the environment
+DEBUG 2020-02-17 09:58:54.908 UTC: 	 Found CMSSW_10_2_16 for slc6_amd64_gcc700 with base /uscms_data/d3/twelton/WorkingArea/CMSSW_10_2_16
+DEBUG 2020-02-17 09:58:54.908 UTC: 	 Making tarball in /uscms_data/d3/twelton/WorkingArea/CMSSW_10_2_16/ExcitedTau/NanoAOD_Crab/crab_projects/crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1/inputs/6d92d0fa-3ecc-4869-b20d-0c7a1ae7fe00default.tgz
+DEBUG 2020-02-17 09:58:54.910 UTC: 	 Checking directory /uscms_data/d3/twelton/WorkingArea/CMSSW_10_2_16/lib
+DEBUG 2020-02-17 09:58:54.910 UTC: 	 Adding directory /uscms_data/d3/twelton/WorkingArea/CMSSW_10_2_16/lib to tarball
+DEBUG 2020-02-17 09:58:58.198 UTC: 	 Checking directory /uscms_data/d3/twelton/WorkingArea/CMSSW_10_2_16/biglib
+DEBUG 2020-02-17 09:58:58.198 UTC: 	 Adding directory /uscms_data/d3/twelton/WorkingArea/CMSSW_10_2_16/biglib to tarball
+DEBUG 2020-02-17 09:58:58.201 UTC: 	 Checking directory /uscms_data/d3/twelton/WorkingArea/CMSSW_10_2_16/module
+DEBUG 2020-02-17 09:59:05.805 UTC: 	 Adding data directory /uscms_data/d3/twelton/WorkingArea/CMSSW_10_2_16/src/EgammaAnalysis/ElectronTools/data to tarball
+DEBUG 2020-02-17 09:59:05.851 UTC: 	 Adding data directory /uscms_data/d3/twelton/WorkingArea/CMSSW_10_2_16/src/EgammaAnalysis/ElectronTools/interface to tarball
+DEBUG 2020-02-17 09:59:06.066 UTC: 	 Adding data directory /uscms_data/d3/twelton/WorkingArea/CMSSW_10_2_16/src/PhysicsTools/NanoAOD/interface to tarball
+DEBUG 2020-02-17 09:59:06.196 UTC: 	 Adding data directory /uscms_data/d3/twelton/WorkingArea/CMSSW_10_2_16/src/PhysicsTools/NanoAODTools/data to tarball
+DEBUG 2020-02-17 09:59:19.133 UTC: 	 Adding data directory /uscms_data/d3/twelton/WorkingArea/CMSSW_10_2_16/src/PhysicsTools/NanoAODTools/interface to tarball
+DEBUG 2020-02-17 09:59:19.214 UTC: 	 Adding data directory /uscms_data/d3/twelton/WorkingArea/CMSSW_10_2_16/src/PhysicsTools/NanoAODTools/python/postprocessing/data to tarball
+DEBUG 2020-02-17 09:59:24.742 UTC: 	 Adding data directory /uscms_data/d3/twelton/WorkingArea/CMSSW_10_2_16/src/RecoEgamma/EgammaTools/data to tarball
+DEBUG 2020-02-17 09:59:24.787 UTC: 	 Adding data directory /uscms_data/d3/twelton/WorkingArea/CMSSW_10_2_16/src/RecoEgamma/EgammaTools/interface to tarball
+DEBUG 2020-02-17 09:59:24.950 UTC: 	 Adding data directory /uscms_data/d3/twelton/WorkingArea/CMSSW_10_2_16/src/RecoEgamma/PhotonIdentification/data to tarball
+DEBUG 2020-02-17 09:59:25.076 UTC: 	 Adding data directory /uscms_data/d3/twelton/WorkingArea/CMSSW_10_2_16/src/RecoEgamma/PhotonIdentification/interface to tarball
+DEBUG 2020-02-17 09:59:25.126 UTC: 	 Adding data directory /uscms_data/d3/twelton/WorkingArea/CMSSW_10_2_16/src/RecoTauTag/RecoTau/interface to tarball
+DEBUG 2020-02-17 09:59:27.064 UTC: 	 Uploading archive /uscms_data/d3/twelton/WorkingArea/CMSSW_10_2_16/ExcitedTau/NanoAOD_Crab/crab_projects/crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1/inputs/6d92d0fa-3ecc-4869-b20d-0c7a1ae7fe00default.tgz (46 MB) to the CRAB cache. Using URI https://cmsweb.cern.ch/crabcache
+DEBUG 2020-02-17 10:05:20.721 UTC: 	 Loading required information from the environment
+DEBUG 2020-02-17 10:05:20.722 UTC: 	 Found CMSSW_10_2_16 for slc6_amd64_gcc700 with base /uscms_data/d3/twelton/WorkingArea/CMSSW_10_2_16
+DEBUG 2020-02-17 10:05:20.722 UTC: 	 Making tarball in /uscms_data/d3/twelton/WorkingArea/CMSSW_10_2_16/ExcitedTau/NanoAOD_Crab/crab_projects/crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1/inputs/debugFiles.tgz
+DEBUG 2020-02-17 10:05:20.733 UTC: 	 Uploading archive /uscms_data/d3/twelton/WorkingArea/CMSSW_10_2_16/ExcitedTau/NanoAOD_Crab/crab_projects/crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1/inputs/debugFiles.tgz (1 KB) to the CRAB cache. Using URI https://cmsweb.cern.ch/crabcache
+DEBUG 2020-02-17 10:05:21.426 UTC: 	 Result uploading input files: baac37cc6cf798a9b1fa938f529a5ff5741914404e6e89f237100bcc7a9e2582.tar.gz 
+INFO 2020-02-17 10:05:21.427 UTC: 	 Sending the request to the server at cmsweb.cern.ch
+DEBUG 2020-02-17 10:05:21.427 UTC: 	 Submitting {'maxjobruntime': 1250, 'extrajdl': [], 'ignorelocality': 0, 'savelogsflag': 1, 'useparent': 0, 'asyncdest': 'T3_US_FNALLPC', 'algoargs': 480, 'cachefilename': 'baac37cc6cf798a9b1fa938f529a5ff5741914404e6e89f237100bcc7a9e2582.tar.gz', 'numcores': 1, 'addoutputfiles': [], 'generator': 'pythia', 'maxmemory': 2000, 'publishdbsurl': 'https://cmsweb.cern.ch/dbs/prod/phys03/DBSWriter', 'priority': 10, 'jobsw': 'CMSSW_10_2_16', 'edmoutfiles': ['merged_nanoaod.root'], 'userfiles': [], 'primarydataset': '', 'inputdata': '/EmbeddingRun2016E/ElMuFinalState-inputDoubleMu_94X_Legacy_miniAOD-v5/USER', 'lfn': '/store/user/twelton/ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1', 'dryrun': 0, 'workflow': 'crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1', 'cacheurl': u'https://cmsweb.cern.ch/crabcache', 'nonprodsw': 0, 'tfileoutfiles': [], 'oneEventMode': 0, 'debugfilename': '2a920afc2f46a30b885d12b650bb2e40b253aacb1d0cc6d57882ed5725b2c66a.tar.gz', 'saveoutput': 1, 'publication': 1, 'jobarch': 'slc6_amd64_gcc700', 'totalunits': 3052000, 'splitalgo': 'Automatic', 'ignoreglobalblacklist': 0, 'nonvaliddata': 0, 'dbsurl': 'https://cmsweb.cern.ch/dbs/prod/phys03/DBSReader', 'publishgroupname': 0, 'jobtype': 'Analysis', 'publishname2': 'ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1'} 
+DEBUG 2020-02-17 10:05:21.427 UTC: 	 Encoded submit request: maxjobruntime=1250&ignorelocality=0&savelogsflag=1&useparent=0&asyncdest=T3_US_FNALLPC&algoargs=480&cachefilename=baac37cc6cf798a9b1fa938f529a5ff5741914404e6e89f237100bcc7a9e2582.tar.gz&numcores=1&generator=pythia&maxmemory=2000&publishdbsurl=https%3A%2F%2Fcmsweb.cern.ch%2Fdbs%2Fprod%2Fphys03%2FDBSWriter&priority=10&jobsw=CMSSW_10_2_16&primarydataset=&inputdata=%2FEmbeddingRun2016E%2FElMuFinalState-inputDoubleMu_94X_Legacy_miniAOD-v5%2FUSER&lfn=%2Fstore%2Fuser%2Ftwelton%2FElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1&dryrun=0&workflow=crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1&cacheurl=https%3A%2F%2Fcmsweb.cern.ch%2Fcrabcache&nonprodsw=0&oneEventMode=0&debugfilename=2a920afc2f46a30b885d12b650bb2e40b253aacb1d0cc6d57882ed5725b2c66a.tar.gz&saveoutput=1&publication=1&jobarch=slc6_amd64_gcc700&totalunits=3052000&splitalgo=Automatic&ignoreglobalblacklist=0&nonvaliddata=0&dbsurl=https%3A%2F%2Fcmsweb.cern.ch%2Fdbs%2Fprod%2Fphys03%2FDBSReader&publishgroupname=0&jobtype=Analysis&publishname2=ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1&edmoutfiles=merged_nanoaod.root
+DEBUG 2020-02-17 10:05:22.394 UTC: 	 Result: {u'result': [{u'RequestName': u'200217_100522:twelton_crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1'}]}
+INFO 2020-02-17 10:05:22.397 UTC: 	 Success: Your task has been delivered to the prod CRAB3 server.
+INFO 2020-02-17 10:05:22.398 UTC: 	 Task name: 200217_100522:twelton_crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1
+INFO 2020-02-17 10:05:22.398 UTC: 	 Project dir: crab_projects/crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1
+INFO 2020-02-17 10:05:22.398 UTC: 	 Please use 'crab status -d crab_projects/crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1' to check how the submission process proceeds.
+DEBUG 2020-02-17 10:05:22.398 UTC: 	 About to return
+INFO 2020-02-17 10:05:22.404 UTC: 	 Log file is /uscms_data/d3/twelton/WorkingArea/CMSSW_10_2_16/ExcitedTau/NanoAOD_Crab/crab_projects/crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1/crab.log
+DEBUG 2020-02-17 10:05:47.191 UTC: 	 Running on: Linux cmslpc30.fnal.gov 2.6.32-754.25.1.el6.x86_64 #1 SMP Tue Dec 17 13:08:11 CST 2019 x86_64 x86_64 x86_64 GNU/Linux - Scientific Linux Fermi release 6.10 (Ramsey)
+DEBUG 2020-02-17 10:05:47.209 UTC: 	 OpenSSl version: OpenSSL 1.0.1e-fips 11 Feb 2013
+DEBUG 2020-02-17 10:05:47.209 UTC: 	 Executing command: 'status'
+DEBUG 2020-02-17 10:05:47.210 UTC: 	 Found CRAB cache file /uscms/home/twelton/.crab3
+DEBUG 2020-02-17 10:05:47.221 UTC: 	 Checking credentials
+DEBUG 2020-02-17 10:05:47.222 UTC: 	 Found proxy file /uscms/home/twelton/x509up_u54539
+DEBUG 2020-02-17 10:05:47.222 UTC: 	 Getting proxy life time left
+DEBUG 2020-02-17 10:05:47.326 UTC: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/twelton/x509up_u54539 -timeleft
+ output : 85972
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-17 10:05:47.430 UTC: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/twelton/x509up_u54539 -actimeleft
+ output : 85972
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-17 10:05:47.430 UTC: 	 Proxy valid for 23:52:52 hours
+DEBUG 2020-02-17 10:05:47.749 UTC: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=twelton/CN=831894/CN=Troy Phelps Welton
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-17 10:05:47.749 UTC: 	 Checking credentials
+DEBUG 2020-02-17 10:05:47.749 UTC: 	 Found proxy file /uscms/home/twelton/x509up_u54539
+DEBUG 2020-02-17 10:05:47.750 UTC: 	 Getting proxy life time left
+DEBUG 2020-02-17 10:05:47.854 UTC: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/twelton/x509up_u54539 -timeleft
+ output : 85972
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-17 10:05:47.958 UTC: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/twelton/x509up_u54539 -actimeleft
+ output : 85972
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-17 10:05:47.958 UTC: 	 Proxy valid for 23:52:52 hours
+DEBUG 2020-02-17 10:05:48.562 UTC: 	 Registering user credentials for server /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+DEBUG 2020-02-17 10:05:48.673 UTC: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=twelton/CN=831894/CN=Troy Phelps Welton
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-17 10:05:48.673 UTC: 	 Getting myproxy life time left for myproxy.cern.ch
+DEBUG 2020-02-17 10:05:48.673 UTC: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=twelton/CN=831894/CN=Troy Phelps Welton_cmsweb.cern.ch for credential name
+DEBUG 2020-02-17 10:05:49.679 UTC: 	 Executing : 
+ command : myproxy-info -l f77f4422fa8c04e04485d19e7495a72c3da4ee66 -s myproxy.cern.ch
+ output : username: f77f4422fa8c04e04485d19e7495a72c3da4ee66
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=twelton/CN=831894/CN=Troy Phelps Welton
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+  timeleft: 455:42:10  (19.0 days)
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-17 10:05:49.681 UTC: 	 Myproxy is valid: 1640530
+DEBUG 2020-02-17 10:05:49.683 UTC: 	 Command use: status
+DEBUG 2020-02-17 10:05:49.683 UTC: 	 Options use: []
+DEBUG 2020-02-17 10:05:50.320 UTC: 	 CRABClient version: 3.3.2001
+DEBUG 2020-02-17 10:05:50.320 UTC: 	 Instance is prod
+DEBUG 2020-02-17 10:05:50.320 UTC: 	 Server base url is cmsweb.cern.ch
+DEBUG 2020-02-17 10:05:50.320 UTC: 	 Command url /crabserver/prod/workflow
+DEBUG 2020-02-17 10:05:50.936 UTC: 	 Got information from server oracle database: {u'result': [u'200217_100522:twelton_crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1', u'None', u'None', u'HOLDING', u'SUBMIT', u'2020-02-17 10:05:22.333656', u'None', u'None', u'None', u'CMSSW_10_2_16', u'slc6_amd64_gcc700', u'/EmbeddingRun2016E/ElMuFinalState-inputDoubleMu_94X_Legacy_miniAOD-v5/USER', u'F', u'0', u'[]', u'[]', u'Automatic', u"{'splitOnRun': False, 'minutes_per_job': 480, 'halt_job_on_file_boundaries': False, 'runs': [], 'lumis': []}", u'baac37cc6cf798a9b1fa938f529a5ff5741914404e6e89f237100bcc7a9e2582.tar.gz', u'https://cmsweb.cern.ch/crabcache', u'twelton', u'/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=twelton/CN=831894/CN=Troy Phelps Welton', u'cms', u'None', u'None', u'ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1-00000000000000000000000000000000', u'F', u'T3_US_FNALLPC', u'https://cmsweb.cern.ch/dbs/prod/phys03/DBSReader', u'https://cmsweb.cern.ch/dbs/prod/phys03/DBSWriter', u'T', u'[]', u'[]', u"['merged_nanoaod.root']", u'Analysis', u'pythia', u'None', u'{}', u'[]', u'T', u'crab-prod-tw01', u'[]', u'1250', u'1', u'2000', u'10', u'None', u'[]', u'None', u'None', u'[]', u'[]', u'https://cmsweb.cern.ch/crabserver/prod', u'cmsgwms-collector-global.cern.ch:9620,cmssrv623.fnal.gov:9620', u'None', u'F', u'[]', u'T', u'/store/user/twelton/ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1', u'F', u'None', u'F', u'None', u'EmbeddingRun2016E', u'None', u'2a920afc2f46a30b885d12b650bb2e40b253aacb1d0cc6d57882ed5725b2c66a.tar.gz', u'None', u'filetransfers', u'F', u'131.225.190.54', u'3052000.0', u'None'], u'desc': {u'columns': [u'tm_taskname', u'tm_activity', u'panda_jobset_id', u'tm_task_status', u'tm_task_command', u'tm_start_time', u'tm_start_injection', u'tm_end_injection', u'tm_task_failure', u'tm_job_sw', u'tm_job_arch', u'tm_input_dataset', u'tm_nonvalid_input_dataset', u'tm_use_parent', u'tm_site_whitelist', u'tm_site_blacklist', u'tm_split_algo', u'tm_split_args', u'tm_user_sandbox', u'tm_cache_url', u'tm_username', u'tm_user_dn', u'tm_user_vo', u'tm_user_role', u'tm_user_group', u'tm_publish_name', u'tm_publish_groupname', u'tm_asyncdest', u'tm_dbs_url', u'tm_publish_dbs_url', u'tm_publication', u'tm_outfiles', u'tm_tfile_outfiles', u'tm_edm_outfiles', u'tm_job_type', u'tm_generator', u'tm_events_per_lumi', u'tm_arguments', u'panda_resubmitted_jobs', u'tm_save_logs', u'tw_name', u'tm_user_infiles', u'tm_maxjobruntime', u'tm_numcores', u'tm_maxmemory', u'tm_priority', u'tm_output_dataset', u'tm_task_warnings', u'tm_user_webdir', u'tm_scriptexe', u'tm_scriptargs', u'tm_extrajdl', u'tm_asourl', u'tm_collector', u'tm_schedd', u'tm_dry_run', u'tm_user_files', u'tm_transfer_outputs', u'tm_output_lfn', u'tm_ignore_locality', u'tm_fail_limit', u'tm_one_event_mode', u'tm_secondary_input_dataset', u'tm_primary_dataset', u'tm_last_publication', u'tm_debug_files', u'clusterid', u'tm_asodb', u'tm_ignore_global_blacklist', u'tm_submitter_ip_addr', u'tm_totalunits', u'tm_ddm_reqid']}}
+INFO 2020-02-17 10:05:50.937 UTC: 	 CRAB project directory:		/uscms_data/d3/twelton/WorkingArea/CMSSW_10_2_16/ExcitedTau/NanoAOD_Crab/crab_projects/crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1
+INFO 2020-02-17 10:05:50.937 UTC: 	 Task name:			200217_100522:twelton_crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1
+INFO 2020-02-17 10:05:50.937 UTC: 	 Grid scheduler - Task Worker:	N/A yet - crab-prod-tw01
+INFO 2020-02-17 10:05:50.937 UTC: 	 Status on the CRAB server:	HOLDING on command SUBMIT
+INFO 2020-02-17 10:05:50.938 UTC: 	 Task URL to use for HELP:	https://cmsweb.cern.ch/crabserver/ui/task/200217_100522%3Atwelton_crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1
+INFO 2020-02-17 10:05:50.938 UTC: 	 Dashboard monitoring URL:	https://monit-grafana.cern.ch/d/cmsTMDetail/cms-task-monitoring-task-view?orgId=11&var-user=twelton&var-task=200217_100522%3Atwelton_crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1
+INFO 2020-02-17 10:05:50.938 UTC: 	 In case of issues with the dashboard, please provide feedback to hn-cms-computing-tools@cern.ch
+DEBUG 2020-02-17 10:05:50.938 UTC: 	 The task has not been submitted to the Grid scheduler yet. Not printing job information.
+INFO 2020-02-17 10:05:50.956 UTC: 	 Log file is /uscms_data/d3/twelton/WorkingArea/CMSSW_10_2_16/ExcitedTau/NanoAOD_Crab/crab_projects/crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1/crab.log
+DEBUG 2020-02-19 10:30:27.630 UTC: 	 Running on: Linux cmslpc25.fnal.gov 2.6.32-754.25.1.el6.x86_64 #1 SMP Tue Dec 17 13:08:11 CST 2019 x86_64 x86_64 x86_64 GNU/Linux - Scientific Linux Fermi release 6.10 (Ramsey)
+DEBUG 2020-02-19 10:30:27.648 UTC: 	 OpenSSl version: OpenSSL 1.0.1e-fips 11 Feb 2013
+DEBUG 2020-02-19 10:30:27.649 UTC: 	 Executing command: 'status'
+DEBUG 2020-02-19 10:30:27.654 UTC: 	 Found CRAB cache file /uscms/home/twelton/.crab3
+DEBUG 2020-02-19 10:30:27.676 UTC: 	 Checking credentials
+DEBUG 2020-02-19 10:30:27.702 UTC: 	 Found proxy file /uscms/home/twelton/x509up_u54539
+DEBUG 2020-02-19 10:30:27.702 UTC: 	 Getting proxy life time left
+DEBUG 2020-02-19 10:30:27.806 UTC: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/twelton/x509up_u54539 -timeleft
+ output : 0
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-19 10:30:27.806 UTC: 	 Proxy valid for 00:00:00 hours
+DEBUG 2020-02-19 10:30:27.806 UTC: 	 Creating new proxy for 24:00 hours with VO group '' and VO role 'NULL'.
+DEBUG 2020-02-19 10:30:34.724 UTC: 	 Executing : 
+ command : voms-proxy-init -voms cms:/cms -valid 24:00 -rfc
+ output : None
+ error: None
+ retcode : 0
+DEBUG 2020-02-19 10:30:34.830 UTC: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/twelton/x509up_u54539 -timeleft
+ output : 86400
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-19 10:30:34.934 UTC: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/twelton/x509up_u54539 -actimeleft
+ output : 86400
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-19 10:30:35.038 UTC: 	 Executing : 
+ command : env X509_USER_PROXY=/uscms/home/twelton/x509up_u54539 voms-proxy-info -fqan
+ output : /cms/Role=NULL/Capability=NULL
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-19 10:30:35.039 UTC: 	 Proxy created.
+DEBUG 2020-02-19 10:30:35.167 UTC: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=twelton/CN=831894/CN=Troy Phelps Welton
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-19 10:30:35.167 UTC: 	 Checking credentials
+DEBUG 2020-02-19 10:30:35.167 UTC: 	 Found proxy file /uscms/home/twelton/x509up_u54539
+DEBUG 2020-02-19 10:30:35.167 UTC: 	 Getting proxy life time left
+DEBUG 2020-02-19 10:30:35.271 UTC: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/twelton/x509up_u54539 -timeleft
+ output : 86399
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-19 10:30:35.375 UTC: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/twelton/x509up_u54539 -actimeleft
+ output : 86399
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-19 10:30:35.376 UTC: 	 Proxy valid for 23:59:59 hours
+DEBUG 2020-02-19 10:30:36.196 UTC: 	 Registering user credentials for server /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+DEBUG 2020-02-19 10:30:36.306 UTC: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=twelton/CN=831894/CN=Troy Phelps Welton
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-19 10:30:36.307 UTC: 	 Getting myproxy life time left for myproxy.cern.ch
+DEBUG 2020-02-19 10:30:36.307 UTC: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=twelton/CN=831894/CN=Troy Phelps Welton_cmsweb.cern.ch for credential name
+DEBUG 2020-02-19 10:30:37.413 UTC: 	 Executing : 
+ command : myproxy-info -l f77f4422fa8c04e04485d19e7495a72c3da4ee66 -s myproxy.cern.ch
+ output : username: f77f4422fa8c04e04485d19e7495a72c3da4ee66
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=twelton/CN=831894/CN=Troy Phelps Welton
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+  timeleft: 407:17:22  (17.0 days)
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-19 10:30:37.415 UTC: 	 Myproxy is valid: 1466242
+DEBUG 2020-02-19 10:30:37.417 UTC: 	 Command use: status
+DEBUG 2020-02-19 10:30:37.417 UTC: 	 Options use: []
+DEBUG 2020-02-19 10:30:38.027 UTC: 	 CRABClient version: 3.3.2001
+DEBUG 2020-02-19 10:30:38.028 UTC: 	 Instance is prod
+DEBUG 2020-02-19 10:30:38.028 UTC: 	 Server base url is cmsweb.cern.ch
+DEBUG 2020-02-19 10:30:38.028 UTC: 	 Command url /crabserver/prod/workflow
+DEBUG 2020-02-19 10:30:38.634 UTC: 	 Got information from server oracle database: {u'result': [u'200217_100522:twelton_crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1', u'None', u'None', u'SUBMITTED', u'SUBMIT', u'2020-02-17 10:05:22.333656', u'None', u'2020-02-17 10:06:32.062273', u'None', u'CMSSW_10_2_16', u'slc6_amd64_gcc700', u'/EmbeddingRun2016E/ElMuFinalState-inputDoubleMu_94X_Legacy_miniAOD-v5/USER', u'F', u'0', u'[]', u'[]', u'Automatic', u"{'splitOnRun': False, 'minutes_per_job': 480, 'halt_job_on_file_boundaries': False, 'runs': [], 'lumis': []}", u'baac37cc6cf798a9b1fa938f529a5ff5741914404e6e89f237100bcc7a9e2582.tar.gz', u'https://cmsweb.cern.ch/crabcache', u'twelton', u'/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=twelton/CN=831894/CN=Troy Phelps Welton', u'cms', u'None', u'None', u'ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1-00000000000000000000000000000000', u'F', u'T3_US_FNALLPC', u'https://cmsweb.cern.ch/dbs/prod/phys03/DBSReader', u'https://cmsweb.cern.ch/dbs/prod/phys03/DBSWriter', u'T', u'[]', u'[]', u"['merged_nanoaod.root']", u'Analysis', u'pythia', u'None', u'{}', u'[]', u'T', u'crab-prod-tw01', u'[]', u'1250', u'1', u'2000', u'10', u'None', u'[]', u'http://vocms0121.cern.ch/mon/cms1424/200217_100522:twelton_crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1', u'None', u'[]', u'[]', u'https://cmsweb.cern.ch/crabserver/prod', u'cmsgwms-collector-global.cern.ch:9620,cmssrv623.fnal.gov:9620', u'crab3@vocms0121.cern.ch', u'F', u'[]', u'T', u'/store/user/twelton/ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1', u'F', u'None', u'F', u'None', u'EmbeddingRun2016E', u'2020-02-19 10:29:55.884878', u'2a920afc2f46a30b885d12b650bb2e40b253aacb1d0cc6d57882ed5725b2c66a.tar.gz', u'49891902', u'filetransfers', u'F', u'131.225.190.54', u'3052000.0', u'None'], u'desc': {u'columns': [u'tm_taskname', u'tm_activity', u'panda_jobset_id', u'tm_task_status', u'tm_task_command', u'tm_start_time', u'tm_start_injection', u'tm_end_injection', u'tm_task_failure', u'tm_job_sw', u'tm_job_arch', u'tm_input_dataset', u'tm_nonvalid_input_dataset', u'tm_use_parent', u'tm_site_whitelist', u'tm_site_blacklist', u'tm_split_algo', u'tm_split_args', u'tm_user_sandbox', u'tm_cache_url', u'tm_username', u'tm_user_dn', u'tm_user_vo', u'tm_user_role', u'tm_user_group', u'tm_publish_name', u'tm_publish_groupname', u'tm_asyncdest', u'tm_dbs_url', u'tm_publish_dbs_url', u'tm_publication', u'tm_outfiles', u'tm_tfile_outfiles', u'tm_edm_outfiles', u'tm_job_type', u'tm_generator', u'tm_events_per_lumi', u'tm_arguments', u'panda_resubmitted_jobs', u'tm_save_logs', u'tw_name', u'tm_user_infiles', u'tm_maxjobruntime', u'tm_numcores', u'tm_maxmemory', u'tm_priority', u'tm_output_dataset', u'tm_task_warnings', u'tm_user_webdir', u'tm_scriptexe', u'tm_scriptargs', u'tm_extrajdl', u'tm_asourl', u'tm_collector', u'tm_schedd', u'tm_dry_run', u'tm_user_files', u'tm_transfer_outputs', u'tm_output_lfn', u'tm_ignore_locality', u'tm_fail_limit', u'tm_one_event_mode', u'tm_secondary_input_dataset', u'tm_primary_dataset', u'tm_last_publication', u'tm_debug_files', u'clusterid', u'tm_asodb', u'tm_ignore_global_blacklist', u'tm_submitter_ip_addr', u'tm_totalunits', u'tm_ddm_reqid']}}
+INFO 2020-02-19 10:30:38.635 UTC: 	 CRAB project directory:		/uscms_data/d3/twelton/WorkingArea/CMSSW_10_2_16/ExcitedTau/NanoAOD_Crab/crab_projects/crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1
+INFO 2020-02-19 10:30:38.635 UTC: 	 Task name:			200217_100522:twelton_crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1
+INFO 2020-02-19 10:30:38.635 UTC: 	 Grid scheduler - Task Worker:	crab3@vocms0121.cern.ch - crab-prod-tw01
+INFO 2020-02-19 10:30:38.635 UTC: 	 Status on the CRAB server:	SUBMITTED
+INFO 2020-02-19 10:30:38.635 UTC: 	 Task URL to use for HELP:	https://cmsweb.cern.ch/crabserver/ui/task/200217_100522%3Atwelton_crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1
+INFO 2020-02-19 10:30:38.635 UTC: 	 Dashboard monitoring URL:	https://monit-grafana.cern.ch/d/cmsTMDetail/cms-task-monitoring-task-view?orgId=11&var-user=twelton&var-task=200217_100522%3Atwelton_crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1
+INFO 2020-02-19 10:30:38.635 UTC: 	 In case of issues with the dashboard, please provide feedback to hn-cms-computing-tools@cern.ch
+DEBUG 2020-02-19 10:30:38.636 UTC: 	 The CRAB server submitted your task to the Grid scheduler (cluster ID: 49891902)
+DEBUG 2020-02-19 10:30:38.636 UTC: 	 Webdir is located at http://vocms0121.cern.ch/mon/cms1424/200217_100522:twelton_crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1
+DEBUG 2020-02-19 10:30:39.282 UTC: 	 Proxied webdir is located at https://cmsweb.cern.ch/scheddmon/0121/cms1424/200217_100522:twelton_crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1
+DEBUG 2020-02-19 10:30:39.282 UTC: 	 Retrieving 'status_cache' file from https://cmsweb.cern.ch/scheddmon/0121/cms1424/200217_100522:twelton_crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1/status_cache
+DEBUG 2020-02-19 10:30:39.938 UTC: 	 Got information from status cache file: {'1-9': {'Retries': 0, 'WallDurations': [8.0, 7575.0], 'StartTimes': [1582052309.0], 'SubmitTimes': [1582015148.0], 'JobIds': ['49962942.0'], 'EndTimes': [1582059884.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1664468], 'TotalUserCpuTimeHistory': [7121.0], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [211.0]}, '1-8': {'Retries': 0, 'WallDurations': [9.0, 4736.0], 'StartTimes': [1582048748.0], 'SubmitTimes': [1582015148.0], 'JobIds': ['49962941.0'], 'EndTimes': [1582053484.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1593156], 'TotalUserCpuTimeHistory': [4402], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [142]}, '1-10': {'Retries': 0, 'WallDurations': [8.0, 2862.0], 'StartTimes': [1582053493.0], 'SubmitTimes': [1582015148.0], 'JobIds': ['49962943.0'], 'EndTimes': [1582056355.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1622032], 'TotalUserCpuTimeHistory': [2696], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [66]}, '20': {'Retries': 0, 'WallDurations': [9.0, 19316.0], 'StartTimes': [1581993614.0], 'SubmitTimes': [1581940669.0], 'JobIds': ['49902120.0'], 'EndTimes': [1582012930.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1793988], 'TotalUserCpuTimeHistory': [18379], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [482]}, '21': {'Retries': 0, 'WallDurations': [8.0, 9971.0], 'StartTimes': [1581993612.0], 'SubmitTimes': [1581940669.0], 'JobIds': ['49902121.0'], 'EndTimes': [1582003583.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1666356], 'TotalUserCpuTimeHistory': [8238], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [703]}, '1': {'Retries': 0, 'WallDurations': [8.0, 13017.0], 'StartTimes': [1581993611.0], 'SubmitTimes': [1581940652.0], 'JobIds': ['49902097.0'], 'EndTimes': [1582006628.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'failed', 'ResidentSetSize': [1659844], 'Error': [139, 'CmsRunFailure', {}], 'TotalUserCpuTimeHistory': [11940], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [478]}, '3': {'Retries': 0, 'WallDurations': [9.0, 7759.0], 'StartTimes': [1581993612.0], 'SubmitTimes': [1581940658.0], 'JobIds': ['49902101.0'], 'TotalUserCpuTimeHistory': [7056], 'EndTimes': [1582001371.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'failed', 'ResidentSetSize': [1723640], 'Error': [139, 'CmsRunFailure', {}], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [230]}, '2': {'Retries': 0, 'WallDurations': [9.0, 12993.0], 'StartTimes': [1581993616.0], 'SubmitTimes': [1581940653.0], 'JobIds': ['49902098.0'], 'EndTimes': [1582006609.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1719472], 'TotalUserCpuTimeHistory': [10723], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [980]}, '5': {'Retries': 0, 'WallDurations': [9.0, 16358.0], 'StartTimes': [1581993612.0], 'SubmitTimes': [1581940659.0], 'JobIds': ['49902103.0'], 'EndTimes': [1582009970.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1641028], 'TotalUserCpuTimeHistory': [13300], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [1234]}, '4': {'Retries': 0, 'WallDurations': [9.0, 17457.0], 'StartTimes': [1581993613.0], 'SubmitTimes': [1581940658.0], 'JobIds': ['49902102.0'], 'EndTimes': [1582011070.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1666528], 'TotalUserCpuTimeHistory': [15707], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [824]}, '7': {'Retries': 0, 'WallDurations': [0, 10.0, 18602.0], 'StartTimes': [1581948676.0], 'SubmitTimes': [1581940660.0, -1], 'JobIds': ['49902105.0', '49902105.0'], 'EndTimes': [1581948304.0, 1581967278.0], 'Restarts': 1, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [0, 1716096], 'TotalUserCpuTimeHistory': [0.0, 16598], 'SiteHistory': ['Unknown', 'Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [0.0, 949]}, '6': {'Retries': 0, 'WallDurations': [0, 9.0, 18539.0], 'StartTimes': [1581950436.0], 'SubmitTimes': [1581940659.0, -1], 'JobIds': ['49902104.0', '49902104.0'], 'TotalUserCpuTimeHistory': [0.0, 15827], 'EndTimes': [1581948305.0, 1581968975.0], 'Restarts': 1, 'RecordedSite': True, 'State': 'failed', 'ResidentSetSize': [0, 1579196], 'Error': [139, 'CmsRunFailure', {}], 'SiteHistory': ['Unknown', 'Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [0.0, 1321]}, '9': {'Retries': 0, 'WallDurations': [0, 8.0, 4023.0], 'StartTimes': [1581950453.0], 'SubmitTimes': [1581940660.0, -1], 'JobIds': ['49902107.0', '49902107.0'], 'TotalUserCpuTimeHistory': [0.0, 3757], 'EndTimes': [1581948307.0, 1581954476.0], 'Restarts': 1, 'RecordedSite': True, 'State': 'failed', 'ResidentSetSize': [0, 1616468], 'Error': [139, 'CmsRunFailure', {}], 'SiteHistory': ['Unknown', 'Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [0.0, 94]}, '8': {'Retries': 0, 'WallDurations': [0, 10.0, 14195.0], 'StartTimes': [1581948672.0], 'SubmitTimes': [1581940660.0, -1], 'JobIds': ['49902106.0', '49902106.0'], 'EndTimes': [1581948308.0, 1581962867.0], 'Restarts': 1, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [0, 1677072], 'TotalUserCpuTimeHistory': [0.0, 12786], 'SiteHistory': ['Unknown', 'Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [0.0, 607]}, '0-4': {'Retries': 0, 'WallDurations': [8.0, 1046.0], 'StartTimes': [1581937268.0], 'SubmitTimes': [1581934005.0], 'JobIds': ['49891905.0'], 'EndTimes': [1581938314.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1530180], 'TotalUserCpuTimeHistory': [839], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [35]}, '0-5': {'Retries': 0, 'WallDurations': [8.0, 994.0], 'StartTimes': [1581939320.0], 'SubmitTimes': [1581934006.0], 'JobIds': ['49891908.0'], 'TotalUserCpuTimeHistory': [810], 'EndTimes': [1581940314.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'failed', 'ResidentSetSize': [1583568], 'Error': [139, 'CmsRunFailure', {}], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [42]}, '0-1': {'Retries': 0, 'WallDurations': [9.0, 845.0], 'StartTimes': [1581939033.0], 'SubmitTimes': [1581934006.0], 'JobIds': ['49891907.0'], 'EndTimes': [1581939878.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'failed', 'ResidentSetSize': [1633564], 'Error': [139, 'CmsRunFailure', {}], 'TotalUserCpuTimeHistory': [678], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [33]}, '0-2': {'Retries': 0, 'WallDurations': [8.0, 996.0], 'StartTimes': [1581938321.0], 'SubmitTimes': [1581934005.0], 'JobIds': ['49891906.0'], 'EndTimes': [1581939317.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1645608], 'TotalUserCpuTimeHistory': [802], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [41]}, '0-3': {'Retries': 0, 'WallDurations': [9.0, 1018.0], 'StartTimes': [1581936238.0], 'SubmitTimes': [1581934005.0], 'JobIds': ['49891904.0'], 'TotalUserCpuTimeHistory': [883], 'EndTimes': [1581937256.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'failed', 'ResidentSetSize': [1659456], 'Error': [139, 'CmsRunFailure', {}], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [30]}, '1-1': {'Retries': 0, 'WallDurations': [8.0, 14428.0], 'StartTimes': [1582042488.0], 'SubmitTimes': [1582015146.0], 'JobIds': ['49962934.0'], 'EndTimes': [1582056916.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1430648], 'TotalUserCpuTimeHistory': [10120], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [989]}, '1-3': {'Retries': 0, 'WallDurations': [9.0, 12032.0], 'StartTimes': [1582042481.0], 'SubmitTimes': [1582015146.0], 'JobIds': ['49962935.0'], 'EndTimes': [1582054513.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1458456], 'TotalUserCpuTimeHistory': [8284], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [827]}, '1-2': {'Retries': 0, 'WallDurations': [9.0, 5200.0], 'StartTimes': [1582042564.0], 'SubmitTimes': [1582015147.0], 'JobIds': ['49962936.0'], 'TotalUserCpuTimeHistory': [4685], 'EndTimes': [1582047764.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'failed', 'ResidentSetSize': [1720980], 'Error': [139, 'CmsRunFailure', {}], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [209]}, '1-5': {'Retries': 0, 'WallDurations': [9.0, 6197.0], 'StartTimes': [1582042539.0], 'SubmitTimes': [1582015147.0], 'JobIds': ['49962938.0'], 'EndTimes': [1582048736.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1680176], 'TotalUserCpuTimeHistory': [5841], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [141]}, '1-4': {'Retries': 0, 'WallDurations': [9.0, 3050.0], 'StartTimes': [1582042560.0], 'SubmitTimes': [1582015147.0], 'JobIds': ['49962937.0'], 'EndTimes': [1582045610.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'failed', 'ResidentSetSize': [1668620], 'Error': [139, 'CmsRunFailure', {}], 'TotalUserCpuTimeHistory': [2801], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [82]}, '1-7': {'Retries': 0, 'WallDurations': [8.0, 8536.0], 'StartTimes': [1582047784.0], 'SubmitTimes': [1582015147.0], 'JobIds': ['49962940.0'], 'TotalUserCpuTimeHistory': [7765], 'EndTimes': [1582056320.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'failed', 'ResidentSetSize': [1628324], 'Error': [139, 'CmsRunFailure', {}], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [350]}, '1-6': {'Retries': 0, 'WallDurations': [8.0, 6585.0], 'StartTimes': [1582045716.0], 'SubmitTimes': [1582015147.0], 'JobIds': ['49962939.0'], 'EndTimes': [1582052301.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1656736], 'TotalUserCpuTimeHistory': [6226], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [156]}, '11': {'Retries': 0, 'WallDurations': [0, 9.0, 14640.0], 'StartTimes': [1581948693.0], 'SubmitTimes': [1581940662.0, -1], 'JobIds': ['49902110.0', '49902110.0'], 'EndTimes': [1581948311.0, 1581963333.0], 'Restarts': 1, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [0, 1722516], 'TotalUserCpuTimeHistory': [0.0, 12506], 'SiteHistory': ['Unknown', 'Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [0.0, 947]}, '10': {'Retries': 0, 'WallDurations': [0, 8.0, 12877.0], 'StartTimes': [1581950437.0], 'SubmitTimes': [1581940662.0, -1], 'JobIds': ['49902108.0', '49902108.0'], 'EndTimes': [1581948659.0, 1581963314.0], 'Restarts': 1, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [0, 1660644], 'TotalUserCpuTimeHistory': [0.0, 11800], 'SiteHistory': ['Unknown', 'Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [0.0, 481]}, '13': {'Retries': 0, 'WallDurations': [9.0, 12629.0], 'StartTimes': [1581954486.0], 'SubmitTimes': [1581940663.0], 'JobIds': ['49902112.0'], 'EndTimes': [1581967115.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1657844], 'TotalUserCpuTimeHistory': [11626], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [473]}, '12': {'Retries': 0, 'WallDurations': [8.0, 15364.0], 'StartTimes': [1581951695.0], 'SubmitTimes': [1581940662.0], 'JobIds': ['49902111.0'], 'EndTimes': [1581967059.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1695828], 'TotalUserCpuTimeHistory': [14164], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [578]}, '15': {'Retries': 0, 'WallDurations': [8.0, 15388.0], 'StartTimes': [1581963334.0], 'SubmitTimes': [1581940663.0], 'JobIds': ['49902114.0'], 'EndTimes': [1581978722.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1674624], 'TotalUserCpuTimeHistory': [13827], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [756]}, '14': {'Retries': 0, 'WallDurations': [9.0, 13987.0], 'StartTimes': [1581962886.0], 'SubmitTimes': [1581940663.0], 'JobIds': ['49902113.0'], 'EndTimes': [1581976873.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1753840], 'TotalUserCpuTimeHistory': [12231], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [763]}, '17': {'Retries': 0, 'WallDurations': [9.0, 13194.0], 'StartTimes': [1581967068.0], 'SubmitTimes': [1581940663.0], 'JobIds': ['49902116.0'], 'EndTimes': [1581980262.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1674916], 'TotalUserCpuTimeHistory': [12336], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [374]}, '16': {'Retries': 0, 'WallDurations': [9.0, 16386.0], 'StartTimes': [1581963356.0], 'SubmitTimes': [1581940663.0], 'JobIds': ['49902115.0'], 'EndTimes': [1581979742.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1710136], 'TotalUserCpuTimeHistory': [14523], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [779]}, '19': {'Retries': 0, 'WallDurations': [9.0, 16310.0], 'StartTimes': [1581969014.0], 'SubmitTimes': [1581940669.0], 'JobIds': ['49902119.0'], 'EndTimes': [1581985324.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1775312], 'TotalUserCpuTimeHistory': [14196], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [931]}, '18': {'Retries': 0, 'WallDurations': [8.0, 15447.0], 'StartTimes': [1581967128.0], 'SubmitTimes': [1581940664.0], 'JobIds': ['49902117.0'], 'EndTimes': [1581982575.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1774016], 'TotalUserCpuTimeHistory': [13879], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [705]}}
+INFO 2020-02-19 10:30:39.938 UTC: 	 Status on the scheduler:	FAILED
+INFO 2020-02-19 10:30:39.938 UTC: 	 
+The job splitting of this task is 'Automatic', please refer to this FAQ for a description of the jobs status summary:
+https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3FAQ#What_is_the_Automatic_splitting
+INFO 2020-02-19 10:30:39.939 UTC: 	 
+Jobs status:                    failed       		 11.1% ( 3/27)
+INFO 2020-02-19 10:30:39.939 UTC: 	 				finished     		 88.9% (24/27)
+INFO 2020-02-19 10:30:40.559 UTC: 	 
+Error Summary: (use crab status --verboseErrors for details about the errors)
+
+ 3 jobs failed with exit code 139
+
+Have a look at https://twiki.cern.ch/twiki/bin/viewauth/CMSPublic/JobExitCodes for a description of the exit codes.
+INFO 2020-02-19 10:30:40.562 UTC: 	 
+Warning: the max jobs runtime is less than 30% of the task requested value (1250 min), please consider to request a lower value for failed jobs (allowed through crab resubmit) and/or improve the jobs splitting (e.g. config.Data.splitting = 'Automatic') in a new task.
+INFO 2020-02-19 10:30:40.562 UTC: 	 
+Summary of run jobs:
+ * Memory: 1546MB min, 1751MB max, 1628MB ave
+ * Runtime: 0:14:05 min, 5:21:56 max, 3:18:44 ave
+ * CPU eff: 76% min, 98% max, 93% ave
+ * Waste: 0:04:29 (0% of total)
+
+INFO 2020-02-19 10:30:40.577 UTC: 	 Log file is /uscms_data/d3/twelton/WorkingArea/CMSSW_10_2_16/ExcitedTau/NanoAOD_Crab/crab_projects/crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1/crab.log
+DEBUG 2020-02-19 10:31:44.531 UTC: 	 Running on: Linux cmslpc25.fnal.gov 2.6.32-754.25.1.el6.x86_64 #1 SMP Tue Dec 17 13:08:11 CST 2019 x86_64 x86_64 x86_64 GNU/Linux - Scientific Linux Fermi release 6.10 (Ramsey)
+DEBUG 2020-02-19 10:31:44.549 UTC: 	 OpenSSl version: OpenSSL 1.0.1e-fips 11 Feb 2013
+DEBUG 2020-02-19 10:31:44.549 UTC: 	 Executing command: 'resubmit'
+DEBUG 2020-02-19 10:31:44.550 UTC: 	 Found CRAB cache file /uscms/home/twelton/.crab3
+DEBUG 2020-02-19 10:31:44.561 UTC: 	 Checking credentials
+DEBUG 2020-02-19 10:31:44.562 UTC: 	 Found proxy file /uscms/home/twelton/x509up_u54539
+DEBUG 2020-02-19 10:31:44.562 UTC: 	 Getting proxy life time left
+DEBUG 2020-02-19 10:31:44.666 UTC: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/twelton/x509up_u54539 -timeleft
+ output : 86330
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-19 10:31:44.770 UTC: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/twelton/x509up_u54539 -actimeleft
+ output : 86330
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-19 10:31:44.770 UTC: 	 Proxy valid for 23:58:50 hours
+DEBUG 2020-02-19 10:31:44.885 UTC: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=twelton/CN=831894/CN=Troy Phelps Welton
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-19 10:31:44.885 UTC: 	 Checking credentials
+DEBUG 2020-02-19 10:31:44.885 UTC: 	 Found proxy file /uscms/home/twelton/x509up_u54539
+DEBUG 2020-02-19 10:31:44.885 UTC: 	 Getting proxy life time left
+DEBUG 2020-02-19 10:31:44.989 UTC: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/twelton/x509up_u54539 -timeleft
+ output : 86330
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-19 10:31:45.094 UTC: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/twelton/x509up_u54539 -actimeleft
+ output : 86329
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-19 10:31:45.094 UTC: 	 Proxy lifetime 86330 secs is different from voms extension lifetime 86329 secs for proxy: /uscms/home/twelton/x509up_u54539
+DEBUG 2020-02-19 10:31:45.095 UTC: 	 Proxy valid for 23:58:49 hours
+DEBUG 2020-02-19 10:31:45.726 UTC: 	 Registering user credentials for server /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+DEBUG 2020-02-19 10:31:45.836 UTC: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=twelton/CN=831894/CN=Troy Phelps Welton
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-19 10:31:45.836 UTC: 	 Getting myproxy life time left for myproxy.cern.ch
+DEBUG 2020-02-19 10:31:45.837 UTC: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=twelton/CN=831894/CN=Troy Phelps Welton_cmsweb.cern.ch for credential name
+DEBUG 2020-02-19 10:31:46.842 UTC: 	 Executing : 
+ command : myproxy-info -l f77f4422fa8c04e04485d19e7495a72c3da4ee66 -s myproxy.cern.ch
+ output : username: f77f4422fa8c04e04485d19e7495a72c3da4ee66
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=twelton/CN=831894/CN=Troy Phelps Welton
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+  timeleft: 407:16:13  (17.0 days)
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-19 10:31:46.844 UTC: 	 Myproxy is valid: 1466173
+DEBUG 2020-02-19 10:31:47.472 UTC: 	 Command use: resubmit
+DEBUG 2020-02-19 10:31:47.473 UTC: 	 Options use: []
+DEBUG 2020-02-19 10:31:48.195 UTC: 	 CRABClient version: 3.3.2001
+DEBUG 2020-02-19 10:31:48.195 UTC: 	 Instance is prod
+DEBUG 2020-02-19 10:31:48.195 UTC: 	 Server base url is cmsweb.cern.ch
+DEBUG 2020-02-19 10:31:48.195 UTC: 	 Command url /crabserver/prod/workflow
+DEBUG 2020-02-19 10:31:48.250 UTC: 	 Running on: Linux cmslpc25.fnal.gov 2.6.32-754.25.1.el6.x86_64 #1 SMP Tue Dec 17 13:08:11 CST 2019 x86_64 x86_64 x86_64 GNU/Linux - Scientific Linux Fermi release 6.10 (Ramsey)
+DEBUG 2020-02-19 10:31:48.268 UTC: 	 OpenSSl version: OpenSSL 1.0.1e-fips 11 Feb 2013
+DEBUG 2020-02-19 10:31:48.268 UTC: 	 Executing command: 'status'
+DEBUG 2020-02-19 10:31:48.269 UTC: 	 Found CRAB cache file /uscms/home/twelton/.crab3
+DEBUG 2020-02-19 10:31:48.279 UTC: 	 Checking credentials
+DEBUG 2020-02-19 10:31:48.279 UTC: 	 Found proxy file /uscms/home/twelton/x509up_u54539
+DEBUG 2020-02-19 10:31:48.279 UTC: 	 Getting proxy life time left
+DEBUG 2020-02-19 10:31:48.383 UTC: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/twelton/x509up_u54539 -timeleft
+ output : 86326
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-19 10:31:48.487 UTC: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/twelton/x509up_u54539 -actimeleft
+ output : 86326
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-19 10:31:48.488 UTC: 	 Proxy valid for 23:58:46 hours
+DEBUG 2020-02-19 10:31:48.605 UTC: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=twelton/CN=831894/CN=Troy Phelps Welton
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-19 10:31:48.605 UTC: 	 Checking credentials
+DEBUG 2020-02-19 10:31:48.606 UTC: 	 Found proxy file /uscms/home/twelton/x509up_u54539
+DEBUG 2020-02-19 10:31:48.606 UTC: 	 Getting proxy life time left
+DEBUG 2020-02-19 10:31:48.710 UTC: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/twelton/x509up_u54539 -timeleft
+ output : 86326
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-19 10:31:48.814 UTC: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/twelton/x509up_u54539 -actimeleft
+ output : 86326
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-19 10:31:48.814 UTC: 	 Proxy valid for 23:58:46 hours
+DEBUG 2020-02-19 10:31:49.412 UTC: 	 Registering user credentials for server /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+DEBUG 2020-02-19 10:31:49.523 UTC: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=twelton/CN=831894/CN=Troy Phelps Welton
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-19 10:31:49.523 UTC: 	 Getting myproxy life time left for myproxy.cern.ch
+DEBUG 2020-02-19 10:31:49.523 UTC: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=twelton/CN=831894/CN=Troy Phelps Welton_cmsweb.cern.ch for credential name
+DEBUG 2020-02-19 10:31:50.428 UTC: 	 Executing : 
+ command : myproxy-info -l f77f4422fa8c04e04485d19e7495a72c3da4ee66 -s myproxy.cern.ch
+ output : username: f77f4422fa8c04e04485d19e7495a72c3da4ee66
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=twelton/CN=831894/CN=Troy Phelps Welton
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+  timeleft: 407:16:09  (17.0 days)
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-19 10:31:50.429 UTC: 	 Myproxy is valid: 1466169
+DEBUG 2020-02-19 10:31:50.431 UTC: 	 Command use: status
+DEBUG 2020-02-19 10:31:50.431 UTC: 	 Options use: []
+DEBUG 2020-02-19 10:31:51.042 UTC: 	 CRABClient version: 3.3.2001
+DEBUG 2020-02-19 10:31:51.043 UTC: 	 Instance is prod
+DEBUG 2020-02-19 10:31:51.043 UTC: 	 Server base url is cmsweb.cern.ch
+DEBUG 2020-02-19 10:31:51.043 UTC: 	 Command url /crabserver/prod/workflow
+DEBUG 2020-02-19 10:31:51.686 UTC: 	 Got information from server oracle database: {u'result': [u'200217_100522:twelton_crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1', u'None', u'None', u'SUBMITTED', u'SUBMIT', u'2020-02-17 10:05:22.333656', u'None', u'2020-02-17 10:06:32.062273', u'None', u'CMSSW_10_2_16', u'slc6_amd64_gcc700', u'/EmbeddingRun2016E/ElMuFinalState-inputDoubleMu_94X_Legacy_miniAOD-v5/USER', u'F', u'0', u'[]', u'[]', u'Automatic', u"{'splitOnRun': False, 'minutes_per_job': 480, 'halt_job_on_file_boundaries': False, 'runs': [], 'lumis': []}", u'baac37cc6cf798a9b1fa938f529a5ff5741914404e6e89f237100bcc7a9e2582.tar.gz', u'https://cmsweb.cern.ch/crabcache', u'twelton', u'/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=twelton/CN=831894/CN=Troy Phelps Welton', u'cms', u'None', u'None', u'ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1-00000000000000000000000000000000', u'F', u'T3_US_FNALLPC', u'https://cmsweb.cern.ch/dbs/prod/phys03/DBSReader', u'https://cmsweb.cern.ch/dbs/prod/phys03/DBSWriter', u'T', u'[]', u'[]', u"['merged_nanoaod.root']", u'Analysis', u'pythia', u'None', u'{}', u'[]', u'T', u'crab-prod-tw01', u'[]', u'1250', u'1', u'2000', u'10', u'None', u'[]', u'http://vocms0121.cern.ch/mon/cms1424/200217_100522:twelton_crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1', u'None', u'[]', u'[]', u'https://cmsweb.cern.ch/crabserver/prod', u'cmsgwms-collector-global.cern.ch:9620,cmssrv623.fnal.gov:9620', u'crab3@vocms0121.cern.ch', u'F', u'[]', u'T', u'/store/user/twelton/ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1', u'F', u'None', u'F', u'None', u'EmbeddingRun2016E', u'2020-02-19 10:31:31.551388', u'2a920afc2f46a30b885d12b650bb2e40b253aacb1d0cc6d57882ed5725b2c66a.tar.gz', u'49891902', u'filetransfers', u'F', u'131.225.190.54', u'3052000.0', u'None'], u'desc': {u'columns': [u'tm_taskname', u'tm_activity', u'panda_jobset_id', u'tm_task_status', u'tm_task_command', u'tm_start_time', u'tm_start_injection', u'tm_end_injection', u'tm_task_failure', u'tm_job_sw', u'tm_job_arch', u'tm_input_dataset', u'tm_nonvalid_input_dataset', u'tm_use_parent', u'tm_site_whitelist', u'tm_site_blacklist', u'tm_split_algo', u'tm_split_args', u'tm_user_sandbox', u'tm_cache_url', u'tm_username', u'tm_user_dn', u'tm_user_vo', u'tm_user_role', u'tm_user_group', u'tm_publish_name', u'tm_publish_groupname', u'tm_asyncdest', u'tm_dbs_url', u'tm_publish_dbs_url', u'tm_publication', u'tm_outfiles', u'tm_tfile_outfiles', u'tm_edm_outfiles', u'tm_job_type', u'tm_generator', u'tm_events_per_lumi', u'tm_arguments', u'panda_resubmitted_jobs', u'tm_save_logs', u'tw_name', u'tm_user_infiles', u'tm_maxjobruntime', u'tm_numcores', u'tm_maxmemory', u'tm_priority', u'tm_output_dataset', u'tm_task_warnings', u'tm_user_webdir', u'tm_scriptexe', u'tm_scriptargs', u'tm_extrajdl', u'tm_asourl', u'tm_collector', u'tm_schedd', u'tm_dry_run', u'tm_user_files', u'tm_transfer_outputs', u'tm_output_lfn', u'tm_ignore_locality', u'tm_fail_limit', u'tm_one_event_mode', u'tm_secondary_input_dataset', u'tm_primary_dataset', u'tm_last_publication', u'tm_debug_files', u'clusterid', u'tm_asodb', u'tm_ignore_global_blacklist', u'tm_submitter_ip_addr', u'tm_totalunits', u'tm_ddm_reqid']}}
+INFO 2020-02-19 10:31:51.687 UTC: 	 CRAB project directory:		/uscms_data/d3/twelton/WorkingArea/CMSSW_10_2_16/ExcitedTau/NanoAOD_Crab/crab_projects/crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1
+INFO 2020-02-19 10:31:51.687 UTC: 	 Task name:			200217_100522:twelton_crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1
+INFO 2020-02-19 10:31:51.687 UTC: 	 Grid scheduler - Task Worker:	crab3@vocms0121.cern.ch - crab-prod-tw01
+INFO 2020-02-19 10:31:51.687 UTC: 	 Status on the CRAB server:	SUBMITTED
+INFO 2020-02-19 10:31:51.687 UTC: 	 Task URL to use for HELP:	https://cmsweb.cern.ch/crabserver/ui/task/200217_100522%3Atwelton_crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1
+INFO 2020-02-19 10:31:51.687 UTC: 	 Dashboard monitoring URL:	https://monit-grafana.cern.ch/d/cmsTMDetail/cms-task-monitoring-task-view?orgId=11&var-user=twelton&var-task=200217_100522%3Atwelton_crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1
+INFO 2020-02-19 10:31:51.688 UTC: 	 In case of issues with the dashboard, please provide feedback to hn-cms-computing-tools@cern.ch
+DEBUG 2020-02-19 10:31:51.688 UTC: 	 The CRAB server submitted your task to the Grid scheduler (cluster ID: 49891902)
+DEBUG 2020-02-19 10:31:51.688 UTC: 	 Webdir is located at http://vocms0121.cern.ch/mon/cms1424/200217_100522:twelton_crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1
+DEBUG 2020-02-19 10:31:52.324 UTC: 	 Proxied webdir is located at https://cmsweb.cern.ch/scheddmon/0121/cms1424/200217_100522:twelton_crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1
+DEBUG 2020-02-19 10:31:52.324 UTC: 	 Retrieving 'status_cache' file from https://cmsweb.cern.ch/scheddmon/0121/cms1424/200217_100522:twelton_crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1/status_cache
+DEBUG 2020-02-19 10:31:52.918 UTC: 	 Got information from status cache file: {'1-9': {'Retries': 0, 'WallDurations': [8.0, 7575.0], 'StartTimes': [1582052309.0], 'SubmitTimes': [1582015148.0], 'JobIds': ['49962942.0'], 'EndTimes': [1582059884.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1664468], 'TotalUserCpuTimeHistory': [7121.0], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [211.0]}, '1-8': {'Retries': 0, 'WallDurations': [9.0, 4736.0], 'StartTimes': [1582048748.0], 'SubmitTimes': [1582015148.0], 'JobIds': ['49962941.0'], 'EndTimes': [1582053484.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1593156], 'TotalUserCpuTimeHistory': [4402], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [142]}, '1-10': {'Retries': 0, 'WallDurations': [8.0, 2862.0], 'StartTimes': [1582053493.0], 'SubmitTimes': [1582015148.0], 'JobIds': ['49962943.0'], 'EndTimes': [1582056355.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1622032], 'TotalUserCpuTimeHistory': [2696], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [66]}, '20': {'Retries': 0, 'WallDurations': [9.0, 19316.0], 'StartTimes': [1581993614.0], 'SubmitTimes': [1581940669.0], 'JobIds': ['49902120.0'], 'EndTimes': [1582012930.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1793988], 'TotalUserCpuTimeHistory': [18379], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [482]}, '21': {'Retries': 0, 'WallDurations': [8.0, 9971.0], 'StartTimes': [1581993612.0], 'SubmitTimes': [1581940669.0], 'JobIds': ['49902121.0'], 'EndTimes': [1582003583.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1666356], 'TotalUserCpuTimeHistory': [8238], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [703]}, '1': {'Retries': 0, 'WallDurations': [8.0, 13017.0], 'StartTimes': [1581993611.0], 'SubmitTimes': [1581940652.0], 'JobIds': ['49902097.0'], 'EndTimes': [1582006628.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'failed', 'ResidentSetSize': [1659844], 'Error': [139, 'CmsRunFailure', {}], 'TotalUserCpuTimeHistory': [11940], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [478]}, '3': {'Retries': 0, 'WallDurations': [9.0, 7759.0], 'StartTimes': [1581993612.0], 'SubmitTimes': [1581940658.0], 'JobIds': ['49902101.0'], 'TotalUserCpuTimeHistory': [7056], 'EndTimes': [1582001371.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'failed', 'ResidentSetSize': [1723640], 'Error': [139, 'CmsRunFailure', {}], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [230]}, '2': {'Retries': 0, 'WallDurations': [9.0, 12993.0], 'StartTimes': [1581993616.0], 'SubmitTimes': [1581940653.0], 'JobIds': ['49902098.0'], 'EndTimes': [1582006609.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1719472], 'TotalUserCpuTimeHistory': [10723], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [980]}, '5': {'Retries': 0, 'WallDurations': [9.0, 16358.0], 'StartTimes': [1581993612.0], 'SubmitTimes': [1581940659.0], 'JobIds': ['49902103.0'], 'EndTimes': [1582009970.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1641028], 'TotalUserCpuTimeHistory': [13300], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [1234]}, '4': {'Retries': 0, 'WallDurations': [9.0, 17457.0], 'StartTimes': [1581993613.0], 'SubmitTimes': [1581940658.0], 'JobIds': ['49902102.0'], 'EndTimes': [1582011070.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1666528], 'TotalUserCpuTimeHistory': [15707], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [824]}, '7': {'Retries': 0, 'WallDurations': [0, 10.0, 18602.0], 'StartTimes': [1581948676.0], 'SubmitTimes': [1581940660.0, -1], 'JobIds': ['49902105.0', '49902105.0'], 'EndTimes': [1581948304.0, 1581967278.0], 'Restarts': 1, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [0, 1716096], 'TotalUserCpuTimeHistory': [0.0, 16598], 'SiteHistory': ['Unknown', 'Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [0.0, 949]}, '6': {'Retries': 0, 'WallDurations': [0, 9.0, 18539.0], 'StartTimes': [1581950436.0], 'SubmitTimes': [1581940659.0, -1], 'JobIds': ['49902104.0', '49902104.0'], 'TotalUserCpuTimeHistory': [0.0, 15827], 'EndTimes': [1581948305.0, 1581968975.0], 'Restarts': 1, 'RecordedSite': True, 'State': 'failed', 'ResidentSetSize': [0, 1579196], 'Error': [139, 'CmsRunFailure', {}], 'SiteHistory': ['Unknown', 'Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [0.0, 1321]}, '9': {'Retries': 0, 'WallDurations': [0, 8.0, 4023.0], 'StartTimes': [1581950453.0], 'SubmitTimes': [1581940660.0, -1], 'JobIds': ['49902107.0', '49902107.0'], 'TotalUserCpuTimeHistory': [0.0, 3757], 'EndTimes': [1581948307.0, 1581954476.0], 'Restarts': 1, 'RecordedSite': True, 'State': 'failed', 'ResidentSetSize': [0, 1616468], 'Error': [139, 'CmsRunFailure', {}], 'SiteHistory': ['Unknown', 'Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [0.0, 94]}, '8': {'Retries': 0, 'WallDurations': [0, 10.0, 14195.0], 'StartTimes': [1581948672.0], 'SubmitTimes': [1581940660.0, -1], 'JobIds': ['49902106.0', '49902106.0'], 'EndTimes': [1581948308.0, 1581962867.0], 'Restarts': 1, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [0, 1677072], 'TotalUserCpuTimeHistory': [0.0, 12786], 'SiteHistory': ['Unknown', 'Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [0.0, 607]}, '0-4': {'Retries': 0, 'WallDurations': [8.0, 1046.0], 'StartTimes': [1581937268.0], 'SubmitTimes': [1581934005.0], 'JobIds': ['49891905.0'], 'EndTimes': [1581938314.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1530180], 'TotalUserCpuTimeHistory': [839], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [35]}, '0-5': {'Retries': 0, 'WallDurations': [8.0, 994.0], 'StartTimes': [1581939320.0], 'SubmitTimes': [1581934006.0], 'JobIds': ['49891908.0'], 'TotalUserCpuTimeHistory': [810], 'EndTimes': [1581940314.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'failed', 'ResidentSetSize': [1583568], 'Error': [139, 'CmsRunFailure', {}], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [42]}, '0-1': {'Retries': 0, 'WallDurations': [9.0, 845.0], 'StartTimes': [1581939033.0], 'SubmitTimes': [1581934006.0], 'JobIds': ['49891907.0'], 'EndTimes': [1581939878.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'failed', 'ResidentSetSize': [1633564], 'Error': [139, 'CmsRunFailure', {}], 'TotalUserCpuTimeHistory': [678], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [33]}, '0-2': {'Retries': 0, 'WallDurations': [8.0, 996.0], 'StartTimes': [1581938321.0], 'SubmitTimes': [1581934005.0], 'JobIds': ['49891906.0'], 'EndTimes': [1581939317.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1645608], 'TotalUserCpuTimeHistory': [802], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [41]}, '0-3': {'Retries': 0, 'WallDurations': [9.0, 1018.0], 'StartTimes': [1581936238.0], 'SubmitTimes': [1581934005.0], 'JobIds': ['49891904.0'], 'TotalUserCpuTimeHistory': [883], 'EndTimes': [1581937256.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'failed', 'ResidentSetSize': [1659456], 'Error': [139, 'CmsRunFailure', {}], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [30]}, '1-1': {'Retries': 0, 'WallDurations': [8.0, 14428.0], 'StartTimes': [1582042488.0], 'SubmitTimes': [1582015146.0], 'JobIds': ['49962934.0'], 'EndTimes': [1582056916.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1430648], 'TotalUserCpuTimeHistory': [10120], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [989]}, '1-3': {'Retries': 0, 'WallDurations': [9.0, 12032.0], 'StartTimes': [1582042481.0], 'SubmitTimes': [1582015146.0], 'JobIds': ['49962935.0'], 'EndTimes': [1582054513.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1458456], 'TotalUserCpuTimeHistory': [8284], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [827]}, '1-2': {'Retries': 0, 'WallDurations': [9.0, 5200.0], 'StartTimes': [1582042564.0], 'SubmitTimes': [1582015147.0], 'JobIds': ['49962936.0'], 'TotalUserCpuTimeHistory': [4685], 'EndTimes': [1582047764.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'failed', 'ResidentSetSize': [1720980], 'Error': [139, 'CmsRunFailure', {}], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [209]}, '1-5': {'Retries': 0, 'WallDurations': [9.0, 6197.0], 'StartTimes': [1582042539.0], 'SubmitTimes': [1582015147.0], 'JobIds': ['49962938.0'], 'EndTimes': [1582048736.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1680176], 'TotalUserCpuTimeHistory': [5841], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [141]}, '1-4': {'Retries': 0, 'WallDurations': [9.0, 3050.0], 'StartTimes': [1582042560.0], 'SubmitTimes': [1582015147.0], 'JobIds': ['49962937.0'], 'EndTimes': [1582045610.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'failed', 'ResidentSetSize': [1668620], 'Error': [139, 'CmsRunFailure', {}], 'TotalUserCpuTimeHistory': [2801], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [82]}, '1-7': {'Retries': 0, 'WallDurations': [8.0, 8536.0], 'StartTimes': [1582047784.0], 'SubmitTimes': [1582015147.0], 'JobIds': ['49962940.0'], 'TotalUserCpuTimeHistory': [7765], 'EndTimes': [1582056320.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'failed', 'ResidentSetSize': [1628324], 'Error': [139, 'CmsRunFailure', {}], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [350]}, '1-6': {'Retries': 0, 'WallDurations': [8.0, 6585.0], 'StartTimes': [1582045716.0], 'SubmitTimes': [1582015147.0], 'JobIds': ['49962939.0'], 'EndTimes': [1582052301.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1656736], 'TotalUserCpuTimeHistory': [6226], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [156]}, '11': {'Retries': 0, 'WallDurations': [0, 9.0, 14640.0], 'StartTimes': [1581948693.0], 'SubmitTimes': [1581940662.0, -1], 'JobIds': ['49902110.0', '49902110.0'], 'EndTimes': [1581948311.0, 1581963333.0], 'Restarts': 1, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [0, 1722516], 'TotalUserCpuTimeHistory': [0.0, 12506], 'SiteHistory': ['Unknown', 'Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [0.0, 947]}, '10': {'Retries': 0, 'WallDurations': [0, 8.0, 12877.0], 'StartTimes': [1581950437.0], 'SubmitTimes': [1581940662.0, -1], 'JobIds': ['49902108.0', '49902108.0'], 'EndTimes': [1581948659.0, 1581963314.0], 'Restarts': 1, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [0, 1660644], 'TotalUserCpuTimeHistory': [0.0, 11800], 'SiteHistory': ['Unknown', 'Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [0.0, 481]}, '13': {'Retries': 0, 'WallDurations': [9.0, 12629.0], 'StartTimes': [1581954486.0], 'SubmitTimes': [1581940663.0], 'JobIds': ['49902112.0'], 'EndTimes': [1581967115.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1657844], 'TotalUserCpuTimeHistory': [11626], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [473]}, '12': {'Retries': 0, 'WallDurations': [8.0, 15364.0], 'StartTimes': [1581951695.0], 'SubmitTimes': [1581940662.0], 'JobIds': ['49902111.0'], 'EndTimes': [1581967059.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1695828], 'TotalUserCpuTimeHistory': [14164], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [578]}, '15': {'Retries': 0, 'WallDurations': [8.0, 15388.0], 'StartTimes': [1581963334.0], 'SubmitTimes': [1581940663.0], 'JobIds': ['49902114.0'], 'EndTimes': [1581978722.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1674624], 'TotalUserCpuTimeHistory': [13827], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [756]}, '14': {'Retries': 0, 'WallDurations': [9.0, 13987.0], 'StartTimes': [1581962886.0], 'SubmitTimes': [1581940663.0], 'JobIds': ['49902113.0'], 'EndTimes': [1581976873.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1753840], 'TotalUserCpuTimeHistory': [12231], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [763]}, '17': {'Retries': 0, 'WallDurations': [9.0, 13194.0], 'StartTimes': [1581967068.0], 'SubmitTimes': [1581940663.0], 'JobIds': ['49902116.0'], 'EndTimes': [1581980262.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1674916], 'TotalUserCpuTimeHistory': [12336], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [374]}, '16': {'Retries': 0, 'WallDurations': [9.0, 16386.0], 'StartTimes': [1581963356.0], 'SubmitTimes': [1581940663.0], 'JobIds': ['49902115.0'], 'EndTimes': [1581979742.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1710136], 'TotalUserCpuTimeHistory': [14523], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [779]}, '19': {'Retries': 0, 'WallDurations': [9.0, 16310.0], 'StartTimes': [1581969014.0], 'SubmitTimes': [1581940669.0], 'JobIds': ['49902119.0'], 'EndTimes': [1581985324.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1775312], 'TotalUserCpuTimeHistory': [14196], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [931]}, '18': {'Retries': 0, 'WallDurations': [8.0, 15447.0], 'StartTimes': [1581967128.0], 'SubmitTimes': [1581940664.0], 'JobIds': ['49902117.0'], 'EndTimes': [1581982575.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1774016], 'TotalUserCpuTimeHistory': [13879], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [705]}}
+INFO 2020-02-19 10:31:52.918 UTC: 	 Status on the scheduler:	FAILED
+INFO 2020-02-19 10:31:52.918 UTC: 	 
+The job splitting of this task is 'Automatic', please refer to this FAQ for a description of the jobs status summary:
+https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3FAQ#What_is_the_Automatic_splitting
+INFO 2020-02-19 10:31:52.918 UTC: 	 
+Jobs status:                    failed       		 11.1% ( 3/27)
+INFO 2020-02-19 10:31:52.919 UTC: 	 				finished     		 88.9% (24/27)
+INFO 2020-02-19 10:31:53.531 UTC: 	 
+Error Summary: (use crab status --verboseErrors for details about the errors)
+
+ 3 jobs failed with exit code 139
+
+Have a look at https://twiki.cern.ch/twiki/bin/viewauth/CMSPublic/JobExitCodes for a description of the exit codes.
+INFO 2020-02-19 10:31:53.533 UTC: 	 
+Warning: the max jobs runtime is less than 30% of the task requested value (1250 min), please consider to request a lower value for failed jobs (allowed through crab resubmit) and/or improve the jobs splitting (e.g. config.Data.splitting = 'Automatic') in a new task.
+INFO 2020-02-19 10:31:53.533 UTC: 	 
+Summary of run jobs:
+ * Memory: 1546MB min, 1751MB max, 1628MB ave
+ * Runtime: 0:14:05 min, 5:21:56 max, 3:18:44 ave
+ * CPU eff: 76% min, 98% max, 93% ave
+ * Waste: 0:04:29 (0% of total)
+
+DEBUG 2020-02-19 10:31:53.542 UTC: 	 Requesting resubmission of failed jobs in task 200217_100522:twelton_crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1
+INFO 2020-02-19 10:31:53.542 UTC: 	 Sending resubmit request to the server.
+DEBUG 2020-02-19 10:31:53.542 UTC: 	 Submitting {'publication': 0, 'jobids': ['1-2', '1-4', '1-7'], 'subresource': 'resubmit2', 'workflow': u'200217_100522:twelton_crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1'} 
+DEBUG 2020-02-19 10:31:53.542 UTC: 	 Encoded resubmit request: publication=0&subresource=resubmit2&workflow=200217_100522%3Atwelton_crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1&jobids=1-2&jobids=1-4&jobids=1-7
+DEBUG 2020-02-19 10:31:54.199 UTC: 	 Result: {u'result': [{u'result': u'ok'}], u'desc': {u'columns': [u'tm_site_blacklist', u'tm_site_whitelist', u'tm_maxjobruntime', u'tm_maxmemory', u'tm_numcores', u'tm_priority']}}
+INFO 2020-02-19 10:31:54.199 UTC: 	 Resubmit request sent to the server.
+INFO 2020-02-19 10:31:54.199 UTC: 	 Please use 'crab status' to check how the resubmission process proceeds.
+Notice it may take a couple of minutes for the resubmission to get fully processed.
+INFO 2020-02-19 10:31:54.207 UTC: 	 Log file is /uscms_data/d3/twelton/WorkingArea/CMSSW_10_2_16/ExcitedTau/NanoAOD_Crab/crab_projects/crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1/crab.log
+DEBUG 2020-02-19 10:40:35.114 UTC: 	 Running on: Linux cmslpc25.fnal.gov 2.6.32-754.25.1.el6.x86_64 #1 SMP Tue Dec 17 13:08:11 CST 2019 x86_64 x86_64 x86_64 GNU/Linux - Scientific Linux Fermi release 6.10 (Ramsey)
+DEBUG 2020-02-19 10:40:35.131 UTC: 	 OpenSSl version: OpenSSL 1.0.1e-fips 11 Feb 2013
+DEBUG 2020-02-19 10:40:35.131 UTC: 	 Executing command: 'status'
+DEBUG 2020-02-19 10:40:35.132 UTC: 	 Found CRAB cache file /uscms/home/twelton/.crab3
+DEBUG 2020-02-19 10:40:35.153 UTC: 	 Checking credentials
+DEBUG 2020-02-19 10:40:35.153 UTC: 	 Found proxy file /uscms/home/twelton/x509up_u54539
+DEBUG 2020-02-19 10:40:35.153 UTC: 	 Getting proxy life time left
+DEBUG 2020-02-19 10:40:35.257 UTC: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/twelton/x509up_u54539 -timeleft
+ output : 85799
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-19 10:40:35.361 UTC: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/twelton/x509up_u54539 -actimeleft
+ output : 85799
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-19 10:40:35.362 UTC: 	 Proxy valid for 23:49:59 hours
+DEBUG 2020-02-19 10:40:35.476 UTC: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=twelton/CN=831894/CN=Troy Phelps Welton
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-19 10:40:35.477 UTC: 	 Checking credentials
+DEBUG 2020-02-19 10:40:35.477 UTC: 	 Found proxy file /uscms/home/twelton/x509up_u54539
+DEBUG 2020-02-19 10:40:35.477 UTC: 	 Getting proxy life time left
+DEBUG 2020-02-19 10:40:35.581 UTC: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/twelton/x509up_u54539 -timeleft
+ output : 85799
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-19 10:40:35.685 UTC: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/twelton/x509up_u54539 -actimeleft
+ output : 85799
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-19 10:40:35.685 UTC: 	 Proxy valid for 23:49:59 hours
+DEBUG 2020-02-19 10:40:36.567 UTC: 	 Registering user credentials for server /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+DEBUG 2020-02-19 10:40:36.677 UTC: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=twelton/CN=831894/CN=Troy Phelps Welton
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-19 10:40:36.677 UTC: 	 Getting myproxy life time left for myproxy.cern.ch
+DEBUG 2020-02-19 10:40:36.677 UTC: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=twelton/CN=831894/CN=Troy Phelps Welton_cmsweb.cern.ch for credential name
+DEBUG 2020-02-19 10:40:37.783 UTC: 	 Executing : 
+ command : myproxy-info -l f77f4422fa8c04e04485d19e7495a72c3da4ee66 -s myproxy.cern.ch
+ output : username: f77f4422fa8c04e04485d19e7495a72c3da4ee66
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=twelton/CN=831894/CN=Troy Phelps Welton
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+  timeleft: 407:07:22  (17.0 days)
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-19 10:40:37.785 UTC: 	 Myproxy is valid: 1465642
+DEBUG 2020-02-19 10:40:37.787 UTC: 	 Command use: status
+DEBUG 2020-02-19 10:40:37.787 UTC: 	 Options use: []
+DEBUG 2020-02-19 10:40:38.446 UTC: 	 CRABClient version: 3.3.2001
+DEBUG 2020-02-19 10:40:38.446 UTC: 	 Instance is prod
+DEBUG 2020-02-19 10:40:38.446 UTC: 	 Server base url is cmsweb.cern.ch
+DEBUG 2020-02-19 10:40:38.446 UTC: 	 Command url /crabserver/prod/workflow
+DEBUG 2020-02-19 10:40:39.095 UTC: 	 Got information from server oracle database: {u'result': [u'200217_100522:twelton_crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1', u'None', u'None', u'SUBMITTED', u'None', u'2020-02-17 10:05:22.333656', u'None', u'2020-02-17 10:06:32.062273', u'None', u'CMSSW_10_2_16', u'slc6_amd64_gcc700', u'/EmbeddingRun2016E/ElMuFinalState-inputDoubleMu_94X_Legacy_miniAOD-v5/USER', u'F', u'0', u'[]', u'[]', u'Automatic', u"{'splitOnRun': False, 'minutes_per_job': 480, 'halt_job_on_file_boundaries': False, 'runs': [], 'lumis': []}", u'baac37cc6cf798a9b1fa938f529a5ff5741914404e6e89f237100bcc7a9e2582.tar.gz', u'https://cmsweb.cern.ch/crabcache', u'twelton', u'/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=twelton/CN=831894/CN=Troy Phelps Welton', u'cms', u'None', u'None', u'ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1-00000000000000000000000000000000', u'F', u'T3_US_FNALLPC', u'https://cmsweb.cern.ch/dbs/prod/phys03/DBSReader', u'https://cmsweb.cern.ch/dbs/prod/phys03/DBSWriter', u'T', u'[]', u'[]', u"['merged_nanoaod.root']", u'Analysis', u'pythia', u'None', u"{'maxjobruntime': 1250, 'priority': 10, 'site_blacklist': [], 'resubmit_jobids': ['1-2', '1-4', '1-7'], 'numcores': 1, 'site_whitelist': [], 'maxmemory': 2000, 'resubmit_publication': 0}", u'[]', u'T', u'crab-prod-tw01', u'[]', u'1250', u'1', u'2000', u'10', u'None', u'[]', u'http://vocms0121.cern.ch/mon/cms1424/200217_100522:twelton_crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1', u'None', u'[]', u'[]', u'https://cmsweb.cern.ch/crabserver/prod', u'cmsgwms-collector-global.cern.ch:9620,cmssrv623.fnal.gov:9620', u'crab3@vocms0121.cern.ch', u'F', u'[]', u'T', u'/store/user/twelton/ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1', u'F', u'None', u'F', u'None', u'EmbeddingRun2016E', u'2020-02-19 10:39:31.809961', u'2a920afc2f46a30b885d12b650bb2e40b253aacb1d0cc6d57882ed5725b2c66a.tar.gz', u'49891902', u'filetransfers', u'F', u'131.225.190.54', u'3052000.0', u'None'], u'desc': {u'columns': [u'tm_taskname', u'tm_activity', u'panda_jobset_id', u'tm_task_status', u'tm_task_command', u'tm_start_time', u'tm_start_injection', u'tm_end_injection', u'tm_task_failure', u'tm_job_sw', u'tm_job_arch', u'tm_input_dataset', u'tm_nonvalid_input_dataset', u'tm_use_parent', u'tm_site_whitelist', u'tm_site_blacklist', u'tm_split_algo', u'tm_split_args', u'tm_user_sandbox', u'tm_cache_url', u'tm_username', u'tm_user_dn', u'tm_user_vo', u'tm_user_role', u'tm_user_group', u'tm_publish_name', u'tm_publish_groupname', u'tm_asyncdest', u'tm_dbs_url', u'tm_publish_dbs_url', u'tm_publication', u'tm_outfiles', u'tm_tfile_outfiles', u'tm_edm_outfiles', u'tm_job_type', u'tm_generator', u'tm_events_per_lumi', u'tm_arguments', u'panda_resubmitted_jobs', u'tm_save_logs', u'tw_name', u'tm_user_infiles', u'tm_maxjobruntime', u'tm_numcores', u'tm_maxmemory', u'tm_priority', u'tm_output_dataset', u'tm_task_warnings', u'tm_user_webdir', u'tm_scriptexe', u'tm_scriptargs', u'tm_extrajdl', u'tm_asourl', u'tm_collector', u'tm_schedd', u'tm_dry_run', u'tm_user_files', u'tm_transfer_outputs', u'tm_output_lfn', u'tm_ignore_locality', u'tm_fail_limit', u'tm_one_event_mode', u'tm_secondary_input_dataset', u'tm_primary_dataset', u'tm_last_publication', u'tm_debug_files', u'clusterid', u'tm_asodb', u'tm_ignore_global_blacklist', u'tm_submitter_ip_addr', u'tm_totalunits', u'tm_ddm_reqid']}}
+INFO 2020-02-19 10:40:39.095 UTC: 	 CRAB project directory:		/uscms_data/d3/twelton/WorkingArea/CMSSW_10_2_16/ExcitedTau/NanoAOD_Crab/crab_projects/crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1
+INFO 2020-02-19 10:40:39.096 UTC: 	 Task name:			200217_100522:twelton_crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1
+INFO 2020-02-19 10:40:39.096 UTC: 	 Grid scheduler - Task Worker:	crab3@vocms0121.cern.ch - crab-prod-tw01
+INFO 2020-02-19 10:40:39.096 UTC: 	 Status on the CRAB server:	SUBMITTED
+INFO 2020-02-19 10:40:39.096 UTC: 	 Task URL to use for HELP:	https://cmsweb.cern.ch/crabserver/ui/task/200217_100522%3Atwelton_crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1
+INFO 2020-02-19 10:40:39.096 UTC: 	 Dashboard monitoring URL:	https://monit-grafana.cern.ch/d/cmsTMDetail/cms-task-monitoring-task-view?orgId=11&var-user=twelton&var-task=200217_100522%3Atwelton_crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1
+INFO 2020-02-19 10:40:39.096 UTC: 	 In case of issues with the dashboard, please provide feedback to hn-cms-computing-tools@cern.ch
+DEBUG 2020-02-19 10:40:39.096 UTC: 	 The CRAB server submitted your task to the Grid scheduler (cluster ID: 49891902)
+DEBUG 2020-02-19 10:40:39.097 UTC: 	 Webdir is located at http://vocms0121.cern.ch/mon/cms1424/200217_100522:twelton_crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1
+DEBUG 2020-02-19 10:40:39.701 UTC: 	 Proxied webdir is located at https://cmsweb.cern.ch/scheddmon/0121/cms1424/200217_100522:twelton_crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1
+DEBUG 2020-02-19 10:40:39.701 UTC: 	 Retrieving 'status_cache' file from https://cmsweb.cern.ch/scheddmon/0121/cms1424/200217_100522:twelton_crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1/status_cache
+DEBUG 2020-02-19 10:40:40.335 UTC: 	 Got information from status cache file: {'1-9': {'Retries': 0, 'WallDurations': [8.0, 7575.0], 'StartTimes': [1582052309.0], 'SubmitTimes': [1582015148.0], 'JobIds': ['49962942.0'], 'EndTimes': [1582059884.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1664468], 'TotalUserCpuTimeHistory': [7121.0], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [211.0]}, '1-8': {'Retries': 0, 'WallDurations': [9.0, 4736.0], 'StartTimes': [1582048748.0], 'SubmitTimes': [1582015148.0], 'JobIds': ['49962941.0'], 'EndTimes': [1582053484.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1593156], 'TotalUserCpuTimeHistory': [4402], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [142]}, '1-10': {'Retries': 0, 'WallDurations': [8.0, 2862.0], 'StartTimes': [1582053493.0], 'SubmitTimes': [1582015148.0], 'JobIds': ['49962943.0'], 'EndTimes': [1582056355.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1622032], 'TotalUserCpuTimeHistory': [2696], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [66]}, '20': {'Retries': 0, 'WallDurations': [9.0, 19316.0], 'StartTimes': [1581993614.0], 'SubmitTimes': [1581940669.0], 'JobIds': ['49902120.0'], 'EndTimes': [1582012930.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1793988], 'TotalUserCpuTimeHistory': [18379], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [482]}, '21': {'Retries': 0, 'WallDurations': [8.0, 9971.0], 'StartTimes': [1581993612.0], 'SubmitTimes': [1581940669.0], 'JobIds': ['49902121.0'], 'EndTimes': [1582003583.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1666356], 'TotalUserCpuTimeHistory': [8238], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [703]}, '1': {'Retries': 0, 'WallDurations': [8.0, 13017.0], 'StartTimes': [1581993611.0], 'SubmitTimes': [1581940652.0], 'JobIds': ['49902097.0'], 'EndTimes': [1582006628.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'failed', 'ResidentSetSize': [1659844], 'Error': [139, 'CmsRunFailure', {}], 'TotalUserCpuTimeHistory': [11940], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [478]}, '3': {'Retries': 0, 'WallDurations': [9.0, 7759.0], 'StartTimes': [1581993612.0], 'SubmitTimes': [1581940658.0], 'JobIds': ['49902101.0'], 'TotalUserCpuTimeHistory': [7056], 'EndTimes': [1582001371.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'failed', 'ResidentSetSize': [1723640], 'Error': [139, 'CmsRunFailure', {}], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [230]}, '2': {'Retries': 0, 'WallDurations': [9.0, 12993.0], 'StartTimes': [1581993616.0], 'SubmitTimes': [1581940653.0], 'JobIds': ['49902098.0'], 'EndTimes': [1582006609.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1719472], 'TotalUserCpuTimeHistory': [10723], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [980]}, '5': {'Retries': 0, 'WallDurations': [9.0, 16358.0], 'StartTimes': [1581993612.0], 'SubmitTimes': [1581940659.0], 'JobIds': ['49902103.0'], 'EndTimes': [1582009970.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1641028], 'TotalUserCpuTimeHistory': [13300], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [1234]}, '4': {'Retries': 0, 'WallDurations': [9.0, 17457.0], 'StartTimes': [1581993613.0], 'SubmitTimes': [1581940658.0], 'JobIds': ['49902102.0'], 'EndTimes': [1582011070.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1666528], 'TotalUserCpuTimeHistory': [15707], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [824]}, '7': {'Retries': 0, 'WallDurations': [0, 10.0, 18602.0], 'StartTimes': [1581948676.0], 'SubmitTimes': [1581940660.0, -1], 'JobIds': ['49902105.0', '49902105.0'], 'EndTimes': [1581948304.0, 1581967278.0], 'Restarts': 1, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [0, 1716096], 'TotalUserCpuTimeHistory': [0.0, 16598], 'SiteHistory': ['Unknown', 'Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [0.0, 949]}, '6': {'Retries': 0, 'WallDurations': [0, 9.0, 18539.0], 'StartTimes': [1581950436.0], 'SubmitTimes': [1581940659.0, -1], 'JobIds': ['49902104.0', '49902104.0'], 'TotalUserCpuTimeHistory': [0.0, 15827], 'EndTimes': [1581948305.0, 1581968975.0], 'Restarts': 1, 'RecordedSite': True, 'State': 'failed', 'ResidentSetSize': [0, 1579196], 'Error': [139, 'CmsRunFailure', {}], 'SiteHistory': ['Unknown', 'Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [0.0, 1321]}, '9': {'Retries': 0, 'WallDurations': [0, 8.0, 4023.0], 'StartTimes': [1581950453.0], 'SubmitTimes': [1581940660.0, -1], 'JobIds': ['49902107.0', '49902107.0'], 'TotalUserCpuTimeHistory': [0.0, 3757], 'EndTimes': [1581948307.0, 1581954476.0], 'Restarts': 1, 'RecordedSite': True, 'State': 'failed', 'ResidentSetSize': [0, 1616468], 'Error': [139, 'CmsRunFailure', {}], 'SiteHistory': ['Unknown', 'Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [0.0, 94]}, '8': {'Retries': 0, 'WallDurations': [0, 10.0, 14195.0], 'StartTimes': [1581948672.0], 'SubmitTimes': [1581940660.0, -1], 'JobIds': ['49902106.0', '49902106.0'], 'EndTimes': [1581948308.0, 1581962867.0], 'Restarts': 1, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [0, 1677072], 'TotalUserCpuTimeHistory': [0.0, 12786], 'SiteHistory': ['Unknown', 'Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [0.0, 607]}, '0-4': {'Retries': 0, 'WallDurations': [8.0, 1046.0], 'StartTimes': [1581937268.0], 'SubmitTimes': [1581934005.0], 'JobIds': ['49891905.0'], 'EndTimes': [1581938314.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1530180], 'TotalUserCpuTimeHistory': [839], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [35]}, '0-5': {'Retries': 0, 'WallDurations': [8.0, 994.0], 'StartTimes': [1581939320.0], 'SubmitTimes': [1581934006.0], 'JobIds': ['49891908.0'], 'TotalUserCpuTimeHistory': [810], 'EndTimes': [1581940314.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'failed', 'ResidentSetSize': [1583568], 'Error': [139, 'CmsRunFailure', {}], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [42]}, '0-1': {'Retries': 0, 'WallDurations': [9.0, 845.0], 'StartTimes': [1581939033.0], 'SubmitTimes': [1581934006.0], 'JobIds': ['49891907.0'], 'EndTimes': [1581939878.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'failed', 'ResidentSetSize': [1633564], 'Error': [139, 'CmsRunFailure', {}], 'TotalUserCpuTimeHistory': [678], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [33]}, '0-2': {'Retries': 0, 'WallDurations': [8.0, 996.0], 'StartTimes': [1581938321.0], 'SubmitTimes': [1581934005.0], 'JobIds': ['49891906.0'], 'EndTimes': [1581939317.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1645608], 'TotalUserCpuTimeHistory': [802], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [41]}, '0-3': {'Retries': 0, 'WallDurations': [9.0, 1018.0], 'StartTimes': [1581936238.0], 'SubmitTimes': [1581934005.0], 'JobIds': ['49891904.0'], 'TotalUserCpuTimeHistory': [883], 'EndTimes': [1581937256.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'failed', 'ResidentSetSize': [1659456], 'Error': [139, 'CmsRunFailure', {}], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [30]}, '1-1': {'Retries': 0, 'WallDurations': [8.0, 14428.0], 'StartTimes': [1582042488.0], 'SubmitTimes': [1582015146.0], 'JobIds': ['49962934.0'], 'EndTimes': [1582056916.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1430648], 'TotalUserCpuTimeHistory': [10120], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [989]}, '1-3': {'Retries': 0, 'WallDurations': [9.0, 12032.0], 'StartTimes': [1582042481.0], 'SubmitTimes': [1582015146.0], 'JobIds': ['49962935.0'], 'EndTimes': [1582054513.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1458456], 'TotalUserCpuTimeHistory': [8284], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [827]}, '1-2': {'Retries': 1, 'WallDurations': [9.0, 5200.0, 0], 'StartTimes': [1582042564.0], 'SubmitTimes': [1582015147.0, 1582108382.0], 'JobIds': ['49962936.0', '50027150.0'], 'TotalUserCpuTimeHistory': [4685, 0.0], 'EndTimes': [1582047764.0], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [1720980, 0], 'Error': [139, 'CmsRunFailure', {}], 'SiteHistory': ['Unknown', 'T1_DE_KIT', 'Unknown'], 'TotalSysCpuTimeHistory': [209, 0.0]}, '1-5': {'Retries': 0, 'WallDurations': [9.0, 6197.0], 'StartTimes': [1582042539.0], 'SubmitTimes': [1582015147.0], 'JobIds': ['49962938.0'], 'EndTimes': [1582048736.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1680176], 'TotalUserCpuTimeHistory': [5841], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [141]}, '1-4': {'Retries': 1, 'WallDurations': [9.0, 3050.0, 0], 'StartTimes': [1582042560.0], 'SubmitTimes': [1582015147.0, 1582108382.0], 'JobIds': ['49962937.0', '50027151.0'], 'EndTimes': [1582045610.0], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [1668620, 0], 'Error': [139, 'CmsRunFailure', {}], 'TotalUserCpuTimeHistory': [2801, 0.0], 'SiteHistory': ['Unknown', 'T1_DE_KIT', 'Unknown'], 'TotalSysCpuTimeHistory': [82, 0.0]}, '1-7': {'Retries': 1, 'WallDurations': [8.0, 8536.0, 0], 'StartTimes': [1582047784.0], 'SubmitTimes': [1582015147.0, 1582108383.0], 'JobIds': ['49962940.0', '50027152.0'], 'TotalUserCpuTimeHistory': [7765, 0.0], 'EndTimes': [1582056320.0], 'Restarts': 0, 'RecordedSite': False, 'State': 'idle', 'ResidentSetSize': [1628324, 0], 'Error': [139, 'CmsRunFailure', {}], 'SiteHistory': ['Unknown', 'T1_DE_KIT', 'Unknown'], 'TotalSysCpuTimeHistory': [350, 0.0]}, '1-6': {'Retries': 0, 'WallDurations': [8.0, 6585.0], 'StartTimes': [1582045716.0], 'SubmitTimes': [1582015147.0], 'JobIds': ['49962939.0'], 'EndTimes': [1582052301.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1656736], 'TotalUserCpuTimeHistory': [6226], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [156]}, '11': {'Retries': 0, 'WallDurations': [0, 9.0, 14640.0], 'StartTimes': [1581948693.0], 'SubmitTimes': [1581940662.0, -1], 'JobIds': ['49902110.0', '49902110.0'], 'EndTimes': [1581948311.0, 1581963333.0], 'Restarts': 1, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [0, 1722516], 'TotalUserCpuTimeHistory': [0.0, 12506], 'SiteHistory': ['Unknown', 'Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [0.0, 947]}, '10': {'Retries': 0, 'WallDurations': [0, 8.0, 12877.0], 'StartTimes': [1581950437.0], 'SubmitTimes': [1581940662.0, -1], 'JobIds': ['49902108.0', '49902108.0'], 'EndTimes': [1581948659.0, 1581963314.0], 'Restarts': 1, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [0, 1660644], 'TotalUserCpuTimeHistory': [0.0, 11800], 'SiteHistory': ['Unknown', 'Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [0.0, 481]}, '13': {'Retries': 0, 'WallDurations': [9.0, 12629.0], 'StartTimes': [1581954486.0], 'SubmitTimes': [1581940663.0], 'JobIds': ['49902112.0'], 'EndTimes': [1581967115.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1657844], 'TotalUserCpuTimeHistory': [11626], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [473]}, '12': {'Retries': 0, 'WallDurations': [8.0, 15364.0], 'StartTimes': [1581951695.0], 'SubmitTimes': [1581940662.0], 'JobIds': ['49902111.0'], 'EndTimes': [1581967059.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1695828], 'TotalUserCpuTimeHistory': [14164], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [578]}, '15': {'Retries': 0, 'WallDurations': [8.0, 15388.0], 'StartTimes': [1581963334.0], 'SubmitTimes': [1581940663.0], 'JobIds': ['49902114.0'], 'EndTimes': [1581978722.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1674624], 'TotalUserCpuTimeHistory': [13827], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [756]}, '14': {'Retries': 0, 'WallDurations': [9.0, 13987.0], 'StartTimes': [1581962886.0], 'SubmitTimes': [1581940663.0], 'JobIds': ['49902113.0'], 'EndTimes': [1581976873.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1753840], 'TotalUserCpuTimeHistory': [12231], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [763]}, '17': {'Retries': 0, 'WallDurations': [9.0, 13194.0], 'StartTimes': [1581967068.0], 'SubmitTimes': [1581940663.0], 'JobIds': ['49902116.0'], 'EndTimes': [1581980262.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1674916], 'TotalUserCpuTimeHistory': [12336], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [374]}, '16': {'Retries': 0, 'WallDurations': [9.0, 16386.0], 'StartTimes': [1581963356.0], 'SubmitTimes': [1581940663.0], 'JobIds': ['49902115.0'], 'EndTimes': [1581979742.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1710136], 'TotalUserCpuTimeHistory': [14523], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [779]}, '19': {'Retries': 0, 'WallDurations': [9.0, 16310.0], 'StartTimes': [1581969014.0], 'SubmitTimes': [1581940669.0], 'JobIds': ['49902119.0'], 'EndTimes': [1581985324.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1775312], 'TotalUserCpuTimeHistory': [14196], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [931]}, '18': {'Retries': 0, 'WallDurations': [8.0, 15447.0], 'StartTimes': [1581967128.0], 'SubmitTimes': [1581940664.0], 'JobIds': ['49902117.0'], 'EndTimes': [1581982575.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1774016], 'TotalUserCpuTimeHistory': [13879], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [705]}}
+INFO 2020-02-19 10:40:40.335 UTC: 	 Status on the scheduler:	SUBMITTED
+INFO 2020-02-19 10:40:40.335 UTC: 	 
+The job splitting of this task is 'Automatic', please refer to this FAQ for a description of the jobs status summary:
+https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3FAQ#What_is_the_Automatic_splitting
+INFO 2020-02-19 10:40:40.335 UTC: 	 
+Jobs status:                    finished     		 88.9% (24/27)
+INFO 2020-02-19 10:40:40.336 UTC: 	 				idle         		 11.1% ( 3/27)
+INFO 2020-02-19 10:40:41.085 UTC: 	 
+Warning: the max jobs runtime is less than 30% of the task requested value (1250 min), please consider to request a lower value for failed jobs (allowed through crab resubmit) and/or improve the jobs splitting (e.g. config.Data.splitting = 'Automatic') in a new task.
+INFO 2020-02-19 10:40:41.085 UTC: 	 
+Summary of run jobs:
+ * Memory: 0MB min, 1751MB max, 1628MB ave
+ * Runtime: 0:00:00 min, 5:21:56 max, 3:30:02 ave
+ * CPU eff: 76% min, 98% max, 93% ave
+ * Waste: 0:04:03 (0% of total)
+
+INFO 2020-02-19 10:40:41.099 UTC: 	 Log file is /uscms_data/d3/twelton/WorkingArea/CMSSW_10_2_16/ExcitedTau/NanoAOD_Crab/crab_projects/crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1/crab.log
+DEBUG 2020-02-21 10:45:48.372 UTC: 	 Running on: Linux cmslpc29.fnal.gov 2.6.32-754.25.1.el6.x86_64 #1 SMP Tue Dec 17 13:08:11 CST 2019 x86_64 x86_64 x86_64 GNU/Linux - Scientific Linux Fermi release 6.10 (Ramsey)
+DEBUG 2020-02-21 10:45:48.389 UTC: 	 OpenSSl version: OpenSSL 1.0.1e-fips 11 Feb 2013
+DEBUG 2020-02-21 10:45:48.389 UTC: 	 Executing command: 'status'
+DEBUG 2020-02-21 10:45:48.390 UTC: 	 Found CRAB cache file /uscms/home/twelton/.crab3
+DEBUG 2020-02-21 10:45:48.414 UTC: 	 Checking credentials
+DEBUG 2020-02-21 10:45:48.414 UTC: 	 Found proxy file /uscms/home/twelton/x509up_u54539
+DEBUG 2020-02-21 10:45:48.414 UTC: 	 Getting proxy life time left
+DEBUG 2020-02-21 10:45:48.519 UTC: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/twelton/x509up_u54539 -timeleft
+ output : 41308
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-21 10:45:48.623 UTC: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/twelton/x509up_u54539 -actimeleft
+ output : 41308
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-21 10:45:48.623 UTC: 	 Proxy valid for 11:28:28 hours
+DEBUG 2020-02-21 10:45:48.737 UTC: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=twelton/CN=831894/CN=Troy Phelps Welton
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-21 10:45:48.737 UTC: 	 Checking credentials
+DEBUG 2020-02-21 10:45:48.737 UTC: 	 Found proxy file /uscms/home/twelton/x509up_u54539
+DEBUG 2020-02-21 10:45:48.738 UTC: 	 Getting proxy life time left
+DEBUG 2020-02-21 10:45:48.841 UTC: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/twelton/x509up_u54539 -timeleft
+ output : 41308
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-21 10:45:48.946 UTC: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/twelton/x509up_u54539 -actimeleft
+ output : 41308
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-21 10:45:48.946 UTC: 	 Proxy valid for 11:28:28 hours
+DEBUG 2020-02-21 10:45:49.586 UTC: 	 Registering user credentials for server /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+DEBUG 2020-02-21 10:45:49.697 UTC: 	 Executing : 
+ command : openssl x509 -in ~/.globus/usercert.pem -subject -noout
+ output : subject= /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=twelton/CN=831894/CN=Troy Phelps Welton
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-21 10:45:49.697 UTC: 	 Getting myproxy life time left for myproxy.cern.ch
+DEBUG 2020-02-21 10:45:49.697 UTC: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=twelton/CN=831894/CN=Troy Phelps Welton_cmsweb.cern.ch for credential name
+DEBUG 2020-02-21 10:45:50.603 UTC: 	 Executing : 
+ command : myproxy-info -l f77f4422fa8c04e04485d19e7495a72c3da4ee66 -s myproxy.cern.ch
+ output : username: f77f4422fa8c04e04485d19e7495a72c3da4ee66
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=twelton/CN=831894/CN=Troy Phelps Welton
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+  timeleft: 359:02:09  (15.0 days)
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-21 10:45:50.604 UTC: 	 Myproxy is valid: 1292529
+DEBUG 2020-02-21 10:45:50.709 UTC: 	 Executing : 
+ command : openssl x509 -noout -in ~/.globus/usercert.pem -dates
+ output : notBefore=Feb  5 14:20:20 2020 GMT
+notAfter=Mar 11 14:20:20 2021 GMT
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-21 10:45:50.723 UTC: 	 Delegating a myproxy for 720:00 hours
+DEBUG 2020-02-21 10:45:50.723 UTC: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=twelton/CN=831894/CN=Troy Phelps Welton_cmsweb.cern.ch for credential name
+DEBUG 2020-02-21 10:46:00.045 UTC: 	 Executing : 
+ command : export GT_PROXY_MODE=rfc ; myproxy-init -d -n -s myproxy.cern.ch -x -R '/DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch' -x -Z '/DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch' -l 'f77f4422fa8c04e04485d19e7495a72c3da4ee66' -t 168:00 -c 720:00
+ output : Your identity: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=twelton/CN=831894/CN=Troy Phelps Welton
+Creating proxy .......................................................................................... Done
+Proxy Verify OK
+Your proxy is valid until: Sun Mar 22 05:45:59 2020
+A proxy valid for 720 hours (30.0 days) for user f77f4422fa8c04e04485d19e7495a72c3da4ee66 now exists on myproxy.cern.ch.
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-21 10:46:00.045 UTC: 	 Calculating hash of /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=twelton/CN=831894/CN=Troy Phelps Welton_cmsweb.cern.ch for credential name
+DEBUG 2020-02-21 10:46:00.952 UTC: 	 Executing : 
+ command : myproxy-info -l f77f4422fa8c04e04485d19e7495a72c3da4ee66 -s myproxy.cern.ch
+ output : username: f77f4422fa8c04e04485d19e7495a72c3da4ee66
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=twelton/CN=831894/CN=Troy Phelps Welton
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=vocms(052|058|030|0118|0105|0109).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(02|01).cern.ch
+  timeleft: 719:59:59  (30.0 days)
+
+ error: 
+ retcode : 0
+DEBUG 2020-02-21 10:46:00.952 UTC: 	 My-proxy delegated.
+DEBUG 2020-02-21 10:46:00.955 UTC: 	 Command use: status
+DEBUG 2020-02-21 10:46:00.955 UTC: 	 Options use: []
+DEBUG 2020-02-21 10:46:01.588 UTC: 	 CRABClient version: 3.3.2001
+DEBUG 2020-02-21 10:46:01.589 UTC: 	 Instance is prod
+DEBUG 2020-02-21 10:46:01.589 UTC: 	 Server base url is cmsweb.cern.ch
+DEBUG 2020-02-21 10:46:01.589 UTC: 	 Command url /crabserver/prod/workflow
+DEBUG 2020-02-21 10:46:02.268 UTC: 	 Got information from server oracle database: {u'result': [u'200217_100522:twelton_crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1', u'None', u'None', u'SUBMITTED', u'None', u'2020-02-17 10:05:22.333656', u'None', u'2020-02-17 10:06:32.062273', u'None', u'CMSSW_10_2_16', u'slc6_amd64_gcc700', u'/EmbeddingRun2016E/ElMuFinalState-inputDoubleMu_94X_Legacy_miniAOD-v5/USER', u'F', u'0', u'[]', u'[]', u'Automatic', u"{'splitOnRun': False, 'minutes_per_job': 480, 'halt_job_on_file_boundaries': False, 'runs': [], 'lumis': []}", u'baac37cc6cf798a9b1fa938f529a5ff5741914404e6e89f237100bcc7a9e2582.tar.gz', u'https://cmsweb.cern.ch/crabcache', u'twelton', u'/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=twelton/CN=831894/CN=Troy Phelps Welton', u'cms', u'None', u'None', u'ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1-00000000000000000000000000000000', u'F', u'T3_US_FNALLPC', u'https://cmsweb.cern.ch/dbs/prod/phys03/DBSReader', u'https://cmsweb.cern.ch/dbs/prod/phys03/DBSWriter', u'T', u'[]', u'[]', u"['merged_nanoaod.root']", u'Analysis', u'pythia', u'None', u"{'maxjobruntime': 1250, 'priority': 10, 'site_blacklist': [], 'resubmit_jobids': ['1-2', '1-4', '1-7'], 'numcores': 1, 'site_whitelist': [], 'maxmemory': 2000, 'resubmit_publication': 0}", u'[]', u'T', u'crab-prod-tw01', u'[]', u'1250', u'1', u'2000', u'10', u'None', u'[]', u'http://vocms0121.cern.ch/mon/cms1424/200217_100522:twelton_crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1', u'None', u'[]', u'[]', u'https://cmsweb.cern.ch/crabserver/prod', u'cmsgwms-collector-global.cern.ch:9620,cmssrv623.fnal.gov:9620', u'crab3@vocms0121.cern.ch', u'F', u'[]', u'T', u'/store/user/twelton/ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1', u'F', u'None', u'F', u'None', u'EmbeddingRun2016E', u'2020-02-20 18:39:17.292680', u'2a920afc2f46a30b885d12b650bb2e40b253aacb1d0cc6d57882ed5725b2c66a.tar.gz', u'49891902', u'filetransfers', u'F', u'131.225.190.54', u'3052000.0', u'None'], u'desc': {u'columns': [u'tm_taskname', u'tm_activity', u'panda_jobset_id', u'tm_task_status', u'tm_task_command', u'tm_start_time', u'tm_start_injection', u'tm_end_injection', u'tm_task_failure', u'tm_job_sw', u'tm_job_arch', u'tm_input_dataset', u'tm_nonvalid_input_dataset', u'tm_use_parent', u'tm_site_whitelist', u'tm_site_blacklist', u'tm_split_algo', u'tm_split_args', u'tm_user_sandbox', u'tm_cache_url', u'tm_username', u'tm_user_dn', u'tm_user_vo', u'tm_user_role', u'tm_user_group', u'tm_publish_name', u'tm_publish_groupname', u'tm_asyncdest', u'tm_dbs_url', u'tm_publish_dbs_url', u'tm_publication', u'tm_outfiles', u'tm_tfile_outfiles', u'tm_edm_outfiles', u'tm_job_type', u'tm_generator', u'tm_events_per_lumi', u'tm_arguments', u'panda_resubmitted_jobs', u'tm_save_logs', u'tw_name', u'tm_user_infiles', u'tm_maxjobruntime', u'tm_numcores', u'tm_maxmemory', u'tm_priority', u'tm_output_dataset', u'tm_task_warnings', u'tm_user_webdir', u'tm_scriptexe', u'tm_scriptargs', u'tm_extrajdl', u'tm_asourl', u'tm_collector', u'tm_schedd', u'tm_dry_run', u'tm_user_files', u'tm_transfer_outputs', u'tm_output_lfn', u'tm_ignore_locality', u'tm_fail_limit', u'tm_one_event_mode', u'tm_secondary_input_dataset', u'tm_primary_dataset', u'tm_last_publication', u'tm_debug_files', u'clusterid', u'tm_asodb', u'tm_ignore_global_blacklist', u'tm_submitter_ip_addr', u'tm_totalunits', u'tm_ddm_reqid']}}
+INFO 2020-02-21 10:46:02.269 UTC: 	 CRAB project directory:		/uscms_data/d3/twelton/WorkingArea/CMSSW_10_2_16/ExcitedTau/NanoAOD_Crab/crab_projects/crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1
+INFO 2020-02-21 10:46:02.269 UTC: 	 Task name:			200217_100522:twelton_crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1
+INFO 2020-02-21 10:46:02.269 UTC: 	 Grid scheduler - Task Worker:	crab3@vocms0121.cern.ch - crab-prod-tw01
+INFO 2020-02-21 10:46:02.269 UTC: 	 Status on the CRAB server:	SUBMITTED
+INFO 2020-02-21 10:46:02.270 UTC: 	 Task URL to use for HELP:	https://cmsweb.cern.ch/crabserver/ui/task/200217_100522%3Atwelton_crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1
+INFO 2020-02-21 10:46:02.270 UTC: 	 Dashboard monitoring URL:	https://monit-grafana.cern.ch/d/cmsTMDetail/cms-task-monitoring-task-view?orgId=11&var-user=twelton&var-task=200217_100522%3Atwelton_crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1
+INFO 2020-02-21 10:46:02.270 UTC: 	 In case of issues with the dashboard, please provide feedback to hn-cms-computing-tools@cern.ch
+DEBUG 2020-02-21 10:46:02.270 UTC: 	 The CRAB server submitted your task to the Grid scheduler (cluster ID: 49891902)
+DEBUG 2020-02-21 10:46:02.270 UTC: 	 Webdir is located at http://vocms0121.cern.ch/mon/cms1424/200217_100522:twelton_crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1
+DEBUG 2020-02-21 10:46:02.899 UTC: 	 Proxied webdir is located at https://cmsweb.cern.ch/scheddmon/0121/cms1424/200217_100522:twelton_crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1
+DEBUG 2020-02-21 10:46:02.900 UTC: 	 Retrieving 'status_cache' file from https://cmsweb.cern.ch/scheddmon/0121/cms1424/200217_100522:twelton_crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1/status_cache
+DEBUG 2020-02-21 10:46:03.704 UTC: 	 Got information from status cache file: {'0-4': {'Retries': 0, 'WallDurations': [8.0, 1046.0], 'StartTimes': [1581937268.0], 'SubmitTimes': [1581934005.0], 'JobIds': ['49891905.0'], 'EndTimes': [1581938314.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1530180], 'TotalUserCpuTimeHistory': [839], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [35]}, '0-5': {'Retries': 0, 'WallDurations': [8.0, 994.0], 'StartTimes': [1581939320.0], 'SubmitTimes': [1581934006.0], 'JobIds': ['49891908.0'], 'EndTimes': [1581940314.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'failed', 'ResidentSetSize': [1583568], 'Error': [139, 'CmsRunFailure', {}], 'TotalUserCpuTimeHistory': [810], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [42]}, '1-10': {'Retries': 0, 'WallDurations': [8.0, 2862.0], 'StartTimes': [1582053493.0], 'SubmitTimes': [1582015148.0], 'JobIds': ['49962943.0'], 'EndTimes': [1582056355.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1622032], 'TotalUserCpuTimeHistory': [2696], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [66]}, '20': {'Retries': 0, 'WallDurations': [9.0, 19316.0], 'StartTimes': [1581993614.0], 'SubmitTimes': [1581940669.0], 'JobIds': ['49902120.0'], 'EndTimes': [1582012930.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1793988], 'TotalUserCpuTimeHistory': [18379], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [482]}, '21': {'Retries': 0, 'WallDurations': [8.0, 9971.0], 'StartTimes': [1581993612.0], 'SubmitTimes': [1581940669.0], 'JobIds': ['49902121.0'], 'EndTimes': [1582003583.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1666356], 'TotalUserCpuTimeHistory': [8238], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [703]}, '1': {'Retries': 0, 'WallDurations': [8.0, 13017.0], 'StartTimes': [1581993611.0], 'SubmitTimes': [1581940652.0], 'JobIds': ['49902097.0'], 'TotalUserCpuTimeHistory': [11940], 'EndTimes': [1582006628.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'failed', 'ResidentSetSize': [1659844], 'Error': [139, 'CmsRunFailure', {}], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [478]}, '3': {'Retries': 0, 'WallDurations': [9.0, 7759.0], 'StartTimes': [1581993612.0], 'SubmitTimes': [1581940658.0], 'JobIds': ['49902101.0'], 'EndTimes': [1582001371.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'failed', 'ResidentSetSize': [1723640], 'Error': [139, 'CmsRunFailure', {}], 'TotalUserCpuTimeHistory': [7056], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [230]}, '2': {'Retries': 0, 'WallDurations': [9.0, 12993.0], 'StartTimes': [1581993616.0], 'SubmitTimes': [1581940653.0], 'JobIds': ['49902098.0'], 'EndTimes': [1582006609.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1719472], 'TotalUserCpuTimeHistory': [10723], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [980]}, '5': {'Retries': 0, 'WallDurations': [9.0, 16358.0], 'StartTimes': [1581993612.0], 'SubmitTimes': [1581940659.0], 'JobIds': ['49902103.0'], 'EndTimes': [1582009970.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1641028], 'TotalUserCpuTimeHistory': [13300], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [1234]}, '4': {'Retries': 0, 'WallDurations': [9.0, 17457.0], 'StartTimes': [1581993613.0], 'SubmitTimes': [1581940658.0], 'JobIds': ['49902102.0'], 'EndTimes': [1582011070.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1666528], 'TotalUserCpuTimeHistory': [15707], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [824]}, '7': {'Retries': 0, 'WallDurations': [0, 10.0, 18602.0], 'StartTimes': [1581948676.0], 'SubmitTimes': [1581940660.0, -1], 'JobIds': ['49902105.0', '49902105.0'], 'EndTimes': [1581948304.0, 1581967278.0], 'Restarts': 1, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [0, 1716096], 'TotalUserCpuTimeHistory': [0.0, 16598], 'SiteHistory': ['Unknown', 'Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [0.0, 949]}, '6': {'Retries': 0, 'WallDurations': [0, 9.0, 18539.0], 'StartTimes': [1581950436.0], 'SubmitTimes': [1581940659.0, -1], 'JobIds': ['49902104.0', '49902104.0'], 'EndTimes': [1581948305.0, 1581968975.0], 'Restarts': 1, 'RecordedSite': True, 'State': 'failed', 'ResidentSetSize': [0, 1579196], 'Error': [139, 'CmsRunFailure', {}], 'TotalUserCpuTimeHistory': [0.0, 15827], 'SiteHistory': ['Unknown', 'Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [0.0, 1321]}, '9': {'Retries': 0, 'WallDurations': [0, 8.0, 4023.0], 'StartTimes': [1581950453.0], 'SubmitTimes': [1581940660.0, -1], 'JobIds': ['49902107.0', '49902107.0'], 'EndTimes': [1581948307.0, 1581954476.0], 'Restarts': 1, 'RecordedSite': True, 'State': 'failed', 'ResidentSetSize': [0, 1616468], 'Error': [139, 'CmsRunFailure', {}], 'TotalUserCpuTimeHistory': [0.0, 3757], 'SiteHistory': ['Unknown', 'Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [0.0, 94]}, '8': {'Retries': 0, 'WallDurations': [0, 10.0, 14195.0], 'StartTimes': [1581948672.0], 'SubmitTimes': [1581940660.0, -1], 'JobIds': ['49902106.0', '49902106.0'], 'EndTimes': [1581948308.0, 1581962867.0], 'Restarts': 1, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [0, 1677072], 'TotalUserCpuTimeHistory': [0.0, 12786], 'SiteHistory': ['Unknown', 'Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [0.0, 607]}, '1-9': {'Retries': 0, 'WallDurations': [8.0, 7575.0], 'StartTimes': [1582052309.0], 'SubmitTimes': [1582015148.0], 'JobIds': ['49962942.0'], 'EndTimes': [1582059884.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1664468], 'TotalUserCpuTimeHistory': [7121.0], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [211.0]}, '1-8': {'Retries': 0, 'WallDurations': [9.0, 4736.0], 'StartTimes': [1582048748.0], 'SubmitTimes': [1582015148.0], 'JobIds': ['49962941.0'], 'EndTimes': [1582053484.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1593156], 'TotalUserCpuTimeHistory': [4402], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [142]}, '0-1': {'Retries': 0, 'WallDurations': [9.0, 845.0], 'StartTimes': [1581939033.0], 'SubmitTimes': [1581934006.0], 'JobIds': ['49891907.0'], 'TotalUserCpuTimeHistory': [678], 'EndTimes': [1581939878.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'failed', 'ResidentSetSize': [1633564], 'Error': [139, 'CmsRunFailure', {}], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [33]}, '0-2': {'Retries': 0, 'WallDurations': [8.0, 996.0], 'StartTimes': [1581938321.0], 'SubmitTimes': [1581934005.0], 'JobIds': ['49891906.0'], 'EndTimes': [1581939317.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1645608], 'TotalUserCpuTimeHistory': [802], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [41]}, '0-3': {'Retries': 0, 'WallDurations': [9.0, 1018.0], 'StartTimes': [1581936238.0], 'SubmitTimes': [1581934005.0], 'JobIds': ['49891904.0'], 'EndTimes': [1581937256.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'failed', 'ResidentSetSize': [1659456], 'Error': [139, 'CmsRunFailure', {}], 'TotalUserCpuTimeHistory': [883], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [30]}, '1-1': {'Retries': 0, 'WallDurations': [8.0, 14428.0], 'StartTimes': [1582042488.0], 'SubmitTimes': [1582015146.0], 'JobIds': ['49962934.0'], 'EndTimes': [1582056916.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1430648], 'TotalUserCpuTimeHistory': [10120], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [989]}, '1-3': {'Retries': 0, 'WallDurations': [9.0, 12032.0], 'StartTimes': [1582042481.0], 'SubmitTimes': [1582015146.0], 'JobIds': ['49962935.0'], 'EndTimes': [1582054513.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1458456], 'TotalUserCpuTimeHistory': [8284], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [827]}, '1-2': {'Retries': 1, 'WallDurations': [9.0, 5200.0, 10.0, 4202.0], 'StartTimes': [1582042564.0, 1582123745.0], 'SubmitTimes': [1582015147.0, 1582108382.0], 'JobIds': ['49962936.0', '50027150.0'], 'EndTimes': [1582047764.0, 1582127947.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'failed', 'ResidentSetSize': [1720980, 1742628], 'Error': [139, 'CmsRunFailure', {}], 'TotalUserCpuTimeHistory': [4685, 3933], 'SiteHistory': ['Unknown', 'T1_DE_KIT', 'Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [209, 101]}, '1-5': {'Retries': 0, 'WallDurations': [9.0, 6197.0], 'StartTimes': [1582042539.0], 'SubmitTimes': [1582015147.0], 'JobIds': ['49962938.0'], 'EndTimes': [1582048736.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1680176], 'TotalUserCpuTimeHistory': [5841], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [141]}, '1-4': {'Retries': 1, 'WallDurations': [9.0, 3050.0, 9.0, 2896.0], 'StartTimes': [1582042560.0, 1582124730.0], 'SubmitTimes': [1582015147.0, 1582108382.0], 'JobIds': ['49962937.0', '50027151.0'], 'TotalUserCpuTimeHistory': [2801, 2718], 'EndTimes': [1582045610.0, 1582127626.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'failed', 'ResidentSetSize': [1668620, 1696076], 'Error': [139, 'CmsRunFailure', {}], 'SiteHistory': ['Unknown', 'T1_DE_KIT', 'Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [82, 72]}, '1-7': {'Retries': 1, 'WallDurations': [8.0, 8536.0, 8.0, 6838.0], 'StartTimes': [1582047784.0, 1582125880.0], 'SubmitTimes': [1582015147.0, 1582108383.0], 'JobIds': ['49962940.0', '50027152.0'], 'EndTimes': [1582056320.0, 1582132718.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1628324, 1648136], 'Error': [139, 'CmsRunFailure', {}], 'TotalUserCpuTimeHistory': [7765, 6506.0], 'SiteHistory': ['Unknown', 'T1_DE_KIT', 'Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [350, 146.0]}, '1-6': {'Retries': 0, 'WallDurations': [8.0, 6585.0], 'StartTimes': [1582045716.0], 'SubmitTimes': [1582015147.0], 'JobIds': ['49962939.0'], 'EndTimes': [1582052301.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1656736], 'TotalUserCpuTimeHistory': [6226], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [156]}, '11': {'Retries': 0, 'WallDurations': [0, 9.0, 14640.0], 'StartTimes': [1581948693.0], 'SubmitTimes': [1581940662.0, -1], 'JobIds': ['49902110.0', '49902110.0'], 'EndTimes': [1581948311.0, 1581963333.0], 'Restarts': 1, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [0, 1722516], 'TotalUserCpuTimeHistory': [0.0, 12506], 'SiteHistory': ['Unknown', 'Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [0.0, 947]}, '10': {'Retries': 0, 'WallDurations': [0, 8.0, 12877.0], 'StartTimes': [1581950437.0], 'SubmitTimes': [1581940662.0, -1], 'JobIds': ['49902108.0', '49902108.0'], 'EndTimes': [1581948659.0, 1581963314.0], 'Restarts': 1, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [0, 1660644], 'TotalUserCpuTimeHistory': [0.0, 11800], 'SiteHistory': ['Unknown', 'Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [0.0, 481]}, '13': {'Retries': 0, 'WallDurations': [9.0, 12629.0], 'StartTimes': [1581954486.0], 'SubmitTimes': [1581940663.0], 'JobIds': ['49902112.0'], 'EndTimes': [1581967115.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1657844], 'TotalUserCpuTimeHistory': [11626], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [473]}, '12': {'Retries': 0, 'WallDurations': [8.0, 15364.0], 'StartTimes': [1581951695.0], 'SubmitTimes': [1581940662.0], 'JobIds': ['49902111.0'], 'EndTimes': [1581967059.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1695828], 'TotalUserCpuTimeHistory': [14164], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [578]}, '15': {'Retries': 0, 'WallDurations': [8.0, 15388.0], 'StartTimes': [1581963334.0], 'SubmitTimes': [1581940663.0], 'JobIds': ['49902114.0'], 'EndTimes': [1581978722.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1674624], 'TotalUserCpuTimeHistory': [13827], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [756]}, '14': {'Retries': 0, 'WallDurations': [9.0, 13987.0], 'StartTimes': [1581962886.0], 'SubmitTimes': [1581940663.0], 'JobIds': ['49902113.0'], 'EndTimes': [1581976873.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1753840], 'TotalUserCpuTimeHistory': [12231], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [763]}, '17': {'Retries': 0, 'WallDurations': [9.0, 13194.0], 'StartTimes': [1581967068.0], 'SubmitTimes': [1581940663.0], 'JobIds': ['49902116.0'], 'EndTimes': [1581980262.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1674916], 'TotalUserCpuTimeHistory': [12336], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [374]}, '16': {'Retries': 0, 'WallDurations': [9.0, 16386.0], 'StartTimes': [1581963356.0], 'SubmitTimes': [1581940663.0], 'JobIds': ['49902115.0'], 'EndTimes': [1581979742.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1710136], 'TotalUserCpuTimeHistory': [14523], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [779]}, '19': {'Retries': 0, 'WallDurations': [9.0, 16310.0], 'StartTimes': [1581969014.0], 'SubmitTimes': [1581940669.0], 'JobIds': ['49902119.0'], 'EndTimes': [1581985324.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1775312], 'TotalUserCpuTimeHistory': [14196], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [931]}, '18': {'Retries': 0, 'WallDurations': [8.0, 15447.0], 'StartTimes': [1581967128.0], 'SubmitTimes': [1581940664.0], 'JobIds': ['49902117.0'], 'EndTimes': [1581982575.0], 'Restarts': 0, 'RecordedSite': True, 'State': 'finished', 'ResidentSetSize': [1774016], 'TotalUserCpuTimeHistory': [13879], 'SiteHistory': ['Unknown', 'T1_DE_KIT'], 'TotalSysCpuTimeHistory': [705]}}
+INFO 2020-02-21 10:46:03.704 UTC: 	 Status on the scheduler:	FAILED
+INFO 2020-02-21 10:46:03.704 UTC: 	 
+The job splitting of this task is 'Automatic', please refer to this FAQ for a description of the jobs status summary:
+https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3FAQ#What_is_the_Automatic_splitting
+INFO 2020-02-21 10:46:03.705 UTC: 	 
+Jobs status:                    failed       		  7.4% ( 2/27)
+INFO 2020-02-21 10:46:03.705 UTC: 	 				finished     		 92.6% (25/27)
+INFO 2020-02-21 10:46:04.330 UTC: 	 
+Error Summary: (use crab status --verboseErrors for details about the errors)
+
+ 2 jobs failed with exit code 139
+
+Have a look at https://twiki.cern.ch/twiki/bin/viewauth/CMSPublic/JobExitCodes for a description of the exit codes.
+INFO 2020-02-21 10:46:04.332 UTC: 	 
+Warning: the max jobs runtime is less than 30% of the task requested value (1250 min), please consider to request a lower value for failed jobs (allowed through crab resubmit) and/or improve the jobs splitting (e.g. config.Data.splitting = 'Automatic') in a new task.
+INFO 2020-02-21 10:46:04.332 UTC: 	 
+Summary of run jobs:
+ * Memory: 1546MB min, 1751MB max, 1630MB ave
+ * Runtime: 0:14:05 min, 5:21:56 max, 3:17:12 ave
+ * CPU eff: 76% min, 98% max, 93% ave
+ * Waste: 4:44:42 (4% of total)
+
+INFO 2020-02-21 10:46:04.340 UTC: 	 Log file is /uscms_data/d3/twelton/WorkingArea/CMSSW_10_2_16/ExcitedTau/NanoAOD_Crab/crab_projects/crab_ElMuFinalState-inputDoubleMu_94X_Legacy_nanoAOD-v1/crab.log

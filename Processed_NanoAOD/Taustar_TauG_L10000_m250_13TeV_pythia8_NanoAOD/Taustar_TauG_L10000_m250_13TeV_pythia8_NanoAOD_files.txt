@@ -1,0 +1,1 @@
+root://cmseos.fnal.gov//store/user/twelton/Taustar_TauG_L10000_m250_13TeV_pythia8_NanoAOD/Taustar_TauG_L10000_m250_13TeV_pythia8_GEN-SIM/Taustar_TauG_L10000_m250_13TeV_pythia8_NanoAOD/200222_093547/0000/Taustar_TauG_L10000_m250_13TeV_pythia8_NanoAOD_1.root

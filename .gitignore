@@ -1,0 +1,4 @@
+*.json
+*.root
+log
+output_files
