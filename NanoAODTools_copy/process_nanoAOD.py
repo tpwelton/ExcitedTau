@@ -23,15 +23,16 @@ include = [0]
 #f = open("../../../ExcitedTau/TauTau2016B_files.txt","r")
 #f = open("../../../ExcitedTau/Processed_NanoAOD/ElMu2018D.txt","r")
 #f = open("../../../ExcitedTau/Processed_NanoAOD/MuTau2018C.txt","r")
-f = open("../../../ExcitedTau/EmbeddedSamples_NanoAOD/TauTau2018D/TauTau2018D_local.txt")
+#f = open("../../../ExcitedTau/EmbeddedSamples_NanoAOD/TauTau2018D/TauTau2018D_local.txt")
 #f = open("../../../ExcitedTau/Taustar_TauG_L10000_m250_13TeV_pythia8_NanoAOD_files.txt","r")
-files = f.readlines()
+#files = f.readlines()
 #f.close()
 #files = ["root://cmseos.fnal.gov//store/user/twelton/Taustar_TauG_L10000_m250_13TeV_pythia8_NanoAOD/Taustar_TauG_L10000_m250_13TeV_pythia8_GEN-SIM/Taustar_TauG_L10000_m250_13TeV_pythia8_NanoAOD/200222_093547/0000/Taustar_TauG_L10000_m250_13TeV_pythia8_NanoAOD_1.root"]
 #files = ["root://cmseos.fnal.gov//store/user/twelton/Taustar_TauG_L10000_m250_13TeV_pythia8_NanoAOD/Taustar_TauG_L10000_m250_13TeV_pythia8_GEN-SIM/Taustar_TauG_L10000_m250_13TeV_pythia8_NanoAOD/200318_120803/0000/Taustar_TauG_L10000_m250_13TeV_pythia8_NanoAOD_1.root"]
 #files = ["root://cmseos.fnal.gov//store/user/twelton/Taustar_TauG_L10000_m250_13TeV_pythia8_NanoAOD/Taustar_TauG_L10000_m250_13TeV_pythia8_GEN-SIM/Taustar_TauG_L10000_m250_13TeV_pythia8_NanoAOD/200324_011356/0000/test_1.root"]
 #files = ["../../NanoAOD/Taustar_TauG_L10000_m250_13TeV_pythia8_NanoAOD.root"]
 #files = ["../../NanoAOD/Taustar_TauG_L10000_m1000_13TeV_pythia8_NanoAOD.root"]
+files = ["root://cmseos.fnal.gov//store/user/twelton/EmbeddedSamples_NanoAOD/MuTau2018D/myNanoProdData2018D_NANO_1015.root"]
 
 for file in files:
 #  os.system("python scripts/nano_postproc.py ../../../ExcitedTau/Processed_NanoAOD " + file.strip() + " -I PhysicsTools.NanoAODTools.postprocessing.modules.ExcitedTau.ChannelAnalyzer channel_tautau -s _proc") 
