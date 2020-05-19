@@ -10,7 +10,6 @@ from PhysicsTools.NanoAODTools.postprocessing.framework.datamodel import Collect
 from PhysicsTools.NanoAODTools.postprocessing.framework.eventloop import Module
 from PhysicsTools.NanoAODTools.postprocessing.tools import deltaR
 
-
 class EventSelection(Module):
     def __init__(self, lep_minpt, lep_maxeta, photon_minpt, photon_maxeta, q0q1):
         self.lep_minpt = lep_minpt
@@ -130,9 +129,11 @@ class EventSelection(Module):
         channel = channel_type[ind]
         if channel == 4:
           if not event.HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg:
+#          if not event.HLT_DoubleMediumIsoPFTau35_Trk1_eta2p1_Reg:
             return False
         if channel == 6:
           if not ((event.HLT_IsoMu24 or event.HLT_IsoMu27 or event.HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_CrossL1) and (event.HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_CrossL1 or event.HLT_MediumChargedIsoPFTau180HighPtRelaxedIso_Trk50_eta2p1)):
+#          if not (event.HLT_IsoMu24 or event.HLT_IsoMu27):
             return False
         ind0 = int(ind/len(goodLeptons))
         ind1 = ind - ind0*len(goodLeptons)
@@ -219,7 +220,62 @@ class EventSelection(Module):
         tau0_col.SetPtEtaPhiM(tau0.Pt() + MET0xy.Pt(),tau0.Eta(),tau0.Phi(),tau0.M())
         tau1_col.SetPtEtaPhiM(tau1.Pt() + MET1xy.Pt(),tau1.Eta(),tau1.Phi(),tau1.M())
         return tau0_col, tau1_col, back_to_back
+
+class SignalCollinearCheck(Module):
+    def __init__(self):#, channel_code, lep0_minpt, lep0_maxeta, lep1_minpt, lep1_maxeta, photon_minpt, photon_maxeta, q0q1):
+        pass
+    def beginJob(self):
+        pass
+    def endJob(self):
+        pass
+    def beginFile(self, inputFile, outputFile, inputTree, wrappedOutputTree):
+        self.out = wrappedOutputTree
+        self.out.branch("missingPtBetween_Reco","O")
+        self.out.branch("missingPtBetween_Gen","O")
+        self.out.branch("missingPtBetween_Nu","O")
+        self.out.branch("METvsGenMET","D")
+        self.out.branch("METvsNuSum","D")
+        self.out.branch("genMETvsNuSum","D")
+    def endFile(self, inputFile, outputFile, inputTree, wrappedOutputTree):
+        pass
+    def analyze(self, event):
+        """process event, return True (go to next module) or False (fail, go to next event)"""
+        #this module can only be run after EventSelection has been run
+        if not hasattr(event,"lep0_vis_phi"):
+          raise Exception("SignalCollinearCheck can only be run after EventSelection")
+        genParts = Collection(event,"GenPart")
+        nuList = [genParts[i] for i in range(len(genParts)) if abs(genParts[i].pdgId) == 16] 
+        tauList = [genParts[nuList[i].genPartIdxMother] for i in range(len(nuList))]
+        missingNu = nuList[0].p4()+nuList[1].p4()
+        missingNuPerp = ROOT.TLorentzVector()
+        missingNuPerp.SetPtEtaPhiM(missingNu.Pt(),0,missingNu.Phi(),missingNu.M())
+        genMET = ROOT.TLorentzVector()
+        genMET.SetPtEtaPhiM(event.GenMET_pt,0,event.GenMET_phi,0)
+        self.out.fillBranch("genMETvsNuSum",deltaR(genMET.Eta(),genMET.Phi(),missingNuPerp.Eta(),missingNuPerp.Phi()))
+        MET = ROOT.TLorentzVector()
+        MET.SetPtEtaPhiM(event.MET_pt,0,event.MET_phi,0)
+        self.out.fillBranch("METvsNuSum",deltaR(MET.Eta(),MET.Phi(),missingNuPerp.Eta(),missingNuPerp.Phi()))
+        self.out.fillBranch("METvsGenMET",deltaR(MET.Eta(),MET.Phi(),genMET.Eta(),genMET.Phi()))
+        self.out.fillBranch("missingPtBetween_Nu",self.phiChecker(tauList[0].phi,tauList[1].phi,missingNuPerp.Phi()))
+        self.out.fillBranch("missingPtBetween_Gen",self.phiChecker(tauList[0].phi,tauList[1].phi,genMET.Phi()))
+        self.out.fillBranch("missingPtBetween_Reco",self.phiChecker(event.lep0_vis_phi,event.lep1_vis_phi,event.MET_phi))
+        return True
+    def phiChecker(self,phi1,phi2,phi_test):
+        #make all angles in the range -pi to pi
+        correct_range = lambda x: math.atan2(math.sin(x),math.cos(x))
+        phi1 = correct_range(phi1)
+        phi2 = correct_range(phi2)
+        phi_test = correct_range(phi_test)
+        if abs(abs(phi1-phi2)-math.pi) < 5*np.finfo(float).eps: return "Bounds separated by pi"
+        if not abs(phi1-phi2) < math.pi:
+          if phi1 < phi2: phi1 += 2*math.pi
+          else: phi2 += 2*math.pi
+        phis = sorted([phi1,phi2,phi_test])
+        if phis[1] == phi_test: return True
+        phis = sorted([phi1,phi2,phi_test+2*math.pi])
+        if phis[1] == phi_test+2*math.pi: return True
+        return False
 # define modules using the syntax 'name = lambda : constructor' to avoid having them loaded when not needed
 
- 
 event_selection_min = lambda : EventSelection([32,27,20],[2.4,2.5,2.3],50,2.5,-1)
+signalCollinearCheck = lambda : SignalCollinearCheck()
