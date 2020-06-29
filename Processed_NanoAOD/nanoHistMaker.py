@@ -59,11 +59,9 @@ class HistMaker(Module):
 #        self.out.branch("gamlep1_col_dr","D")
 
     def analyze(self, event):
-        if not (event.channel == 6):
+        if event.photon_pt < 100: return False
+        if not (event.channel == 4):
           return False
-        if event.channel == 6:
-          if not (event.HLT_IsoMu24 or event.HLT_IsoMu27 or event.HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_CrossL1):
-            return False
         self.h_ll_vis_mass.Fill(event.ll_vis_mass)
         self.h_ll_col_mass.Fill(event.ll_col_mass)
         if event.gamlep0_col_mass < event.gamlep1_col_mass:
@@ -82,9 +80,11 @@ class HistMaker(Module):
 preselection=""
 #files=[" root://cms-xrd-global.cern.ch//store/mc/RunIISummer16NanoAOD/TTJets_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/NANOAODSIM/PUMoriond17_05Feb2018_94X_mcRun2_asymptotic_v2-v1/40000/2CE738F9-C212-E811-BD0E-EC0D9A8222CE.root"]
 #files=["MuTau2018D/" + files.strip() for files in open("MuTau2018D/MuTau2018D_processed.txt").readlines()]
-files=["Taustar_TauG_L10000_m1000_13TeV_pythia8_NanoAOD_chan0_allCuts_phiCheck.root"]
+#files=[files.strip() for files in open("WGToLNuG_NanoAODv7_local.txt").readlines()]
+files=["ZGTo2LG_NanoAODv7_processed/" + files.strip() for files in open("ZGTo2LG_NanoAODv7_local.txt").readlines()]
+#files=["Taustar_TauG_L10000_m1000_13TeV_pythia8_NanoAOD_chan0_allCuts_phiCheck.root"]
 #files=["test_1_chan0_allCuts.root"]
 #files=["test_1_chan0_allCuts_phiCheck.root"]
 
-p=PostProcessor(".",files,cut=preselection,branchsel=None,modules=[HistMaker()],noOut=True,histFileName="MuTauSignal1000_hists_slim.root",histDirName="plots",maxEntries=None)
+p=PostProcessor(".",files,cut=preselection,branchsel=None,modules=[HistMaker()],noOut=True,histFileName="ZGTo2LG_TauTau_photon100_hists_slim.root",histDirName="plots",maxEntries=None)
 p.run()

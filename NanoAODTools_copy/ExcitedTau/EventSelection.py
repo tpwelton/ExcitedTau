@@ -127,14 +127,17 @@ class EventSelection(Module):
           return False
         ind = pair_energy_check.index(max_energy)
         channel = channel_type[ind]
+        isV6 = True if hasattr(event,"HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg") else False
         if channel == 4:
-          if not event.HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg:
-#          if not event.HLT_DoubleMediumIsoPFTau35_Trk1_eta2p1_Reg:
-            return False
+          if isV6:
+            if not event.HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg: return False
+          else:
+            if not event.HLT_DoubleMediumIsoPFTau35_Trk1_eta2p1_Reg: return False
         if channel == 6:
-          if not ((event.HLT_IsoMu24 or event.HLT_IsoMu27 or event.HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_CrossL1) and (event.HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_CrossL1 or event.HLT_MediumChargedIsoPFTau180HighPtRelaxedIso_Trk50_eta2p1)):
-#          if not (event.HLT_IsoMu24 or event.HLT_IsoMu27):
-            return False
+          muTrigger = event.HLT_IsoMu24 or event.HLT_IsoMu27
+#          tauTriggerV6 = event.HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_CrossL1 or event.HLT_MediumChargedIsoPFTau180HighPtRelaxedIso_Trk50_eta2p1
+          if isV6: muTrigger = muTrigger or event.HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_CrossL1
+          if not muTrigger: return False
         ind0 = int(ind/len(goodLeptons))
         ind1 = ind - ind0*len(goodLeptons)
         lep0 = goodLeptons[ind0]
@@ -236,6 +239,14 @@ class SignalCollinearCheck(Module):
         self.out.branch("METvsGenMET","D")
         self.out.branch("METvsNuSum","D")
         self.out.branch("genMETvsNuSum","D")
+        self.out.branch("genVisPVsRecoP0","D")
+        self.out.branch("genColPVsRecoP0","D")
+        self.out.branch("genVisPVsRecoP1","D")
+        self.out.branch("genColPVsRecoP1","D")
+        self.out.branch("deltaR0_truth","D")
+        self.out.branch("deltaR1_truth","D")
+        self.out.branch("deltaR0_nu","D")
+        self.out.branch("deltaR1_nu","D")
     def endFile(self, inputFile, outputFile, inputTree, wrappedOutputTree):
         pass
     def analyze(self, event):
@@ -243,22 +254,49 @@ class SignalCollinearCheck(Module):
         #this module can only be run after EventSelection has been run
         if not hasattr(event,"lep0_vis_phi"):
           raise Exception("SignalCollinearCheck can only be run after EventSelection")
+        genMET = ROOT.TLorentzVector()
+        genMET.SetPtEtaPhiM(event.GenMET_pt,0,event.GenMET_phi,0)
+        MET = ROOT.TLorentzVector()
+        MET.SetPtEtaPhiM(event.MET_pt,0,event.MET_phi,0)
+        self.out.fillBranch("METvsGenMET",deltaR(MET.Eta(),MET.Phi(),genMET.Eta(),genMET.Phi()))
+        self.out.fillBranch("missingPtBetween_Reco",self.phiChecker(event.lep0_vis_phi,event.lep1_vis_phi,event.MET_phi))
         genParts = Collection(event,"GenPart")
         nuList = [genParts[i] for i in range(len(genParts)) if abs(genParts[i].pdgId) == 16] 
         tauList = [genParts[nuList[i].genPartIdxMother] for i in range(len(nuList))]
-        missingNu = nuList[0].p4()+nuList[1].p4()
-        missingNuPerp = ROOT.TLorentzVector()
-        missingNuPerp.SetPtEtaPhiM(missingNu.Pt(),0,missingNu.Phi(),missingNu.M())
-        genMET = ROOT.TLorentzVector()
-        genMET.SetPtEtaPhiM(event.GenMET_pt,0,event.GenMET_phi,0)
-        self.out.fillBranch("genMETvsNuSum",deltaR(genMET.Eta(),genMET.Phi(),missingNuPerp.Eta(),missingNuPerp.Phi()))
-        MET = ROOT.TLorentzVector()
-        MET.SetPtEtaPhiM(event.MET_pt,0,event.MET_phi,0)
-        self.out.fillBranch("METvsNuSum",deltaR(MET.Eta(),MET.Phi(),missingNuPerp.Eta(),missingNuPerp.Phi()))
-        self.out.fillBranch("METvsGenMET",deltaR(MET.Eta(),MET.Phi(),genMET.Eta(),genMET.Phi()))
-        self.out.fillBranch("missingPtBetween_Nu",self.phiChecker(tauList[0].phi,tauList[1].phi,missingNuPerp.Phi()))
-        self.out.fillBranch("missingPtBetween_Gen",self.phiChecker(tauList[0].phi,tauList[1].phi,genMET.Phi()))
-        self.out.fillBranch("missingPtBetween_Reco",self.phiChecker(event.lep0_vis_phi,event.lep1_vis_phi,event.MET_phi))
+        if len(nuList) > 1:
+          deltaR0_nu = deltaR(nuList[0],tauList[0])
+          deltaR1_nu = deltaR(nuList[1],tauList[1])
+          missingNu = nuList[0].p4()+nuList[1].p4()
+          missingNuPerp = ROOT.TLorentzVector()
+          missingNuPerp.SetPtEtaPhiM(missingNu.Pt(),0,missingNu.Phi(),missingNu.M())
+          momentumMag = lambda pt,eta: pt/math.sin(math.atan(2*math.exp(-eta)))
+          if deltaR(tauList[0].eta,tauList[0].phi,event.lep0_vis_eta,event.lep0_vis_phi) < deltaR(tauList[0].eta,tauList[0].phi,event.lep1_vis_eta,event.lep1_vis_phi):
+            genVisPVsRecoP0 = momentumMag(tauList[0].pt,tauList[0].eta) - momentumMag(event.lep0_vis_pt,event.lep0_vis_eta)
+            genColPVsRecoP0 = momentumMag(tauList[0].pt,tauList[0].eta) - momentumMag(event.lep0_col_pt,event.lep0_col_eta)
+            genVisPVsRecoP1 = momentumMag(tauList[1].pt,tauList[1].eta) - momentumMag(event.lep1_vis_pt,event.lep1_vis_eta)
+            genColPVsRecoP1 = momentumMag(tauList[1].pt,tauList[1].eta) - momentumMag(event.lep1_col_pt,event.lep1_col_eta)
+            deltaR0_truth = deltaR(tauList[0].eta,tauList[0].phi,event.lep0_vis_eta,event.lep0_vis_phi)
+            deltaR1_truth = deltaR(tauList[1].eta,tauList[1].phi,event.lep1_vis_eta,event.lep1_vis_phi)
+          else:
+            genVisPVsRecoP0 = momentumMag(tauList[0].pt,tauList[0].eta) - momentumMag(event.lep1_vis_pt,event.lep1_vis_eta)
+            genColPVsRecoP0 = momentumMag(tauList[0].pt,tauList[0].eta) - momentumMag(event.lep1_col_pt,event.lep1_col_eta)
+            genVisPVsRecoP1 = momentumMag(tauList[1].pt,tauList[1].eta) - momentumMag(event.lep0_vis_pt,event.lep0_vis_eta)
+            genColPVsRecoP1 = momentumMag(tauList[1].pt,tauList[1].eta) - momentumMag(event.lep0_col_pt,event.lep0_col_eta)
+            deltaR0_truth = deltaR(tauList[0].eta,tauList[0].phi,event.lep1_vis_eta,event.lep1_vis_phi)
+            deltaR1_truth = deltaR(tauList[1].eta,tauList[1].phi,event.lep0_vis_eta,event.lep0_vis_phi)
+
+          self.out.fillBranch("genMETvsNuSum",deltaR(genMET.Eta(),genMET.Phi(),missingNuPerp.Eta(),missingNuPerp.Phi()))
+          self.out.fillBranch("METvsNuSum",deltaR(MET.Eta(),MET.Phi(),missingNuPerp.Eta(),missingNuPerp.Phi()))
+          self.out.fillBranch("missingPtBetween_Nu",self.phiChecker(tauList[0].phi,tauList[1].phi,missingNuPerp.Phi()))
+          self.out.fillBranch("missingPtBetween_Gen",self.phiChecker(tauList[0].phi,tauList[1].phi,genMET.Phi()))
+          self.out.fillBranch("genVisPVsRecoP0",genVisPVsRecoP0)
+          self.out.fillBranch("genColPVsRecoP0",genColPVsRecoP0)
+          self.out.fillBranch("genVisPVsRecoP1",genVisPVsRecoP1)
+          self.out.fillBranch("genColPVsRecoP1",genColPVsRecoP1)
+          self.out.fillBranch("deltaR0_truth",deltaR0_truth)
+          self.out.fillBranch("deltaR1_truth",deltaR1_truth)
+          self.out.fillBranch("deltaR0_nu",deltaR0_nu)
+          self.out.fillBranch("deltaR1_nu",deltaR1_nu)
         return True
     def phiChecker(self,phi1,phi2,phi_test):
         #make all angles in the range -pi to pi
@@ -277,5 +315,5 @@ class SignalCollinearCheck(Module):
         return False
 # define modules using the syntax 'name = lambda : constructor' to avoid having them loaded when not needed
 
-event_selection_min = lambda : EventSelection([32,27,20],[2.4,2.5,2.3],50,2.5,-1)
+event_selection_min = lambda : EventSelection([32,27,20],[2.5,2.4,2.3],50,2.5,-1)
 signalCollinearCheck = lambda : SignalCollinearCheck()

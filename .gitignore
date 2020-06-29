@@ -5,3 +5,4 @@ log
 output_files
 README_Frank.md
 filelists/
+*.pyc

@@ -1,0 +1,2 @@
+ZGTo2LG_NanoAODv7_highPtG_processed_2.root
+ZGTo2LG_NanoAODv7_highPtG_processed_1.root
