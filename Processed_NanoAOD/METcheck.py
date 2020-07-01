@@ -6,29 +6,30 @@ import pdb
 from PhysicsTools.NanoAODTools.postprocessing.framework.treeReaderArrayTools import InputTree
 from PhysicsTools.NanoAODTools.postprocessing.framework.datamodel import Event
 
-#tdrstyle.setTDRStyle()
+tdrstyle.setTDRStyle()
 ROOT.gStyle.SetLabelSize(0.03,"XYZ")
 ROOT.gStyle.SetMarkerSize(0)
 #ROOT.gStyle.SetMarkerSize(5)
 
 filesList = []
 eventWeights = []
+fileCategory = []
 filesW = ["WGToLNuG_NanoAODv7_processed/" + i.strip() for i in open("WGToLNuG_NanoAODv7_processed/WGToLNuG_NanoAODv7_local.txt").readlines()]
 filesW_ext = ["WGToLNuG_NanoAODv7_processed/" + i.strip() for i in open("WGToLNuG_NanoAODv7_processed/WGToLNuGBackground.txt").readlines()]
-filesList.append(filesW); eventWeights.append(7.34*10.**7/6103817.+27511845.);filesList.append(filesW); eventWeights.append(7.34*10.**7/6103817.+27511845.)
+filesList.append(filesW); eventWeights.append(7.34*10.**7/6103817.+27511845.);fileCategory.append("WG");filesList.append(filesW); eventWeights.append(7.34*10.**7/6103817.+27511845.); fileCategory.append("WG")
 filesTT = ["TTGJets_NanoAODv7_processed/" + i.strip() for i in open("TTGJets_NanoAODv7_processed/TTGJets_NanoAODv7_processed.txt")]
-filesList.append(filesTT); eventWeights.append(5.546*10**5/9877942)
+filesList.append(filesTT); eventWeights.append(5.546*10**5/9877942); fileCategory.append("TTG")
 filesSignal250 = ["test_1_chan0_allCuts_phiCheck.root"]
 #filesList.append(filesSignal250); eventWeights.append(0.2655)
 filesSignal1000 = ["Taustar_TauG_L10000_m1000_13TeV_pythia8_NanoAOD_chan0_allCuts_phiCheck.root"]
-filesList.append(filesSignal1000); eventWeights.append(0.061)
+filesList.append(filesSignal1000); eventWeights.append(0.061); fileCategory.append("Signal 1000 GeV")
 filesZ = ["ZGTo2LG_NanoAODv7_processed/" + i.strip() for i in open("ZGTo2LG_NanoAODv7_processed/ZGTo2LG_NanoAODv7_local.txt").readlines()]
 #filesZmore = [i.strip() for i in open("ZGTo2LG_NanoAODv7_processed/ZGTo2LG_NanoAODv7_processed_ext1.txt").readlines()]
 filesZmore = ["ZGTo2LG_NanoAODv7_processed/" + i.strip() for i in open("ZGTo2LG_NanoAODv7_processed/ZGTo2LG_NanoAODv7_processed_ext1_local.txt").readlines()]
 filesZ01J = ["ZGTo2LG_NanoAODv7_processed/" + i.strip() for i in open("ZGTo2LG_NanoAODv7_processed/ZGBackground_01J_local.txt").readlines()]
-filesList.append(filesZ);filesList.append(filesZmore);filesList.append(filesZ01J); eventWeights.append((1.77*10.**7-0.1404*150*10**3)/(2307158.+14372682+18134601));eventWeights.append((1.77*10.**7-0.1404*150*10**3)/(2307158.+14372682.+18134601));eventWeights.append((1.77*10.**7-0.1404*150*10**3)/(2307158.+14372682.+18134601))
-filesZ_highPt = ["ZGTo2LG_NanoAODv7_processed/" + i.strip() for i in open("ZGTo2LG_NanoAODv7_processed/ZGTo2LG_NanoAODv7_highPtG_processed.txt").readlines()]
-filesList.append(filesZ_highPt); eventWeights.append(0.1404*150*10**3/868323)
+filesList.append(filesZ);eventWeights.append((1.77*10.**7-0.1404*150*10**3)/(2307158.+14372682+18134601));fileCategory.append("ZG"); filesList.append(filesZmore);eventWeights.append((1.77*10.**7-0.1404*150*10**3)/(2307158.+14372682.+18134601));fileCategory.append("ZG");filesList.append(filesZ01J); eventWeights.append((1.77*10.**7-0.1404*150*10**3)/(2307158.+14372682.+18134601));fileCategory.append("ZG")
+#filesZ_highPt = ["ZGTo2LG_NanoAODv7_processed/" + i.strip() for i in open("ZGTo2LG_NanoAODv7_processed/ZGTo2LG_NanoAODv7_highPtG_processed.txt").readlines()]
+#filesList.append(filesZ_highPt); eventWeights.append(0.1404*150*10**3/868323)
 
 h_missingPtBetween_Reco = ROOT.TH1F("missingPtBetween_Reco","",2,-.5,1.5)
 h_missingPtBetween_Gen = ROOT.TH1F("missingPtBetween_Gen","",2,-.5,1.5)
@@ -46,12 +47,29 @@ h_deltaR0_nu = ROOT.TH1F("deltaR0","",100,0,1)
 h_deltaR1_nu = ROOT.TH1F("deltaR1","",100,0,1)
 h_deltaR0_truth = ROOT.TH1F("deltaR0_truth","",100,0,1)
 h_deltaR1_truth = ROOT.TH1F("deltaR1_truth","",100,0,1)
+
+catNow = ""
+h_allTypes_min = {}
+h_allTypes_max = {}
+for cat in fileCategory:
+  if cat is not catNow:
+    h_allTypes_min[cat] = ROOT.TH1F(cat+"min",cat,100,0,2000)
+    h_allTypes_min[cat].SetMarkerSize(0)
+    h_allTypes_max[cat] = ROOT.TH1F(cat+"max",cat,100,0,2000)
+    h_allTypes_max[cat].SetMarkerSize(0)
+    catNow = cat
+
+
+
+
+
 minMass = []
 maxMass = []
 minMass_phiCheck = []
 maxMass_phiCheck = []
 for ind,files in enumerate(filesList):
   weight = eventWeights[ind]
+  cat = fileCategory[ind]
   for fileIndiv in files:
     events = ROOT.TFile(fileIndiv)
 #    pdb.set_trace()
@@ -60,7 +78,7 @@ for ind,files in enumerate(filesList):
     
     for iEvent in range(Events.entries):
       event = Event(Events,iEvent)
-      if not (event.channel == 6): continue
+      if not (event.channel == 4): continue
       if not (event.photon_pt > 100): continue
       if not (event.ll_vis_mass > 100): continue
 #      pdb.set_trace()
@@ -87,6 +105,8 @@ for ind,files in enumerate(filesList):
           minMass_phiCheck.append(event.gamlep0_col_mass)
           maxMass_phiCheck.append(event.gamlep1_col_mass)
           h_minMassVsMaxMass_phiCheck.Fill(event.gamlep0_col_mass,event.gamlep1_col_mass,weight)
+          h_allTypes_min[cat].Fill(event.gamlep0_col_mass,weight)
+          h_allTypes_max[cat].Fill(event.gamlep1_col_mass,weight)
       else:
         minMass.append(event.gamlep1_col_mass)
         maxMass.append(event.gamlep0_col_mass)
@@ -95,7 +115,31 @@ for ind,files in enumerate(filesList):
           minMass_phiCheck.append(event.gamlep1_col_mass)
           maxMass_phiCheck.append(event.gamlep0_col_mass)
           h_minMassVsMaxMass_phiCheck.Fill(event.gamlep1_col_mass,event.gamlep0_col_mass,weight)
+          h_allTypes_min[cat].Fill(event.gamlep1_col_mass,weight)
+          h_allTypes_max[cat].Fill(event.gamlep0_col_mass,weight)
     events.Close()        
+
+h_maxStack = ROOT.THStack("maxStack","")
+h_minStack = ROOT.THStack("minStack","")
+for ind,key in enumerate(h_allTypes_max.keys()):
+  h_allTypes_max[key].SetFillColor(ind+2)
+  h_allTypes_max[key].SetLineColor(ind+2)
+  h_maxStack.Add(h_allTypes_max[key])
+  h_allTypes_min[key].SetLineColor(ind+2)
+  h_allTypes_min[key].SetFillColor(ind+2)
+  h_minStack.Add(h_allTypes_min[key])
+
+canvasMaxStack = ROOT.TCanvas("MaxStack","")
+h_maxStack.SetTitle("; M_{max}(#tau#gamma); Events/2 GeV")
+h_maxStack.Draw("HIST")
+ROOT.gPad.BuildLegend(0.7,0.7,0.9,0.9,"")
+
+canvasMinStack = ROOT.TCanvas("MinStack","")
+h_minStack.SetTitle("; M_{min}(#tau#gamma); Events/2 GeV")
+h_minStack.Draw("HIST")
+ROOT.gPad.BuildLegend(0.7,0.7,0.9,0.9,"")
+
+pdb.set_trace()
 #
 #h_minMassVsMaxMass.Draw()
 canvasDeltaR_truth = ROOT.TCanvas("DeltaR_truth","")
