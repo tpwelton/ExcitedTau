@@ -1,0 +1,6 @@
+/store/user/twelton/DYJetsBackground/DYJetsToLL_Pt-400To650_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8/DYJetsToLL_sdbnd/200725_145045/0000/tree_1.root
+/store/user/twelton/DYJetsBackground/DYJetsToLL_Pt-400To650_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8/DYJetsToLL_sdbnd/200725_145045/0000/tree_2.root
+/store/user/twelton/DYJetsBackground/DYJetsToLL_Pt-400To650_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8/DYJetsToLL_sdbnd/200725_145045/0000/tree_3.root
+/store/user/twelton/DYJetsBackground/DYJetsToLL_Pt-400To650_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8/DYJetsToLL_sdbnd/200725_145045/0000/tree_4.root
+/store/user/twelton/DYJetsBackground/DYJetsToLL_Pt-400To650_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8/DYJetsToLL_ext2_sdbnd/200725_193913/0000/tree_1.root
+/store/user/twelton/DYJetsBackground/DYJetsToLL_Pt-400To650_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8/DYJetsToLL_ext2_sdbnd/200725_193913/0000/tree_2.root

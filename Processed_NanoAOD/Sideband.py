@@ -5,37 +5,59 @@ import math
 import pdb
 from PhysicsTools.NanoAODTools.postprocessing.framework.treeReaderArrayTools import InputTree
 from PhysicsTools.NanoAODTools.postprocessing.framework.datamodel import Event
+import phiChecker
 
 tdrstyle.setTDRStyle()
 ROOT.gStyle.SetLabelSize(0.03,"XYZ")
-ROOT.gStyle.SetMarkerSize(0)
+#ROOT.gStyle.SetMarkerSize(0)
 #ROOT.gStyle.SetMarkerSize(5)
 
-lumi = 150*10**3 #pb
+#https://twiki.cern.ch/twiki/bin/viewauth/CMS/RA2b13TeVProduction
+lumi = 4025.228+3104.509+7575.579+8650.628 #1/pb
+xrd_prefix = "root://cms-xrd-global.cern.ch/"
+#xrd_prefix = "root://cmseos.fnal.gov/"
 filesList = []
 eventWeights = []
 fileCategory = []
-filesW = ["WGToLNuG_NanoAODv7_processed/" + i.strip() for i in open("WGToLNuG_NanoAODv7_processed/WGToLNuG_NanoAODv7_local.txt").readlines()]
-filesW_ext = ["WGToLNuG_NanoAODv7_processed/" + i.strip() for i in open("WGToLNuG_NanoAODv7_processed/WGToLNuGBackground.txt").readlines()]
-#filesList.append(filesW); eventWeights.append(405.271*lumi/(6103817.+27511845.));fileCategory.append("WG");filesList.append(filesW); eventWeights.append(405.271*lumi/(6103817.+27511845.)); fileCategory.append("WG")
-filesTT = ["TTGJets_NanoAODv7_processed/" + i.strip() for i in open("TTGJets_NanoAODv7_processed/TTGJets_NanoAODv7_processed.txt")]
-#filesList.append(filesTT); eventWeights.append(3.697*lumi/9877942); fileCategory.append("TTG")
-filesSignal250 = ["test_1_chan0_allCuts_phiCheck.root"]
+
+filesQCD_Pt600to800 = [xrd_prefix + i.strip() for i in open("QCDBackground_Pt600to800_sdbnd.txt")] 
+filesQCD_Pt800to1000 = [xrd_prefix + i.strip() for i in open("QCDBackground_Pt800to1000_sdbnd.txt")]
+#pdb.set_trace()
+eventCount_QCD = {"600to800": 3896412, "800to1000": 3992112}
+filesList.append(filesQCD_Pt600to800);eventWeights.append(186.9*lumi/eventCount_QCD["600to800"]);fileCategory.append("QCD")
+filesList.append(filesQCD_Pt800to1000);eventWeights.append(32.293*lumi/eventCount_QCD["800to1000"]);fileCategory.append("QCD")
+
+filesTT = [xrd_prefix + i.strip() for i in open("TTGBackground_sdbnd.txt")]
+eventCount_TT = {"ext1": 9877942}
+filesList.append(filesTT); eventWeights.append(3.697*lumi/sum(eventCount_TT.values())); fileCategory.append("TTG")
+
+filesWG = [xrd_prefix + i.strip() for i in open("WGBackground_sdbnd.txt").readlines()]
+eventCount_WG = {"ext1": 5059865, "ext2": 10231994, "ext3": 12219986}
+filesList.append(filesWG); eventWeights.append(405.271*lumi/sum(eventCount_WG.values()));fileCategory.append("WG");
+
+filesW = [xrd_prefix + i.strip() for i in open("WJetsBackground_sdbnd.txt").readlines()]
+eventCount_W = {"200ToInf": 5884226}
+filesList.append(filesW); eventWeights.append(50.71*lumi/sum(eventCount_W.values()));fileCategory.append("WJets");
+
+filesZZ = [xrd_prefix + i.strip() for i in open("ZZBackground_sdbnd.txt").readlines()]
+eventCount_ZZ = {"2Jets": 1016643}
+filesList.append(filesZZ); eventWeights.append(0.041*lumi/sum(eventCount_ZZ.values()));fileCategory.append("ZZ");
+
+filesDY = [xrd_prefix + i.strip() for i in open("DYJetsBackground_sdbnd.txt").readlines()]
+eventCount_DY = {"Pt400to650_ext1": 589842, "Pt400to650_ext2": 604038}
+filesList.append(filesDY); eventWeights.append(0.3921*lumi/sum(eventCount_DY.values()));fileCategory.append("DYJets");
+
+filesZ = [xrd_prefix + i.strip() for i in open("ZGBackground_sdbnd.txt").readlines()]
+eventCount_Z = {"ext1": 14372682}
+filesList.append(filesZ);eventWeights.append(117.864*lumi/sum(eventCount_Z.values()));fileCategory.append("ZG"); 
+
+filesData = [xrd_prefix + i.strip() for i in open("Data_sdbnd.txt").readlines()]
+filesList.append(filesData);eventWeights.append(1);fileCategory.append("Data")
+
+#filesSignal250 = ["test_1_chan0_allCuts_phiCheck.root"]
 #filesList.append(filesSignal250); eventWeights.append(0.0177*lumi/10000)
-filesSignal1000 = ["Taustar_TauG_L10000_m1000_13TeV_pythia8_NanoAOD_chan0_allCuts_phiCheck.root"]
-#filesList.append(filesSignal1000); eventWeights.append(4.069*10**3*lumi/10000); fileCategory.append("Signal 1000 GeV")
-filesZ = ["ZGTo2LG_NanoAODv7_processed/" + i.strip() for i in open("ZGTo2LG_NanoAODv7_processed/ZGTo2LG_NanoAODv7_local.txt").readlines()]
-#filesZmore = [i.strip() for i in open("ZGTo2LG_NanoAODv7_processed/ZGTo2LG_NanoAODv7_processed_ext1.txt").readlines()]
-filesZmore = ["ZGTo2LG_NanoAODv7_processed/" + i.strip() for i in open("ZGTo2LG_NanoAODv7_processed/ZGTo2LG_NanoAODv7_processed_ext1_local.txt").readlines()]
-filesZ01J = ["ZGTo2LG_NanoAODv7_processed/" + i.strip() for i in open("ZGTo2LG_NanoAODv7_processed/ZGBackground_01J_local.txt").readlines()]
-#filesList.append(filesZ);eventWeights.append(((117.864-0.1404)*lumi)/(2307158.+14372682+18134601));fileCategory.append("ZG"); filesList.append(filesZmore);eventWeights.append(((117.864-0.1404)*lumi)/(2307158.+14372682.+18134601));fileCategory.append("ZG");filesList.append(filesZ01J); eventWeights.append(((117.864-0.1404)*lumi)/(2307158.+14372682.+18134601));fileCategory.append("ZG")
-#filesZ_highPt = ["ZGTo2LG_NanoAODv7_processed/" + i.strip() for i in open("ZGTo2LG_NanoAODv7_processed/ZGTo2LG_NanoAODv7_highPtG_processed.txt").readlines()]
-#filesList.append(filesZ_highPt); eventWeights.append(0.1404*lumi/868323)
-filesQCD_Pt600to800 = ["QCDBackground_NanoAODv7_processed/" + i.strip() for i in open("QCDBackground_NanoAODv7_processed/QCDBackground_Pt600to800_local.txt")]
-filesQCD_Pt800to1000 = [i.strip() for i in open("QCDBackground_NanoAODv7_processed/QCDBackground_Pt800to1000.txt")]
-pdb.set_trace()
-#filesList.append(filesQCD_Pt600to800);eventWeights.append(186.9*lumi/3896412);fileCategory.append("QCD")
-filesList.append(filesQCD_Pt800to1000);eventWeights.append(32.293*lumi/3896412);fileCategory.append("QCD")
+#filesSignal1000 = ["Taustar_TauG_L10000_m1000_13TeV_pythia8_NanoAOD_chan0_allCuts_phiCheck.root"]
+#filesList.append(filesSignal1000); eventWeights.append(4.069*10.**-3*lumi/10000); fileCategory.append("Signal 1000 GeV")
 
 h_missingPtBetween_Reco = ROOT.TH1F("missingPtBetween_Reco","",2,-.5,1.5)
 h_missingPtBetween_Gen = ROOT.TH1F("missingPtBetween_Gen","",2,-.5,1.5)
@@ -77,18 +99,19 @@ for ind,files in enumerate(filesList):
   weight = eventWeights[ind]
   cat = fileCategory[ind]
   for fileIndiv in files:
-    events = ROOT.TFile(fileIndiv)
-    pdb.set_trace()
+    events = ROOT.TFile.Open(fileIndiv)
+#    pdb.set_trace()
     inputTree = events.Get("Events")
+    if not inputTree: continue
     Events = InputTree(inputTree)
     
     for iEvent in range(Events.entries):
       event = Event(Events,iEvent)
       if not (event.channel == 6): continue
-      if not (event.photon_pt > 100): continue
+      if not (event.photon_pt > 20): continue
       if not (event.ll_vis_mass > 100): continue
 #      pdb.set_trace()
-      if weight == 0.061 or weight == 0.2655:# and event.missingPtBetween_Reco:
+      if not (cat.find("Signal") == -1):# and event.missingPtBetween_Reco:
         h_genVisPVsRecoP0.Fill(event.genVisPVsRecoP0)
         h_genColPVsRecoP0.Fill(event.genColPVsRecoP0)
         h_genVisPVsRecoP1.Fill(event.genVisPVsRecoP1)
@@ -97,17 +120,11 @@ for ind,files in enumerate(filesList):
         h_deltaR0_nu.Fill(event.deltaR1_nu)
         h_deltaR0_truth.Fill(event.deltaR0_truth)
         h_deltaR1_truth.Fill(event.deltaR1_truth)
-      h_missingPtBetween_Reco.Fill(event.missingPtBetween_Reco)
-      h_missingPtBetween_Gen.Fill(event.missingPtBetween_Gen)
-      h_missingPtBetween_Nu.Fill(event.missingPtBetween_Nu)
-      h_METvsGenMET.Fill(event.METvsGenMET)
-      h_METvsNuSum.Fill(event.METvsNuSum)
-      h_genMETvsNuSum.Fill(event.genMETvsNuSum)
       if event.gamlep0_col_mass < event.gamlep1_col_mass:
         minMass.append(event.gamlep0_col_mass)
         maxMass.append(event.gamlep1_col_mass)
         h_minMassVsMaxMass.Fill(event.gamlep0_col_mass,event.gamlep1_col_mass,weight)
-        if event.missingPtBetween_Reco:
+        if phiChecker.phiChecker(event.lep0_vis_phi,event.lep1_vis_phi,event.MET_phi):
           minMass_phiCheck.append(event.gamlep0_col_mass)
           maxMass_phiCheck.append(event.gamlep1_col_mass)
           h_minMassVsMaxMass_phiCheck.Fill(event.gamlep0_col_mass,event.gamlep1_col_mass,weight)
@@ -117,7 +134,7 @@ for ind,files in enumerate(filesList):
         minMass.append(event.gamlep1_col_mass)
         maxMass.append(event.gamlep0_col_mass)
         h_minMassVsMaxMass.Fill(event.gamlep1_col_mass,event.gamlep0_col_mass,weight)
-        if event.missingPtBetween_Reco:
+        if phiChecker.phiChecker(event.lep0_vis_phi,event.lep1_vis_phi,event.MET_phi):
           minMass_phiCheck.append(event.gamlep1_col_mass)
           maxMass_phiCheck.append(event.gamlep0_col_mass)
           h_minMassVsMaxMass_phiCheck.Fill(event.gamlep1_col_mass,event.gamlep0_col_mass,weight)
@@ -128,6 +145,7 @@ for ind,files in enumerate(filesList):
 h_maxStack = ROOT.THStack("maxStack","")
 h_minStack = ROOT.THStack("minStack","")
 for ind,key in enumerate(h_allTypes_max.keys()):
+  if key == "Data": continue
   h_allTypes_max[key].SetFillColor(ind+2)
   h_allTypes_max[key].SetLineColor(ind+2)
   h_maxStack.Add(h_allTypes_max[key])
@@ -136,14 +154,22 @@ for ind,key in enumerate(h_allTypes_max.keys()):
   h_minStack.Add(h_allTypes_min[key])
 
 canvasMaxStack = ROOT.TCanvas("MaxStack","")
-h_maxStack.SetTitle("; M_{max}(#tau#gamma); Events/2 GeV")
-h_maxStack.Draw("HIST")
-ROOT.gPad.BuildLegend(0.7,0.7,0.9,0.9,"")
+h_allTypes_max["Data"].SetTitle("; M_{max}(#tau#gamma); Events/20 GeV")
+h_allTypes_max["Data"].Draw("ex")
+h_maxStack.Draw("HISTSAME")
+ROOT.gPad.BuildLegend()
+#ROOT.gPad.BuildLegend(0.7,0.7,0.9,0.9,"")
+CMS_lumi.lumi_sqrtS = "13 TeV"
+CMS_lumi.relPosX = 0.12
+CMS_lumi.CMS_lumi(canvasMaxStack,0,0)
 
 canvasMinStack = ROOT.TCanvas("MinStack","")
-h_minStack.SetTitle("; M_{min}(#tau#gamma); Events/2 GeV")
-h_minStack.Draw("HIST")
-ROOT.gPad.BuildLegend(0.7,0.7,0.9,0.9,"")
+h_allTypes_min["Data"].SetTitle("; M_{min}(#tau#gamma); Events/20 GeV")
+h_allTypes_min["Data"].Draw("ex")
+h_minStack.Draw("HISTSAME")
+ROOT.gPad.BuildLegend()
+#ROOT.gPad.BuildLegend(0.7,0.7,0.9,0.9,"")
+CMS_lumi.CMS_lumi(canvasMinStack,0,0)
 
 pdb.set_trace()
 #
