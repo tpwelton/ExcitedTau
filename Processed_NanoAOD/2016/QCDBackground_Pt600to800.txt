@@ -1,0 +1,5 @@
+/store/user/twelton/QCDBackground/QCD_Pt_600to800_TuneCUETP8M1_13TeV_pythia8/QCDBackground_Pt600to800/200701_135921/0000/tree_5.root
+/store/user/twelton/QCDBackground/QCD_Pt_600to800_TuneCUETP8M1_13TeV_pythia8/QCDBackground_Pt600to800/200701_135921/0000/tree_3.root
+/store/user/twelton/QCDBackground/QCD_Pt_600to800_TuneCUETP8M1_13TeV_pythia8/QCDBackground_Pt600to800/200701_135921/0000/tree_1.root
+/store/user/twelton/QCDBackground/QCD_Pt_600to800_TuneCUETP8M1_13TeV_pythia8/QCDBackground_Pt600to800/200701_135921/0000/tree_4.root
+/store/user/twelton/QCDBackground/QCD_Pt_600to800_TuneCUETP8M1_13TeV_pythia8/QCDBackground_Pt600to800/200701_135921/0000/tree_2.root

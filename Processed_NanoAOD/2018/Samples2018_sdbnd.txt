@@ -1,0 +1,23 @@
+# File names txt, tot. events in sample, xsection, category name,comments
+DYJetsToTauTau_ForcedMuEleDecay_2018_sdbnd.txt,92416425,6505.0,DYJets,#44210871+48205554
+DYJetsToLLBackground_2J_2018_sdbnd.txt,61848731,360.4,DYJets
+DYJetsToLLBackground_1J_2018_sdbnd.txt,96546134,955.8,DYJets
+DYJetsToLLBackground_0J_2018_sdbnd.txt,93979507,5313.0,DYJets
+Data_2018_sdbnd.txt,59725.419,1,Data,#tot. events  is actually luminosity for 2018 SingleMuon to make the scale factor 1
+TTBackground_SemiLeptonic_2018_sdbnd.txt,100790000,365.34,TTJets,#SemiLeptonic sample
+TTBackground_2018_sdbnd.txt,64310000,88.29,TTJets,#2L2Nu sample
+#TTGBackground_PtGamma200toInf_2018_sdbnd.txt,3894000,0.02706,TTG,#SingleLepton sample and xsec from McM
+TTGBackground_2018_sdbnd.txt,5968000,1.506,TTG,#Dilept sample and xsec from McM
+TTGBackground_SingleLept_2018_sdbnd.txt,11806000,5.048,TTG,#SingleLept sample and xsec from McM
+WGToLNuGBackground_2018_sdbnd.txt,6108186,452,WG,#xsec from McM
+#WJetsBackground_2018_sdbnd.txt,71026861,52850.0,WJets
+#WJetsBackground_Pt0to50_2018_sdbnd.txt,115673829,103200,WJets,#xsec from McM
+#WJetsBackground_Pt50to100_2018_sdbnd.txt,19671032,3819,WJets,#xsec from McM
+#WJetsBackground_Pt100to250_2018_sdbnd.txt,96540150,935,WJets,#xsec from McM
+#WJetsBackground_Pt250to400_2018_sdbnd.txt,108739439,28.5,WJets,#9747942+98991497 and xsec from McM
+#WJetsBackground_Pt400to600_2018_sdbnd.txt,1967802,5.03,WJets,#xsec from McM
+#WJetsBackground_Pt600toInf_2018_sdbnd.txt,3898092,0.55,WJets,#1950016+1948076 and xsec from McM
+WJetsBackground_2J_2018_sdbnd.txt,97596251,1940,WJets
+WJetsBackground_1J_2018_sdbnd.txt,171428065,8018,WJets
+WJetsBackground_0J_2018_sdbnd.txt,192192460,5547,WJets
+ZGTo2LG_PtG-130_2018_sdbnd.txt,3345009,0.166,ZG,#xsec from McM

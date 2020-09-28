@@ -94,6 +94,7 @@ class EventSelection(Module):
         #Good Electron Definition
         electronColl = Collection(event,"Electron")
         goodElectrons = [electronColl[i] for i in xrange(len(electronColl)) if electronColl[i].mvaFall17V1Iso_WP80 or electronColl[i].mvaFall17V1noIso_WP80]
+#        goodElectrons = [electronColl[i] for i in xrange(len(electronColl)) if electronColl[i].mvaFall17V1Iso_WP80]
         goodElectrons = [goodElectrons[i] for i in xrange(len(goodElectrons)) if goodElectrons[i].pt > self.lep_minpt[0] and goodElectrons[i].eta < self.lep_maxeta[0]]
         goodLeptons.extend(sorted(goodElectrons,key=lambda x: x.pt, reverse=True))
         lepType.extend([1]*len(goodElectrons))

@@ -1,0 +1,3 @@
+/store/user/twelton/WJetsBackground/WJetsToLNu_Pt-400To600_TuneCP5_13TeV-amcatnloFXFX-pythia8/WJetsBackground_Pt400to600_2018_sdbnd/200922_005034/0000/tree_2.root
+/store/user/twelton/WJetsBackground/WJetsToLNu_Pt-400To600_TuneCP5_13TeV-amcatnloFXFX-pythia8/WJetsBackground_Pt400to600_2018_sdbnd/200922_005034/0000/tree_1.root
+/store/user/twelton/WJetsBackground/WJetsToLNu_Pt-400To600_TuneCP5_13TeV-amcatnloFXFX-pythia8/WJetsBackground_Pt400to600_2018_sdbnd/200922_005034/0000/tree_3.root

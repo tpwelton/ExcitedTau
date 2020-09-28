@@ -1,0 +1,18 @@
+# File names txt, tot. events in sample, xsection, category name,comments
+DYJetsToTauTau_ForcedMuEleDecay_2017_sdbnd.txt,96070636,6505.0,DYJets,#48432788+47637848
+Data_2017_sdbnd.txt,41525.059,1,Data,#tot. events  is actually luminosity for 2017 SingleMuon to make the scale factor 1
+QCDBackground_Pt-1000toInf_MuEnrichedPt5_2017_sdbnd.txt,11596693,10.4305,QCD,#the XSDB and McM didn't have all the QCD values, so I am using the values at https://twiki.cern.ch/twiki/bin/viewauth/CMS/SummaryTable1G25ns#QCD
+QCDBackground_Pt-120to170_MuEnrichedPt5_2017_sdbnd.txt,20774848,469797,QCD
+QCDBackground_Pt-170to300_MuEnrichedPt5_2017_sdbnd.txt,46170668,117989,QCD
+QCDBackground_Pt-300to470_MuEnrichedPt5_2017_sdbnd.txt,17228601,7820.25,QCD
+QCDBackground_Pt-30to50_MuEnrichedPt5_2017_sdbnd.txt,29030324,139803000,QCD
+QCDBackground_Pt-470to600_MuEnrichedPt5_2017_sdbnd.txt,23959772,645.528,QCD
+QCDBackground_Pt-50to80_MuEnrichedPt5_2017_sdbnd.txt,24068613,19222500,QCD
+QCDBackground_Pt-600to800_MuEnrichedPt5_2017_sdbnd.txt,17263676,187.109,QCD
+QCDBackground_Pt-800to1000_MuEnrichedPt5_2017_sdbnd.txt,17114527,32.3486,QCD
+QCDBackground_Pt-80to120_MuEnrichedPt5_2017_sdbnd.txt,23248995,2758420,QCD
+TTBackground_2017_sdbnd.txt,68812194,687.1,TTJets
+TTGBackground_Gamma200toInf_2017_sdbnd.txt,1992000,0.006792,TTG
+WGToLNuGBackground_2017_sdbnd.txt,6283083,452,WG
+WJetsBackground_2017_sdbnd.txt,77700506,52940,WJets,#33073306+44627200
+ZGJJBackground_2017_sdbnd.txt,796000,1.073,ZG

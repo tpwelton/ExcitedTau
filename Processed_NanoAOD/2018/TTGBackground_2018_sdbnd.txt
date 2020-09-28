@@ -1,0 +1,9 @@
+/store/user/twelton/TTGBackground/TTGamma_Dilept_TuneCP5_13TeV-madgraph-pythia8/TTGBackground_2018_sdbnd/200922_011746/0000/tree_8.root
+/store/user/twelton/TTGBackground/TTGamma_Dilept_TuneCP5_13TeV-madgraph-pythia8/TTGBackground_2018_sdbnd/200922_011746/0000/tree_7.root
+/store/user/twelton/TTGBackground/TTGamma_Dilept_TuneCP5_13TeV-madgraph-pythia8/TTGBackground_2018_sdbnd/200922_011746/0000/tree_2.root
+/store/user/twelton/TTGBackground/TTGamma_Dilept_TuneCP5_13TeV-madgraph-pythia8/TTGBackground_2018_sdbnd/200922_011746/0000/tree_5.root
+/store/user/twelton/TTGBackground/TTGamma_Dilept_TuneCP5_13TeV-madgraph-pythia8/TTGBackground_2018_sdbnd/200922_011746/0000/tree_3.root
+/store/user/twelton/TTGBackground/TTGamma_Dilept_TuneCP5_13TeV-madgraph-pythia8/TTGBackground_2018_sdbnd/200922_011746/0000/tree_1.root
+/store/user/twelton/TTGBackground/TTGamma_Dilept_TuneCP5_13TeV-madgraph-pythia8/TTGBackground_2018_sdbnd/200922_011746/0000/tree_9.root
+/store/user/twelton/TTGBackground/TTGamma_Dilept_TuneCP5_13TeV-madgraph-pythia8/TTGBackground_2018_sdbnd/200922_011746/0000/tree_6.root
+/store/user/twelton/TTGBackground/TTGamma_Dilept_TuneCP5_13TeV-madgraph-pythia8/TTGBackground_2018_sdbnd/200922_011746/0000/tree_4.root

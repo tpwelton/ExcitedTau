@@ -1,0 +1,7 @@
+/store/user/twelton/TTBackground/TTTo2L2Nu_noSC_TuneCUETP8M2T4_13TeV-powheg-pythia8/TTBackground_sdbnd/200728_185329/0000/tree_1.root
+/store/user/twelton/TTBackground/TTTo2L2Nu_noSC_TuneCUETP8M2T4_13TeV-powheg-pythia8/TTBackground_sdbnd/200728_185329/0000/tree_2.root
+/store/user/twelton/TTBackground/TTTo2L2Nu_noSC_TuneCUETP8M2T4_13TeV-powheg-pythia8/TTBackground_sdbnd/200728_185329/0000/tree_3.root
+/store/user/twelton/TTBackground/TTTo2L2Nu_noSC_TuneCUETP8M2T4_13TeV-powheg-pythia8/TTBackground_sdbnd/200728_185329/0000/tree_4.root
+/store/user/twelton/TTBackground/TTTo2L2Nu_noSC_TuneCUETP8M2T4_13TeV-powheg-pythia8/TTBackground_sdbnd/200728_185329/0000/tree_5.root
+/store/user/twelton/TTBackground/TTTo2L2Nu_noSC_TuneCUETP8M2T4_13TeV-powheg-pythia8/TTBackground_sdbnd/200728_185329/0000/tree_6.root
+/store/user/twelton/TTBackground/TTTo2L2Nu_noSC_TuneCUETP8M2T4_13TeV-powheg-pythia8/TTBackground_sdbnd/200728_185329/0000/tree_7.root
