@@ -67,7 +67,7 @@ class EventSelection(Module):
     def analyze(self, event):
         """process event, return True (go to next module) or False (fail, go to next event)"""
         photons = Collection(event,"Photon")
-        goodPhotons = [photons[i] for i in xrange(len(photons)) if (photons[i].pt > self.photon_minpt and photons[i].eta < self.photon_maxeta and photons[i].mvaID_WP90 and photons[i].electronVeto)]
+        goodPhotons = [photons[i] for i in xrange(len(photons)) if (photons[i].pt > self.photon_minpt and photons[i].eta < self.photon_maxeta and photons[i].mvaID_WP90 and photons[i].electronVeto and (photons[i].isScEtaEB or photons[i].isScEtaEE))]
 #        print("Number of photons:"+str(len(goodPhotons)))
         goodPhotons.sort(key=lambda x: x.pt,reverse=True)
         if len(goodPhotons) < 1:
@@ -93,8 +93,8 @@ class EventSelection(Module):
 
         #Good Electron Definition
         electronColl = Collection(event,"Electron")
-        goodElectrons = [electronColl[i] for i in xrange(len(electronColl)) if electronColl[i].mvaFall17V1Iso_WP80 or electronColl[i].mvaFall17V1noIso_WP80]
-#        goodElectrons = [electronColl[i] for i in xrange(len(electronColl)) if electronColl[i].mvaFall17V1Iso_WP80]
+#        goodElectrons = [electronColl[i] for i in xrange(len(electronColl)) if electronColl[i].mvaFall17V1Iso_WP80 or electronColl[i].mvaFall17V1noIso_WP80]
+        goodElectrons = [electronColl[i] for i in xrange(len(electronColl)) if electronColl[i].mvaFall17V1Iso_WP80]
         goodElectrons = [goodElectrons[i] for i in xrange(len(goodElectrons)) if goodElectrons[i].pt > self.lep_minpt[0] and goodElectrons[i].eta < self.lep_maxeta[0]]
         goodLeptons.extend(sorted(goodElectrons,key=lambda x: x.pt, reverse=True))
         lepType.extend([1]*len(goodElectrons))
@@ -108,6 +108,7 @@ class EventSelection(Module):
 
         #Good Hadronic Tau Definition
         hadColl = Collection(event,"Tau")
+        #tight ID for all
         goodHads = [hadColl[i] for i in xrange(len(hadColl)) if (hadColl[i].idDeepTau2017v2p1VSe & (1 << 5) and hadColl[i].idDeepTau2017v2p1VSmu & (1 << 3) and hadColl[i].idDeepTau2017v2p1VSjet & (1 << 5))]# electron bit mask VVVLoose to VVTight; muon bit mask VLoose to Tight; jet bit mask VVVLoose to VVTight
         goodHads = [goodHads[i] for i in xrange(len(goodHads)) if goodHads[i].pt > self.lep_minpt[2] and goodHads[i].eta < self.lep_maxeta[2]]
         goodHads = [goodHads[i] for i in xrange(len(goodHads)) if goodHads[i].decayMode != 5 and goodHads[i].decayMode != 6]
@@ -117,7 +118,7 @@ class EventSelection(Module):
 #        pdb.set_trace()
         #Here we find the two leptons that we are interested in and make sure they match the desired q0q1
         lepton_p4 = [goodLeptons[i].p4() for i in xrange(len(goodLeptons))]
-        pair_energy_check = [(lepton_p4[i]+lepton_p4[j]).E() if (goodLeptons[i].charge*goodLeptons[j].charge == self.q0q1 and deltaR(goodLeptons[i],goodLeptons[j])>0.1 and i < j) else 0 for i in xrange(len(goodLeptons)) for j in xrange(len(goodLeptons))]
+        pair_energy_check = [(lepton_p4[i]+lepton_p4[j]).E() if (goodLeptons[i].charge*goodLeptons[j].charge == self.q0q1 and deltaR(goodLeptons[i],goodLeptons[j])>0.4 and i < j) else 0 for i in xrange(len(goodLeptons)) for j in xrange(len(goodLeptons))]
         if sum([1 for i in xrange(len(pair_energy_check)) if pair_energy_check[i] > 0]) > 1:
           return False #if we have more than one pair of leptons, this does not meet our event profile
         channel_type = [lepType[i] | lepType[j] if pair_energy_check[i*len(goodLeptons)+j] > 0 and i < j else 0 for i in xrange(len(goodLeptons)) for j in xrange(len(goodLeptons))]
@@ -128,17 +129,7 @@ class EventSelection(Module):
           return False
         ind = pair_energy_check.index(max_energy)
         channel = channel_type[ind]
-        isV6 = True if hasattr(event,"HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg") else False
-        if channel == 4:
-          if isV6:
-            if not event.HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg: return False
-          else:
-            if not event.HLT_DoubleMediumIsoPFTau35_Trk1_eta2p1_Reg: return False
-        if channel == 6:
-          muTrigger = event.HLT_IsoMu24 or event.HLT_IsoMu27
-#          tauTriggerV6 = event.HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_CrossL1 or event.HLT_MediumChargedIsoPFTau180HighPtRelaxedIso_Trk50_eta2p1
-          if isV6: muTrigger = muTrigger or event.HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_CrossL1
-          if not muTrigger: return False
+        self.passTrigger(event,channel)
         ind0 = int(ind/len(goodLeptons))
         ind1 = ind - ind0*len(goodLeptons)
         lep0 = goodLeptons[ind0]
@@ -150,6 +141,8 @@ class EventSelection(Module):
         self.out.fillBranch("havePair",True)
         if deltaR(lep0,photon) < 0.7 or deltaR(lep1,photon) < 0.7:
           return False #we want to eliminate FSR confusion which usually is very close to the radiating lepton
+        if not self.phiChecker(lep0.phi,lep1.phi,event.MET_phi): 
+          return False #MET should be between the two leptons for good collinear approximation reconstruction
 
 
 
@@ -225,6 +218,57 @@ class EventSelection(Module):
         tau1_col.SetPtEtaPhiM(tau1.Pt() + MET1xy.Pt(),tau1.Eta(),tau1.Phi(),tau1.M())
         return tau0_col, tau1_col, back_to_back
 
+    def phiChecker(self,phi1,phi2,phi_test):
+        #make all angles in the range -pi to pi
+        correct_range = lambda x: math.atan2(math.sin(x),math.cos(x))
+        phi1 = correct_range(phi1)
+        phi2 = correct_range(phi2)
+        phi_test = correct_range(phi_test)
+        if abs(abs(phi1-phi2)-math.pi) < 5*np.finfo(float).eps: return "Bounds separated by pi"
+        if not abs(phi1-phi2) < math.pi:
+          if phi1 < phi2: phi1 += 2*math.pi
+          else: phi2 += 2*math.pi
+        phis = sorted([phi1,phi2,phi_test])
+        if phis[1] == phi_test: return True
+        phis = sorted([phi1,phi2,phi_test+2*math.pi])
+        if phis[1] == phi_test+2*math.pi: return True
+        return False
+
+    def passTrigger(self,event,channel):
+        if channel == 6: 
+          if not(event.HLT_IsoMu24 or event.HLT_IsoMu27): return False
+        if hasattr(event,"HLT_DoubleMediumChargedIsoPFTau35_Trk1_eta2p1_Reg"): return self.trigger2017(event,channel)
+        if hasattr(event,"HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg"): return self.triggerV6(event,channel) 
+        if hasattr(event,"HLT_DoubleMediumCombinedIsoPFTau35_Trk1_eta2p1_Reg"): return self.triggerDataV7(event,channel)
+        return self.triggerDefault(channel)
+
+    def triggerV6(self,event,channel):
+        if channel == 4:
+          return event.HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg
+        if channel == 6:
+          return event.HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_CrossL1
+
+    def triggerDataV7(self,event,channel):
+        if channel == 4:
+          return event.HLT_DoubleMediumCombinedIsoPFTau35_Trk1_eta2p1_Reg
+        if channel == 6:
+          return event.HLT_IsoMu19_eta2p1_LooseCombinedIsoPFTau20
+
+    def trigger2017(self,event,channel):
+        if channel == 4:
+          return event.HLT_DoubleMediumChargedIsoPFTau35_Trk1_eta2p1_Reg
+        if channel == 6:
+          return event.HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_CrossL1
+
+    def triggerDefault(self,channel):
+        if channel == 4:
+          return event.HLT_DoubleMediumIsoPFTau35_Trk1_eta2p1_Reg
+        if channel == 6:
+          return True
+
+
+        
+
 class SignalCollinearCheck(Module):
     def __init__(self):#, channel_code, lep0_minpt, lep0_maxeta, lep1_minpt, lep1_maxeta, photon_minpt, photon_maxeta, q0q1):
         pass
@@ -299,22 +343,7 @@ class SignalCollinearCheck(Module):
           self.out.fillBranch("deltaR0_nu",deltaR0_nu)
           self.out.fillBranch("deltaR1_nu",deltaR1_nu)
         return True
-    def phiChecker(self,phi1,phi2,phi_test):
-        #make all angles in the range -pi to pi
-        correct_range = lambda x: math.atan2(math.sin(x),math.cos(x))
-        phi1 = correct_range(phi1)
-        phi2 = correct_range(phi2)
-        phi_test = correct_range(phi_test)
-        if abs(abs(phi1-phi2)-math.pi) < 5*np.finfo(float).eps: return "Bounds separated by pi"
-        if not abs(phi1-phi2) < math.pi:
-          if phi1 < phi2: phi1 += 2*math.pi
-          else: phi2 += 2*math.pi
-        phis = sorted([phi1,phi2,phi_test])
-        if phis[1] == phi_test: return True
-        phis = sorted([phi1,phi2,phi_test+2*math.pi])
-        if phis[1] == phi_test+2*math.pi: return True
-        return False
 # define modules using the syntax 'name = lambda : constructor' to avoid having them loaded when not needed
 
-event_selection_min = lambda : EventSelection([32,27,20],[2.5,2.4,2.3],50,2.5,-1)
+event_selection_min = lambda : EventSelection([32,27,20],[2.5,2.4,2.3],100,2.5,-1)
 signalCollinearCheck = lambda : SignalCollinearCheck()

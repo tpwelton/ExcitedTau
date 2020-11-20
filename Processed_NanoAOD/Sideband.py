@@ -14,8 +14,13 @@ ROOT.gStyle.SetLabelSize(0.03,"XYZ")
 #ROOT.gStyle.SetMarkerSize(5)
 
 #https://twiki.cern.ch/twiki/bin/viewauth/CMS/RA2b13TeVProduction
-year = 2018
+year = 2017
+channelWord = {1:"ElEl",2:"MuMu",3:"ElMu",4:"TauTau",5:"ElTau",6:"MuTau"}
+channel = 6
+
 lumi = {2016:30171.139, 2017:41525.059, 2018:59725.419} #1/pb
+#MCScale = {2016: 0.96, 2017: 0.71, 2018: 1.01}
+MCScale = {2016: 0.96, 2017: 2.28, 2018: 1.01}
 xrd_prefix = "root://cms-xrd-global.cern.ch/"
 #xrd_prefix = "root://cmseos.fnal.gov/"
 filesList = []
@@ -36,7 +41,7 @@ sampleLocation = str(year) + "/Samples" + str(year) + "_sdbnd.txt"
 for line in open(sampleLocation).readlines():
   if line.find("#") == 0: continue
   params = line.split(",")
-  filesList.append([xrd_prefix + i.strip() for i in open(params[0])])
+  filesList.append([xrd_prefix + i.strip() for i in open(str(year)+"/"+params[0])])
   eventWeights.append(float(params[2])*lumi[year]/float(str(params[1])))
   fileCategory.append(params[3].strip())
 
@@ -65,6 +70,7 @@ for cat in fileCategory:
     h_allTypes[cat].SetMarkerSize(0)
     catNow = cat
 
+h_yield = ROOT.TH1F("yield","yield",len(h_allTypes),0,len(h_allTypes))
 
 
 
@@ -76,6 +82,7 @@ for cat in fileCategory:
 for ind,files in enumerate(filesList):
   weight = eventWeights[ind]
   cat = fileCategory[ind]
+  if cat.find("Data") == -1: weight = weight*MCScale[year]
   for fileIndiv in files:
     events = ROOT.TFile.Open(fileIndiv)
 #    pdb.set_trace()
@@ -85,7 +92,7 @@ for ind,files in enumerate(filesList):
     
     for iEvent in range(Events.entries):
       event = Event(Events,iEvent)
-      if not (event.channel == 6): continue
+      if not (event.channel == channel): continue
       if not (event.photon_pt > 20): continue
       if not (event.ll_vis_mass > 100): continue
       if not (event.Flag_goodVertices and event.Flag_globalSuperTightHalo2016Filter and event.Flag_HBHENoiseFilter and event.Flag_HBHENoiseIsoFilter and event.Flag_EcalDeadCellTriggerPrimitiveFilter and event.Flag_BadPFMuonFilter and event.Flag_eeBadScFilter): continue
@@ -143,7 +150,8 @@ for ind,files in enumerate(filesList):
         h_minMassVsMaxMass_phiCheck.Fill(gamleplower,gamlephigher,weight)
         h_allTypes_min[cat].Fill(gamleplower,weight)
         h_allTypes_max[cat].Fill(gamlephigher,weight)
-      h_allTypes[cat].Fill(event.ll_col_mass,weight)
+        h_allTypes[cat].Fill(event.ll_col_mass,weight)
+        h_yield.Fill(cat,weight)
     events.Close()        
 
 h_maxStack = ROOT.THStack("maxStack","")
@@ -172,6 +180,9 @@ for ind,key in enumerate(h_allTypes_max.keys()):
   h_MCStack.Add(h_allTypes[key])
   h_BkgrdSum.Add(h_allTypes[key])
 
+
+canvasYield = ROOT.TCanvas("Yield","")
+h_yield.Draw("HIST")
 
 canvasMassStack = ROOT.TCanvas("MassStack","")
 stackPad = ROOT.TPad("stackPad","stackPad", 0.05,0.1,0.95,0.95)
@@ -303,7 +314,7 @@ h_minMassVsMaxMass_phiCheck.Draw("colz")
 pdb.set_trace()
 
 #pdb.set_trace()
-save_file = ROOT.TFile("MuTau2016_allBkgrds.root","RECREATE")
+save_file = ROOT.TFile(channelWord[channel] + str(year) + "_allBkgrds.root","RECREATE")
 save_file.cd()
 h_minMassVsMaxMass_phiCheck.Write()
 h_maxStack.Write()

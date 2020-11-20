@@ -1,18 +1,28 @@
 # File names txt, tot. events in sample, xsection, category name,comments
-DYJetsToTauTau_ForcedMuEleDecay_2017_sdbnd.txt,96070636,6505.0,DYJets,#48432788+47637848
+#DYJetsToTauTau_ForcedMuEleDecay_2017_sdbnd.txt,96070636,6505.0,DYJets,#48432788+47637848
+DYJetsToLL_0J_2017_sdbnd.txt,88239653,5313.0,DYJets
+DY1JetsToLL_2017_sdbnd.txt,76000422,876.9,DYJets,#42331295+33669127
+DY2JetsToLL_2017_sdbnd.txt,9790490,306.4,DYJets,#88895+9701595
+DY3JetsToLL_2017_sdbnd.txt,6897933,112.0,DYJets,#5748466+1149467
+#DY4JetsToLL_2017_sdbnd.txt,4328648,44.03,DYJets
 Data_2017_sdbnd.txt,41525.059,1,Data,#tot. events  is actually luminosity for 2017 SingleMuon to make the scale factor 1
-QCDBackground_Pt-1000toInf_MuEnrichedPt5_2017_sdbnd.txt,11596693,10.4305,QCD,#the XSDB and McM didn't have all the QCD values, so I am using the values at https://twiki.cern.ch/twiki/bin/viewauth/CMS/SummaryTable1G25ns#QCD
-QCDBackground_Pt-120to170_MuEnrichedPt5_2017_sdbnd.txt,20774848,469797,QCD
-QCDBackground_Pt-170to300_MuEnrichedPt5_2017_sdbnd.txt,46170668,117989,QCD
-QCDBackground_Pt-300to470_MuEnrichedPt5_2017_sdbnd.txt,17228601,7820.25,QCD
-QCDBackground_Pt-30to50_MuEnrichedPt5_2017_sdbnd.txt,29030324,139803000,QCD
-QCDBackground_Pt-470to600_MuEnrichedPt5_2017_sdbnd.txt,23959772,645.528,QCD
-QCDBackground_Pt-50to80_MuEnrichedPt5_2017_sdbnd.txt,24068613,19222500,QCD
-QCDBackground_Pt-600to800_MuEnrichedPt5_2017_sdbnd.txt,17263676,187.109,QCD
-QCDBackground_Pt-800to1000_MuEnrichedPt5_2017_sdbnd.txt,17114527,32.3486,QCD
-QCDBackground_Pt-80to120_MuEnrichedPt5_2017_sdbnd.txt,23248995,2758420,QCD
-TTBackground_2017_sdbnd.txt,68812194,687.1,TTJets
-TTGBackground_Gamma200toInf_2017_sdbnd.txt,1992000,0.006792,TTG
+#QCDBackground_Pt-1000toInf_MuEnrichedPt5_2017_sdbnd.txt,11596693,10.4305,QCD,#the XSDB and McM didn't have all the QCD values, so I am using the values at https://twiki.cern.ch/twiki/bin/viewauth/CMS/SummaryTable1G25ns#QCD
+#QCDBackground_Pt-120to170_MuEnrichedPt5_2017_sdbnd.txt,20774848,469797,QCD
+#QCDBackground_Pt-170to300_MuEnrichedPt5_2017_sdbnd.txt,46170668,117989,QCD
+#QCDBackground_Pt-300to470_MuEnrichedPt5_2017_sdbnd.txt,17228601,7820.25,QCD
+#QCDBackground_Pt-30to50_MuEnrichedPt5_2017_sdbnd.txt,29030324,139803000,QCD
+#QCDBackground_Pt-470to600_MuEnrichedPt5_2017_sdbnd.txt,23959772,645.528,QCD
+#QCDBackground_Pt-50to80_MuEnrichedPt5_2017_sdbnd.txt,24068613,19222500,QCD
+#QCDBackground_Pt-600to800_MuEnrichedPt5_2017_sdbnd.txt,17263676,187.109,QCD
+#QCDBackground_Pt-800to1000_MuEnrichedPt5_2017_sdbnd.txt,17114527,32.3486,QCD
+#QCDBackground_Pt-80to120_MuEnrichedPt5_2017_sdbnd.txt,23248995,2758420,QCD
+TTBackground_2017_sdbnd.txt,9000000,88.29,TTJets
+#TTBackground_PSweights_2017_sdbnd.txt,68812194,687.1,TTJets
+TTBackground_SingleLeptFromT_2017_sdbnd.txt,61761347,109.6,TTJets
+TTBackground_SingleLeptFromTbar_2017_sdbnd.txt,56648453,108.7,TTJets
+TTBackground_Dilept_2017_sdbnd.txt,28380110,54.23,TTJets
+#TTGBackground_Gamma200toInf_2017_sdbnd.txt,1992000,0.006792,TTG
+TTGBackground_2017_sdbnd.txt,14026117,4.078,TTG,#4623345+9402772
 WGToLNuGBackground_2017_sdbnd.txt,6283083,452,WG
 WJetsBackground_2017_sdbnd.txt,77700506,52940,WJets,#33073306+44627200
 ZGJJBackground_2017_sdbnd.txt,796000,1.073,ZG

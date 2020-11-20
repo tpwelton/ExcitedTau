@@ -1,14 +1,14 @@
 import pdb
 import os
 
-#modLoc0 = "PhysicsTools.NanoAODTools.postprocessing.modules.ExcitedTau.GenTauDecayFlavor "
+modLoc0 = "PhysicsTools.NanoAODTools.postprocessing.modules.ExcitedTau.GenTauDecayFlavor "
 #modLoc0 = "PhysicsTools.NanoAODTools.postprocessing.modules.ExcitedTau.EventSelection "
-modLoc0 = "PhysicsTools.NanoAODTools.postprocessing.modules.ExcitedTau.DitauSelection "
+#modLoc0 = "PhysicsTools.NanoAODTools.postprocessing.modules.ExcitedTau.DitauSelection "
 modLocElse = "PhysicsTools.NanoAODTools.postprocessing.modules.ExcitedTau.ChannelAnalyzer "
 
 modules = []
-#modules.append("genTauDecayFlavor")
-modules.append("event_selection_min")
+modules.append("genTauDecayFlavor")
+#modules.append("event_selection_min")
 #modules.append("event_selection_min,signalCollinearCheck")
 modules.append("channel_elel")
 modules.append("channel_mumu")
@@ -52,7 +52,7 @@ for file in files:
         modLoc = modLocElse
 #      cmd = "python scripts/nano_postproc.py ../../../ExcitedTau/Processed_NanoAOD ../../../ExcitedTau/EmbeddedSamples_NanoAOD/TauTau2018D/" + file.strip() + " -I " + modLoc + mod + " -s _chan" + str(num)
       cmd = "python scripts/nano_postproc.py ../../../ExcitedTau/Processed_NanoAOD " + file.strip() + " -I " + modLoc + mod + " -s _chan" + str(num)
-      cmd = cmd + "_ditau"
+#      cmd = cmd + "_ditau"
 #      cmd = cmd + "_allCuts"
 #      cmd = cmd + "_phiCheck"
 #      cmd = cmd + "_2taus"
