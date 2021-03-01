@@ -101,7 +101,7 @@ class EventSelection(Module):
 
         #Good Muon Definition
         muonColl = Collection(event,"Muon")
-        goodMuons = [muonColl[i] for i in xrange(len(muonColl)) if (muonColl[i].tightId and muonColl[i].pfIsoId >= 3)]#VLoose to VVTight
+        goodMuons = [muonColl[i] for i in xrange(len(muonColl)) if (muonColl[i].tightId and muonColl[i].pfIsoId >= 4)]#VLoose to VVTight
         goodMuons = [goodMuons[i] for i in xrange(len(goodMuons)) if goodMuons[i].pt > self.lep_minpt[1] and goodMuons[i].eta < self.lep_maxeta[1]]
         goodLeptons.extend(sorted(goodMuons,key=lambda x: x.pt, reverse=True))
         lepType.extend([2]*len(goodMuons))
@@ -240,7 +240,7 @@ class EventSelection(Module):
         if hasattr(event,"HLT_DoubleMediumChargedIsoPFTau35_Trk1_eta2p1_Reg"): return self.trigger2017(event,channel)
         if hasattr(event,"HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg"): return self.triggerV6(event,channel) 
         if hasattr(event,"HLT_DoubleMediumCombinedIsoPFTau35_Trk1_eta2p1_Reg"): return self.triggerDataV7(event,channel)
-        return self.triggerDefault(channel)
+        return self.triggerDefault(event,channel)
 
     def triggerV6(self,event,channel):
         if channel == 4:
@@ -260,7 +260,7 @@ class EventSelection(Module):
         if channel == 6:
           return event.HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_CrossL1
 
-    def triggerDefault(self,channel):
+    def triggerDefault(self,event,channel):
         if channel == 4:
           return event.HLT_DoubleMediumIsoPFTau35_Trk1_eta2p1_Reg
         if channel == 6:

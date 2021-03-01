@@ -1,0 +1,2 @@
+# File names txt, tot. events in sample, xsection, category name,comments
+Embedding2018_puWeight_all.txt,59725.419,1,Embed2018,#tot. events  is actually luminosity for 2018 SingleMuon to make the scale factor 1

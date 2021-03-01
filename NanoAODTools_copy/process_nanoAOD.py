@@ -1,14 +1,18 @@
 import pdb
 import os
 
-modLoc0 = "PhysicsTools.NanoAODTools.postprocessing.modules.ExcitedTau.GenTauDecayFlavor "
+#modLoc0 = "PhysicsTools.NanoAODTools.postprocessing.modules.ExcitedTau.GenTauDecayFlavor "
 #modLoc0 = "PhysicsTools.NanoAODTools.postprocessing.modules.ExcitedTau.EventSelection "
+#modLoc0 = "PhysicsTools.NanoAODTools.postprocessing.modules.ExcitedTau.KeepAllEventSelection "
+modLoc0 = "PhysicsTools.NanoAODTools.postprocessing.modules.common.puWeightProducer "
 #modLoc0 = "PhysicsTools.NanoAODTools.postprocessing.modules.ExcitedTau.DitauSelection "
 modLocElse = "PhysicsTools.NanoAODTools.postprocessing.modules.ExcitedTau.ChannelAnalyzer "
 
 modules = []
-modules.append("genTauDecayFlavor")
+#modules.append("genTauDecayFlavor")
 #modules.append("event_selection_min")
+#modules.append("event_selection_all")
+modules.append("puWeight_2018")
 #modules.append("event_selection_min,signalCollinearCheck")
 modules.append("channel_elel")
 modules.append("channel_mumu")
@@ -41,8 +45,8 @@ include = [0]
 files = ["../../NanoAOD/Taustar_TauG_L10000_m1000_13TeV_pythia8_NanoAOD.root"]
 #files = ["root://cmseos.fnal.gov//store/user/twelton/EmbeddedSamples_NanoAOD/MuTau2018D/myNanoProdData2018D_NANO_1015.root"]
 
-for file in files:
-#  os.system("python scripts/nano_postproc.py ../../../ExcitedTau/Processed_NanoAOD " + file.strip() + " -I PhysicsTools.NanoAODTools.postprocessing.modules.ExcitedTau.ChannelAnalyzer channel_tautau -s _proc") 
+for fileName in files:
+#  os.system("python scripts/nano_postproc.py ../../../ExcitedTau/Processed_NanoAOD " + fileName.strip() + " -I PhysicsTools.NanoAODTools.postprocessing.modules.ExcitedTau.ChannelAnalyzer channel_tautau -s _proc") 
 #  pdb.set_trace()
   for num, mod in enumerate(modules):
     if num in include:
@@ -50,8 +54,8 @@ for file in files:
         modLoc = modLoc0
       else:
         modLoc = modLocElse
-#      cmd = "python scripts/nano_postproc.py ../../../ExcitedTau/Processed_NanoAOD ../../../ExcitedTau/EmbeddedSamples_NanoAOD/TauTau2018D/" + file.strip() + " -I " + modLoc + mod + " -s _chan" + str(num)
-      cmd = "python scripts/nano_postproc.py ../../../ExcitedTau/Processed_NanoAOD " + file.strip() + " -I " + modLoc + mod + " -s _chan" + str(num)
+#      cmd = "python scripts/nano_postproc.py ../../../ExcitedTau/Processed_NanoAOD ../../../ExcitedTau/EmbeddedSamples_NanoAOD/TauTau2018D/" + fileName.strip() + " -I " + modLoc + mod + " -s _chan" + str(num)
+      cmd = "python scripts/nano_postproc.py ../../../ExcitedTau/Processed_NanoAOD " + fileName.strip() + " -I " + modLoc + mod + " -s _chan" + str(num)
 #      cmd = cmd + "_ditau"
 #      cmd = cmd + "_allCuts"
 #      cmd = cmd + "_phiCheck"
