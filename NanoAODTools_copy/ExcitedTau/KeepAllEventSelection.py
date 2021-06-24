@@ -98,8 +98,10 @@ class EventSelection(Module):
 
         #Anything classified as a tau should end up in this collection. That means all decay modes (el,mu,had)
         taus = Collection(event,"Tau")
+        noPair = False
         if len(taus) < 2:
-          return False # the event did not classify enough things as taus originally so skip the event
+          noPair = True
+#          return False # the event did not classify enough things as taus originally so skip the event
         
         
 
@@ -110,6 +112,7 @@ class EventSelection(Module):
         electronColl = Collection(event,"Electron")
 #        goodElectrons = [electronColl[i] for i in xrange(len(electronColl)) if electronColl[i].mvaFall17V1Iso_WP80 or electronColl[i].mvaFall17V1noIso_WP80]
         goodElectrons = [electronColl[i] for i in xrange(len(electronColl)) if electronColl[i].mvaFall17V1Iso_WP80]
+#        goodElectrons = [electronColl[i] for i in xrange(len(electronColl)) if electronColl[i].mvaFall17V1Iso_WP90]
         goodElectrons = [goodElectrons[i] for i in xrange(len(goodElectrons)) if goodElectrons[i].pt > self.lep_minpt[0] and abs(goodElectrons[i].eta) < self.lep_maxeta[0]]
         goodLeptons.extend(sorted(goodElectrons,key=lambda x: x.pt, reverse=True))
         lepType.extend([1]*len(goodElectrons))
@@ -124,9 +127,9 @@ class EventSelection(Module):
         #Good Hadronic Tau Definition
         hadColl = Collection(event,"Tau")
         #tight ID for all
-        deepTauNominalWP_e_word = "Tight"
-        deepTauNominalWP_mu_word = "Tight"
-        deepTauNominalWP_jet_word = "Tight"
+        deepTauNominalWP_e_word = "Medium"#"Tight"
+        deepTauNominalWP_mu_word = "Medium"#"Tight"
+        deepTauNominalWP_jet_word = "Medium"#"Tight"
         deepTauNominalWP_e = 1 << self.deepTauWP_e.index(deepTauNominalWP_e_word)
         deepTauNominalWP_mu = 1 << self.deepTauWP_mu.index(deepTauNominalWP_mu_word)
         deepTauNominalWP_jet = 1 << self.deepTauWP_jet.index(deepTauNominalWP_jet_word)
@@ -151,7 +154,6 @@ class EventSelection(Module):
           self.out.fillBranch("too_many_leptons_cutFlag",False)
         channel_type = [lepType[i] | lepType[j] if pair_energy_check[i*len(goodLeptons)+j] > 0 and i < j else 0 for i in xrange(len(goodLeptons)) for j in xrange(len(goodLeptons))]
         max_energy = max(pair_energy_check or [0])
-        noPair = False
         if max_energy == 0:
           noPair = True #not enough non-overlapping leptons
         if not noPair:
@@ -352,7 +354,7 @@ class EventSelection(Module):
     def passTrigger(self,event,channel):
         if channel == 6: 
           if not(event.HLT_IsoMu24 or event.HLT_IsoMu27): return False
-          else return True
+          else: return True
         if hasattr(event,"HLT_DoubleMediumChargedIsoPFTau35_Trk1_eta2p1_Reg"): return self.trigger2017(event,channel)
         if hasattr(event,"HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg"): return self.triggerV6(event,channel) 
         if hasattr(event,"HLT_DoubleMediumCombinedIsoPFTau35_Trk1_eta2p1_Reg"): return self.triggerDataV7(event,channel)
@@ -362,19 +364,22 @@ class EventSelection(Module):
         if channel == 4:
           return event.HLT_DoubleMediumChargedIsoPFTauHPS35_Trk1_eta2p1_Reg
         if channel == 6:
-          return event.HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_CrossL1
+          return True
+#          return event.HLT_IsoMu20_eta2p1_LooseChargedIsoPFTauHPS27_eta2p1_CrossL1
 
     def triggerDataV7(self,event,channel):
         if channel == 4:
           return event.HLT_DoubleMediumCombinedIsoPFTau35_Trk1_eta2p1_Reg
         if channel == 6:
-          return event.HLT_IsoMu19_eta2p1_LooseCombinedIsoPFTau20
+          return True
+#          return event.HLT_IsoMu19_eta2p1_LooseCombinedIsoPFTau20
 
     def trigger2017(self,event,channel):
         if channel == 4:
           return event.HLT_DoubleMediumChargedIsoPFTau35_Trk1_eta2p1_Reg
         if channel == 6:
-          return event.HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_CrossL1
+          return True
+#          return event.HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_CrossL1
 
     def triggerDefault(self,event,channel):
         if channel == 4:
